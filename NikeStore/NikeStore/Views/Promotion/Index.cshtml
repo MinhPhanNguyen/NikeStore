@@ -1,0 +1,29 @@
+﻿@model IEnumerable<NikeStore.Models.Product>
+
+@{
+	ViewData["Title"] = "Ưu đãi";
+}
+
+<div class="PromotionPage">
+	<div class="Container">
+		<section class="Section_1">
+			<img src="/images//Banner/men-s-shoes-clothing-accessories.jpg" alt="Alternate Text" />
+		</section>
+
+        <section class="Section_3 row">
+            @foreach (var product in Model)
+            {
+                <a asp-action="Details" asp-controller="ProductDetail" asp-route-Id="@product.ProductID" class="Components col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4">
+                    <div class="Contain_img">
+                        <img src="@(product.Images.FirstOrDefault()?.ImageUrl ?? "default.jpg")" alt="@product.Name" />
+                    </div>
+                    <div class="Content">
+                        <h1>@product.Name</h1>
+                        <h2>@product.ProductCategory?.CategoryName</h2>
+                        <h1>@String.Format("{0:N0} VND", product.Price)</h1>
+                    </div>
+                </a>
+            }
+        </section>
+	</div>
+</div>

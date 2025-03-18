@@ -1,0 +1,150 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="DashboardMessaging" id="DashboardMessaging">
+			<div class="MessagingSidebar">
+				<div class="Features">
+					<div class="TopItems">
+						<div class="Search">
+							<i class="SearchIcon fa-solid fa-magnifying-glass"></i>
+							<input type="text" placeholder="Tìm kiếm" />
+						</div>
+
+						<i class="AddFriend fa-solid fa-user-plus"></i>
+					</div>
+
+					<div class="BottomItems">
+						<ul class="TypeMessage">
+							<li>Tất cả</li>
+							<li>Chưa đọc</li>
+						</ul>
+					</div>
+				</div>
+
+				<ul class="MessagingList">
+					<li class="MessagingItems">
+						<div class="Left">
+							<div class="Contain_img">
+								<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+							</div>
+
+							<div class="Messaging">
+								<h3>MinhPhan</h3>
+								<p>Xin chào!</p>
+							</div>
+						</div>
+
+						<div class="Time">
+							<span>Hôm qua</span>
+							<i class="fa-solid fa-ellipsis" onclick="toggleListOption(this)"></i>
+						</div>
+
+						<ul class="ListOption">
+							<li>Tắt thông báo</li>
+							<li>Ẩn trò chuyện</li>
+							<li>Ghim hội thoại</li>
+							<li>Xóa hội thoại</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<div class="MessagingContent">
+				<div class="FrameContent">
+					<h3>Khung trò chuyện</h3>
+					<p>
+						Bạn có thể trò chuyện với bạn bè của bạn tại đây. Nếu có thắc mắc vui lòng liên hệ hotline của chúng tôi: <br />
+						<a href="tel:0934190061">0934.1900.61</a>
+						Hoặc nhắn tin qua: <a href="#">nhắn tin ngay</a>
+					</p>
+				</div>
+
+				<div class="MainMesaging">
+					<div class="MainTitle">
+						<div class="HeaderMessage">
+							<div class="LeftHeaderMessage">
+								<div class="Contain_img">
+									<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+								</div>
+
+								<div class="Content">
+									<h3>MinhPhan</h3>
+								</div>
+							</div>
+
+							<div class="OtherItems">
+								<div class="Search">
+									<i class="SearchIcon fa-solid fa-magnifying-glass"></i>
+									<input type="text" placeholder="Tìm tin nhắn" />
+								</div>
+								<i class="MenuItems fa-solid fa-list" onclick="toggleMenuItems()"></i>
+							</div>
+						</div>
+
+						<div class="MainContent">
+							<div class="Content">
+							</div>
+						</div>
+
+						<div class="InputMessage">
+							<textarea placeholder="Nhập tin nhắn ở đây..."></textarea>
+							<i class="MenuInput fa-solid fa-ellipsis" onclick="toggleInputItems()"></i>
+							<i class="SendInput fa-solid fa-paper-plane"></i>
+
+							<div class="OtherLink">
+								<ul>
+									<li><i class="fa-solid fa-icons"></i></li>
+									<li><i class="fa-regular fa-images"></i></li>
+									<li><i class="fa-solid fa-link"></i></li>
+									<li><i class="fa-solid fa-address-card"></i></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="Items">
+						<section class="Section_1">
+							<div class="Contain_img">
+								<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+							</div>
+
+							<div class="Content">
+								<h3>MinhPhan</h3>
+							</div>
+						</section>
+
+						<section class="Section_2">
+							<ul>
+								<li><i class="fa-solid fa-bell"></i>Tắt thông báo</li>
+								<li><i class="fa-solid fa-eye-slash"></i>Ẩn trò chuyện</li>
+								<li><i class="fa-solid fa-thumbtack"></i>Ghim hội thoại</li>
+								<li><i class="fa-solid fa-trash"></i>Xóa hội thoại</li>
+							</ul>
+						</section>
+
+						<section class="Section_3">
+							<div class="TitleSc3">
+								<h3>Ảnh/Video</h3>
+							</div>
+
+							<div class="Container">
+								<ul>
+									<li><img src="/images/icon/fbsquare.png" alt="Alternate Text" /></li>
+								</ul>
+
+								<div class="btnInput">
+									<button>Xem tất cả</button>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

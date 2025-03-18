@@ -1,0 +1,2035 @@
+﻿#myTable_wrapper {
+    width: 100%;
+}
+    
+.dt-layout-row button {
+    margin: 0 !important;
+    padding: 0.5em 1em !important;
+    font-size: 1em !important;
+    border: none !important;
+}
+
+.dt-layout-row select {
+    margin: 0 0.5em !important;
+    padding: 0.5em !important;
+    font-size: 1em !important;
+    border: 1px solid #cfcfcf !important;
+    cursor: pointer;
+}
+
+
+.dt-search {
+    font-size: 0.9em !important;
+}
+
+.dt-layout-row #dt-search-0 {
+    margin: 0 0.5em !important;
+    border: 1px solid #cfcfcf !important;
+    padding: 0.5em !important;
+    max-width: 10vw !important;
+    border-radius: 0.1em !important;
+}
+
+
+.Manager select {
+    cursor: pointer;
+    padding: 0.8em 0.5em;
+    border: 1px solid #ebebeb;
+    color: rgb(0, 0, 0);
+    font-size: 0.85em;
+}
+
+    .Manager select:hover {
+        background-color: #f5f5f5;
+    }
+
+.Manager input {
+    padding: 0.5em 1em 0.5em 2.5em;
+    border: 1px solid #ebebeb;
+    border-radius: 0.2em;
+    font-size: 0.9em;
+}
+
+
+th {
+    text-align: center !important;
+}
+
+.dt-type-numeric {
+    text-align: center !important;
+}
+
+#myTable_info {
+    font-size: 0.9em;
+    margin-left: 0.5em;
+}
+
+.dt-length {
+    font-size: 0.9em;
+     margin-left: 0.5em;
+}
+
+.Backto {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75em;
+    display: flex;
+    align-items: center;
+    color: #005eff !important;
+    font-weight: normal;
+    margin-right: 1em;
+    font-style: italic;
+    z-index: 10;
+    opacity: 0.6;
+    text-transform: none;
+}
+
+.Backto:hover {
+   opacity:1;
+}
+
+.Backto i {
+    margin-left: 0.5em;
+}
+
+.Notification, .notification {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    z-index: 1000;
+    width: 20%
+}
+
+.Dashboard, body {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    background-color: white;
+}
+
+.MenuOption {
+    cursor: pointer;
+    padding: 0.5em 0.7em;
+    position: absolute;
+    left: 20%;
+    z-index: 9;
+    margin: 1em;
+    box-shadow: rgba(0,0,0, 0.2) 0 2px 5px;
+    border-radius: 10em;
+    background-color: transparent;
+}
+
+    .MenuOption:hover {
+        transform: scale(1.05);
+        box-shadow: rgba(0,0,0, 0.8) 0 2px 8px;
+    }
+
+.Sidebar {
+    border-top-right-radius: 3em;
+    border-bottom-right-radius: 3em;
+    width: 20%;
+    height: 100%;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: rgba(0,0,0, 0.4) 0 2px 5px;
+    scrollbar-width: none;
+    background-color: transparent;
+    white-space: nowrap;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 998;
+}
+
+    .Sidebar .Logo {
+        margin: 0.5em auto 0.5em;
+        display: flex;
+        flex-direction: column;
+        height: 10vh;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .Sidebar .Logo img {
+            filter: drop-shadow(rgba(0,0,0,0.8) 0 2px 5px);
+            width: auto;
+            height: 4vh;
+            object-fit: cover;
+            cursor: pointer;
+            margin-left: 1.8em;
+        }
+
+            .Sidebar .Logo img:hover {
+                transform: scale(1.05);
+                filter: drop-shadow(rgba(0,0,0,0.5) 0 2px 8px);
+            }
+
+    .Sidebar .Title {
+        width: 100%;
+    }
+
+        .Sidebar .Title i {
+            font-size: 0.8em;
+            margin-right: 0.5em;
+        }
+
+        .Sidebar .Title a, h2 {
+            color: rgba(0,0,0, 0.4);
+        }
+
+        .Sidebar .Title h2 {
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 1.1em 2em;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .Sidebar .Title .SignOut {
+            color: #b90000;
+        }
+
+            .Sidebar .Title .SignOut:hover {
+                color: #b90000;
+            }
+
+        .Sidebar .Title a:hover, .Sidebar .Title h2:hover {
+            background-color: #dbdbdb;
+            color: rgba(0,0,0, 1);
+        }
+
+        .Sidebar .Title h2 span {
+            font-size: 0.7em;
+            padding: 0.2em 0.5em;
+            background-color: #F6E4E5;
+            color: #AA1C29;
+            border-radius: 100%;
+            margin-left: 1em;
+        }
+
+        .Sidebar .Title .Contain {
+            opacity: 0;
+            max-height: 0;
+            pointer-events: none;
+        }
+
+            .Sidebar .Title .Contain .MenuContent {
+                cursor: pointer;
+                padding: 0.5em 0 0.5em 2.5em;
+                display: block;
+            }
+
+                .Sidebar .Title .Contain .MenuContent h3 {
+                    font-size:1em;
+                }
+
+                    .Sidebar .Title .Contain .MenuContent h3:hover {
+                        filter: drop-shadow(rgba(0,0,0,0.8) 0 2px 8px);
+                    }
+
+                    .Sidebar .Title .Contain .MenuContent h3 .Right {
+                        display: unset;
+                    }
+
+                    .Sidebar .Title .Contain .MenuContent h3 .Down {
+                        display: none;
+                    }
+
+                .Sidebar .Title .Contain .MenuContent ul {
+                    flex-direction: column;
+                    padding: 0.5em 0;
+                    display: none;
+                }
+
+                    .Sidebar .Title .Contain .MenuContent ul li a {
+                        padding: 0.5em;
+                        display: flex;
+                        align-items: center;
+                        margin-right: 1em;
+                    }
+
+                        .Sidebar .Title .Contain .MenuContent ul li a:hover {
+                            background-color: transparent;
+                            filter: drop-shadow(rgba(0,0,0,0.5) 0 2px 8px);
+                        }
+
+                    .Sidebar .Title .Contain .MenuContent ul li i {
+                        font-size: 0.5em;
+                        margin-right: 1em;
+                    }
+
+.DashboardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 78%;
+    margin: 0 1em;
+    background-color: transparent;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+    .DashboardContent > div {
+        display: none;
+        width: 100%;
+        background-color: white;
+        padding: 2em;
+        border-radius: 0em;
+    }
+
+    .DashboardContent .DashboardNotification {
+        max-width: 90%;
+        height: 100vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .DashboardContent .DashboardNotification .FilterOption {
+            display: flex;
+            width: 100%;
+            justify-content: end;
+            margin-bottom: 0.6em;
+        }
+
+            .DashboardContent .DashboardNotification .FilterOption .Search {
+                position: relative;
+                display: flex;
+                align-items: center;
+            }
+
+        .DashboardContent .DashboardNotification input {
+            border: 1px solid #d8d8d8;
+            padding: 0.6em 0.8em 0.6em 0.8em;
+            border-radius: 10em;
+            margin-left: 0.5em;
+            min-width: 10vw;
+            font-size: 0.8em;
+        }
+
+        .DashboardContent .DashboardNotification input::placeholder {
+            font-size: 0.85em;
+        }
+
+        .DashboardContent .DashboardNotification label {
+            font-size: 0.85em;
+            margin-right: 0.3em;
+        }
+
+        .DashboardContent .DashboardNotification select {
+            border: none;
+            background-color: #efefef;
+            padding: 0.6em 0.5em;
+            cursor: pointer;
+            border-radius: 0.1em;
+            font-size: 0.85em;
+        }
+
+#yearInput::-webkit-inner-spin-button,
+#yearInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.DashboardContent .DashboardNotification i {
+    transform: translateX(-2.2em);
+    padding: 0.5em;
+    background-color: #eeeeee;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+    .DashboardContent .DashboardNotification i:hover {
+        background-color: #d4d4d4;
+    }
+
+.DashboardContent .DashboardNotification h3 {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 0.4em;
+    color: #454545;
+}
+
+.DashboardContent .DashboardNotification p {
+    font-size: 0.8em;
+    margin: 0;
+    color: #454545;
+}
+
+.DashboardContent .DashboardNotification span {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.DashboardContent .DashboardNotification .button {
+    font-size: 0.8em;
+    font-style: italic;
+    margin-top: 1em;
+    padding: 0.5em;
+}
+
+    .DashboardContent .DashboardNotification .button:hover {
+        opacity: 0.6
+    }
+
+.DashboardContent .DashboardNotification ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: auto;
+    margin: 0.5em 0;
+}
+
+    .DashboardContent .DashboardNotification ul li {
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5em;
+        margin: 0 3em;
+        border-bottom: 1px solid #cccccc;
+        cursor: pointer;
+        border-radius: 0.2em
+    }
+
+        .DashboardContent .DashboardNotification ul li:hover {
+            background-color: #e4e4e4;
+        }
+
+        .DashboardContent .DashboardNotification ul li .Left {
+            display: flex;
+            align-items: center;
+        }
+
+        .DashboardContent .DashboardNotification ul li .Contain_img {
+            height: 10vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .DashboardContent .DashboardNotification ul li .Contain_img img {
+                width: 7vh;
+                height: 7vh;
+                border-radius: 100%;
+                object-fit: cover;
+            }
+
+        .DashboardContent .DashboardNotification ul li .Content {
+            margin-left: 1em;
+        }
+
+        .DashboardContent .DashboardNotification ul li .Time {
+            text-align: right;
+        }
+
+            .DashboardContent .DashboardNotification ul li .Time p {
+                color: #989898
+            }
+
+.DashboardContent .DashboardMessaging {
+    max-width: 90%;
+    min-height: 100vh;
+    max-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: start;
+}
+
+    .DashboardContent .DashboardMessaging .Contain_img {
+        overflow: hidden;
+    }
+
+    .DashboardContent .DashboardMessaging img {
+        object-fit: cover;
+    }
+
+    .DashboardContent .DashboardMessaging h2 {
+        margin: 0;
+        font-size: 1.2em;
+    }
+
+    .DashboardContent .DashboardMessaging h3 {
+        margin: 0;
+        font-size: 0.85em;
+    }
+
+    .DashboardContent .DashboardMessaging p {
+        font-size: 0.75em;
+        margin: 0;
+    }
+
+    .DashboardContent .DashboardMessaging span {
+        font-size: 0.75em;
+    }
+
+    .DashboardContent .DashboardMessaging i {
+        font-size: 0.8em;
+        cursor: pointer;
+        color: #8f8f8f
+    }
+
+        .DashboardContent .DashboardMessaging i:hover {
+            color: #000000
+        }
+
+    .DashboardContent .DashboardMessaging input {
+        font-size: 0.8em;
+        border: none;
+        background-color: #f1f1f1;
+        padding: 0.3em 1em 0.3em 2em;
+        border-radius: 0.1em;
+    }
+
+        .DashboardContent .DashboardMessaging input:focus {
+            background-color: white;
+        }
+
+    .DashboardContent .DashboardMessaging .MessagingSidebar {
+        width: 30%;
+        height: 100%;
+        background-color: white;
+        padding: 0.5em;
+    }
+
+        .DashboardContent .DashboardMessaging .MessagingSidebar .Features .TopItems {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 0.5em 1em 0.5em;
+            border-right: 1px solid #ebebeb
+        }
+
+    .DashboardContent .DashboardMessaging .Search {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .DashboardContent .DashboardMessaging .SearchIcon {
+        position: absolute;
+        left: 0.5em;
+        font-size: 0.8em
+    }
+
+    .DashboardContent .DashboardMessaging .MessagingSidebar .Features .BottomItems {
+        border-right: 1px solid #ebebeb;
+        border-bottom: 1px solid #ebebeb;
+    }
+
+        .DashboardContent .DashboardMessaging .MessagingSidebar .Features .BottomItems .TypeMessage li {
+            font-size: 0.85em;
+            padding: 0.3em 0.8em;
+            cursor: pointer;
+            color: #989898;
+        }
+
+            .DashboardContent .DashboardMessaging .MessagingSidebar .Features .BottomItems .TypeMessage li:hover {
+                background-color: #ebebeb;
+                color: #000000
+            }
+
+    .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingList {
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        height: 80vh;
+        border-right: 1px solid #ebebeb
+    }
+
+    .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1em 0.5em;
+        cursor: pointer;
+        position: relative;
+    }
+
+        .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems:hover {
+            background-color: #ededed;
+        }
+
+        .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .Left {
+            display: flex;
+            align-items: center;
+        }
+
+        .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .Contain_img img {
+            width: 5vh;
+            height: 5vh;
+            border-radius: 100%;
+        }
+
+        .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .Messaging {
+            margin-left: 0.8em;
+        }
+
+            .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .Messaging h3 {
+                font-weight: bold;
+                margin-bottom: 0.1em
+            }
+
+            .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .Messaging p {
+                color: #878787;
+            }
+
+        .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .Time {
+            display: flex;
+            align-items: center;
+        }
+
+            .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .Time span {
+                color: #8f8f8f;
+            }
+
+            .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .Time i {
+                margin-left: 0.5em;
+                padding: 0.5em;
+                font-size: 0.8em;
+                border-radius: 100%;
+                cursor: pointer;
+            }
+
+                .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .Time i:hover {
+                    background-color: #d1d1d1;
+                }
+
+        .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .ListOption {
+            position: absolute;
+            z-index: 1;
+            flex-direction: column;
+            right: 0.5em;
+            top: 7vh;
+            align-items: start;
+            background-color: white;
+            filter: drop-shadow(rgba(0,0,0,0.5) 0 5px 8px);
+            padding: 0.5em 0;
+            border-radius: 0.2em;
+            opacity: 0;
+            max-height: 0;
+            pointer-events: none;
+        }
+
+            .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .ListOption li {
+                font-size: 0.8em;
+                padding: 0.5em 0;
+                width: 100%;
+                cursor: pointer;
+                padding: 0.8em 4em 0.8em 1em;
+                color: #808080
+            }
+
+                .DashboardContent .DashboardMessaging .MessagingSidebar .MessagingItems .ListOption li:hover {
+                    background-color: #efefef;
+                    color: #161616
+                }
+
+    .DashboardContent .DashboardMessaging .MessagingContent {
+        width: 70%;
+        height: 100%;
+        background-color: white;
+        padding: 0.5em;
+        height: 90vh;
+        overflow: hidden;
+        display: flex;
+    }
+
+        .DashboardContent .DashboardMessaging .MessagingContent .FrameContent {
+            display: none;
+            width: 100%;
+        }
+
+            .DashboardContent .DashboardMessaging .MessagingContent .FrameContent h3 {
+            }
+
+            .DashboardContent .DashboardMessaging .MessagingContent .FrameContent p {
+            }
+
+                .DashboardContent .DashboardMessaging .MessagingContent .FrameContent p a {
+                }
+
+        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+            .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle {
+                height: 100%;
+                width: 100%;
+            }
+
+                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .HeaderMessage {
+                    height: 8%;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0 1em;
+                }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .HeaderMessage .LeftHeaderMessage {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .HeaderMessage .LeftHeaderMessage .Contain_img {
+                            height: 100%;
+                            overflow: hidden;
+                            display: flex;
+                            align-items: center;
+                        }
+
+                            .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .HeaderMessage .LeftHeaderMessage .Contain_img img {
+                                height: 70%;
+                                width: auto;
+                                border-radius: 100%;
+                            }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .HeaderMessage .Content {
+                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .HeaderMessage .Content h3 {
+                            margin-left: 0.8em;
+                            font-size: 1em;
+                            font-weight: bold
+                        }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .HeaderMessage .OtherItems {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .HeaderMessage .OtherItems .MenuItems {
+                            font-size: 1em;
+                            padding: 0.8em;
+                            margin-left: 1em;
+                            border-radius: 100%;
+                        }
+
+                            .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .HeaderMessage .OtherItems .MenuItems:hover {
+                                background-color: #e8e8e8;
+                            }
+
+                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .MainContent {
+                    height: 85%;
+                    width: 100%;
+                    padding: 1em 0.5em;
+                }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .MainContent .Content {
+                        background-color: #f5f5f5;
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .OtherLink {
+                    opacity: 0;
+                    pointer-events: none;
+                    display: flex;
+                    position: absolute;
+                    align-items: center;
+                    z-index: 5;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .OtherLink ul li i {
+                        font-size: 1em;
+                        color: #464646;
+                        margin-right: 0.5em;
+                        padding: 0.5em;
+                        border-radius: 100%;
+                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .OtherLink ul li i:hover {
+                            background-color: #2a2a2a;
+                            transform: scale(1.05);
+                        }
+
+
+                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .InputMessage {
+                    height: 7%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    padding: 0 0.5em;
+                }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .InputMessage textarea {
+                        padding: 0.6em 3em 0.5em 1.5em;
+                        border: none;
+                        box-shadow: 0px 2px 10px rgba(0,0,0,0.4);
+                        scrollbar-width: none;
+                        border-radius: 2em;
+                        font-size: 1em;
+                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .InputMessage textarea:focus {
+                            background-color: white;
+                            outline: none;
+                            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+                        }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .InputMessage .MenuInput, .DashboardContent .DashboardMessaging .SendInput {
+                        position: absolute;
+                        right: 1em;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-size: 1em;
+                        color: #0053ff;
+                        padding: 0.5em;
+                        border-radius: 100%;
+                    }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .InputMessage .MenuInput {
+                        right: 3.5em;
+                    }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .MainTitle .InputMessage i:hover {
+                        background-color: #0053ff;
+                        color: white;
+                    }
+
+            .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items {
+                max-width: 0;
+                height: 90vh;
+                opacity: 0;
+                pointer-events: none;
+                display: flex;
+                flex-direction: column;
+            }
+
+                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_1 {
+                    width: 100%;
+                    height: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_1 .Contain_img {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        overflow: hidden;
+                        margin-bottom: 0.8em;
+                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_1 .Contain_img img {
+                            width: 30%;
+                            height: auto;
+                            border-radius: 100%;
+                        }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_1 .Content h3 {
+                        font-size: 1em;
+                        font-weight: bold;
+                    }
+
+                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_2 {
+                    width: 100%;
+                    height: 35%;
+                }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_2 ul {
+                        flex-direction: column;
+                        width: 100%;
+                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_2 ul li {
+                            width: 100%;
+                            padding: 1em 0.5em;
+                            cursor: pointer;
+                            border-bottom: 1px solid #EDEDED;
+                            color: #818181;
+                            font-size: 0.9em;
+                        }
+
+                            .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_2 ul li:hover {
+                                background-color: #EDEDED;
+                                color: #000000;
+                            }
+
+                                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_2 ul li:hover i {
+                                    color: #000000;
+                                }
+
+                            .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_2 ul li i {
+                                margin-right: 0.8em;
+                                color: #818181;
+                            }
+
+                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 {
+                    width: 100%;
+                    height: 45%;
+                    padding: 0 0.5em 1em 0.2em;
+                }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .TitleSc3 {
+                        margin-bottom: 0.5em;
+                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .TitleSc3 h3 {
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+
+                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .Container {
+                        background-color: white;
+                        height: 100%;
+                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .Container ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            padding: 0.3em;
+                            justify-content: space-around;
+                            overflow-y: scroll;
+                            max-height: 80%;
+                        }
+
+                            .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .Container ul li {
+                                height: 6vh;
+                                width: 7vh;
+                                margin: 0.2em;
+                                overflow: hidden;
+                                border-radius: 0.2em
+                            }
+
+                                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .Container ul li img {
+                                    width: auto;
+                                    cursor: pointer;
+                                }
+
+                                    .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .Container ul li img:hover {
+                                        transform: scale(1.05);
+                                        opacity: 0.7;
+                                    }
+
+                        .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .Container .btnInput {
+                            max-height: 20%;
+                            width: 100%;
+                            display: flex;
+                            padding: 0.5em;
+                            border: 1px solid transparent;
+                        }
+
+                            .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .Container .btnInput button {
+                                width: 100%;
+                                border: none;
+                                font-size: 0.9em;
+                                color: #000000;
+                                padding: 0.4em;
+                                background-color: transparent;
+                            }
+
+                                .DashboardContent .DashboardMessaging .MessagingContent .MainMesaging .Items .Section_3 .Container .btnInput button:hover {
+                                    background-color: #EDEDED;
+                                }
+
+.DashboardContent .DashboardSetting {
+    max-width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: start;
+}
+
+    .DashboardContent .DashboardSetting .SettingSidebar {
+        width: 25%;
+        border-right: 1px solid #ebebeb;
+        height: 100%;
+        overflow: hidden;
+    }
+
+        .DashboardContent .DashboardSetting .SettingSidebar ul {
+            flex-direction: column;
+            padding: 2em 0 0 1em;
+        }
+
+            .DashboardContent .DashboardSetting .SettingSidebar ul li {
+                padding: 1.2em 1em;
+                cursor: pointer;
+                font-size: 0.9em;
+            }
+
+                .DashboardContent .DashboardSetting .SettingSidebar ul li:hover {
+                    background-color: #ebebeb;
+                }
+
+                .DashboardContent .DashboardSetting .SettingSidebar ul li label {
+                    font-weight: bold;
+                    cursor: pointer;
+                    margin-left: 0.5em;
+                }
+
+    .DashboardContent .DashboardSetting .SettingContent {
+        width: 75%;
+        padding: 1em;
+        height: 100%;
+        color: #353535;
+    }
+
+        .DashboardContent .DashboardSetting .SettingContent .Container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .DashboardContent .DashboardSetting .SettingContent .Title {
+            width: 100%;
+            padding: 1em 0.5em;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .Title h3 {
+                margin: 0;
+                font-size: 0.9em;
+                font-weight: bold;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .Title p {
+                font-size: 0.8em;
+                color: #8b8b8b;
+                font-style: italic;
+                margin: 0;
+                margin-top: 0.5em;
+            }
+
+        .DashboardContent .DashboardSetting .SettingContent .SelectOption {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 10vh;
+            margin: 0 auto 1em;
+            padding: 1em 2em;
+            border-radius: 0.3em;
+            border: 1px solid #ebebeb;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .SelectOption span {
+                padding-right: 2em;
+                text-align: justify;
+                font-size: 0.85em;
+            }
+
+        .DashboardContent .DashboardSetting .SettingContent select {
+            padding: 0.5em;
+            cursor: pointer;
+            font-size: 0.85em;
+            border: none;
+            text-align: right;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent select:hover {
+                opacity: 0.6;
+            }
+
+        .DashboardContent .DashboardSetting .SettingContent .OnOffSection {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 10vh;
+            margin: 0 auto 1em;
+            padding: 1em 2em;
+            border-radius: 0.3em;
+            border: 1px solid #ebebeb;
+            cursor: pointer;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .OnOffSection:hover {
+                background-color: #f5f5f5;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .OnOffSection span {
+                padding-right: 2em;
+                text-align: justify;
+                font-size: 0.85em;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .OnOffSection .ToggleOff {
+                padding-right: 1em;
+                background-color: #ffffff;
+                display: flex;
+                border-radius: 2em;
+                align-items: center;
+                color: #005eff;
+                cursor: pointer;
+                filter: drop-shadow(rgba(0,0,0,0.4) 0 0 5px);
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .OnOffSection .ToggleOn {
+                padding-left: 1em;
+                background-color: #005eff;
+                border-radius: 2em;
+                display: none;
+                align-items: center;
+                color: #ffffff;
+                cursor: pointer;
+                filter: drop-shadow(rgba(0,0,0,0.4) 0 0 5px);
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .OnOffSection i {
+                font-size: 1.2em;
+            }
+
+        .DashboardContent .DashboardSetting .SettingContent .UpDownOption {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 10vh;
+            margin: 0 auto 1em;
+            padding: 1em 2em;
+            border-radius: 0.3em;
+            border: 1px solid #ebebeb;
+            cursor: pointer;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .UpDownOption:hover {
+                background-color: #f5f5f5;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .UpDownOption span {
+                padding-right: 2em;
+                text-align: justify;
+                font-size: 0.85em;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .UpDownOption .UpSection {
+                display: none;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .UpDownOption .DownSection {
+                display: flex;
+            }
+
+        .DashboardContent .DashboardSetting .SettingContent .ContentUpDown {
+            width: 100%;
+            margin: 1em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .ContentUpDown li {
+                width: 90%;
+                margin: 0 auto;
+                height: 10vh;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid #ebebeb;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .ContentUpDown .Contain {
+                height: 10vh;
+                display: flex;
+                align-items: center;
+            }
+
+                .DashboardContent .DashboardSetting .SettingContent .ContentUpDown .Contain img {
+                    height: 7vh;
+                    width: auto;
+                    object-fit: cover;
+                    border-radius: 100%;
+                    margin-right: 0.8em;
+                }
+
+            .DashboardContent .DashboardSetting .SettingContent .ContentUpDown .btnBlock button {
+                background-color: transparent;
+                border: none;
+                color: #2b5cff;
+            }
+
+                .DashboardContent .DashboardSetting .SettingContent .ContentUpDown .btnBlock button:hover {
+                    color: #8e9eff;
+                    opacity: 0.7;
+                }
+
+        .DashboardContent .DashboardSetting .SettingContent .ShowHideOption {
+            width: 80%;
+            margin: 1em;
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .ShowHideOption input {
+                width: 60%;
+                padding: 0.8em 3em 0.8em 1em;
+                border: 1px solid #d4d4d4;
+                border-radius: 0.2em;
+                font-size: 0.85em;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .ShowHideOption .ShowHide {
+                position: absolute;
+                font-size: 0.85em;
+                right: 1em;
+                cursor: pointer;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .ShowHideOption label {
+                font-size: 0.85em;
+            }
+
+
+            .DashboardContent .DashboardSetting .SettingContent .ShowHideOption span {
+                color: #005eff;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .ShowHideOption .ShowHide:hover {
+                opacity: 0.6;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .ShowHideOption .ShowHide .Show {
+                display: flex;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .ShowHideOption .ShowHide .Hide {
+                display: none;
+            }
+
+        .DashboardContent .DashboardSetting .SettingContent .btnShowHide {
+            width: 90%;
+            margin: 1em auto 0;
+            display: flex;
+            justify-content: end;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .btnShowHide button {
+                padding: 0.8em 1em;
+                font-size: 0.9em;
+                background-color: black;
+                color: white;
+                border: 1px solid black;
+                margin: 0.5em;
+            }
+
+                .DashboardContent .DashboardSetting .SettingContent .btnShowHide button:hover {
+                    background-color: #575757;
+                }
+
+        .DashboardContent .DashboardSetting .SettingContent .GeneralSetting,
+        .DashboardContent .DashboardSetting .SettingContent .AccountAndSecurity,
+        .DashboardContent .DashboardSetting .SettingContent .PrivacySetting,
+        .DashboardContent .DashboardSetting .SettingContent .DataManager,
+        .DashboardContent .DashboardSetting .SettingContent .ThemeSetting,
+        .DashboardContent .DashboardSetting .SettingContent .NotificationSetting,
+        .DashboardContent .DashboardSetting .SettingContent .MessageSetting,
+        .DashboardContent .DashboardSetting .SettingContent .FeaturesSetting {
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        }
+
+        .DashboardContent .DashboardSetting .SettingContent .ContentUpDown {
+            max-height: 0;
+            pointer-events: none;
+            opacity: 0;
+            margin-bottom: 0;
+        }
+
+        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .Icon {
+            font-size: 1.2em;
+            margin-right: 1.5em;
+        }
+
+        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .Content h3 {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .Content p {
+            font-size: 0.75em;
+            margin: 0;
+        }
+
+        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .Storage {
+            display: flex;
+            align-items: center;
+            padding: 1em 1em 2em;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .Storage h2 {
+                color: #006bff;
+                font-weight: bold;
+                font-size: 1.5em;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .Storage p {
+                font-size: 0.9em;
+                display: flex;
+                margin: 0 0 0.5em 1em;
+            }
+
+        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .TypeStore {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 15vh;
+            margin: 0 auto 1em;
+            padding: 1em 2em;
+            border-radius: 0.3em;
+            border: 1px solid #ebebeb;
+            overflow: hidden;
+        }
+
+        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .TypeStore1 {
+            padding-top: 2em;
+        }
+
+        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .TypeStore .LeftStore {
+            display: flex;
+            align-items: center;
+        }
+
+        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .TypeStore .RightStore {
+            width: unset;
+            min-height: unset;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .TypeStore .RightStore:hover {
+                background-color: unset;
+                opacity: 0.6;
+            }
+
+        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList {
+            text-align: justify;
+            margin: 1em;
+        }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .Search {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+            }
+
+                .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .Search .SearchIcon {
+                    position: absolute;
+                    left: 0.5em;
+                    font-size: 0.8em
+                }
+
+                .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .Search input {
+                    font-size: 0.8em;
+                    border: none;
+                    background-color: #f1f1f1;
+                    padding: 0.3em 1em 0.3em 2em;
+                    border-radius: 0.1em;
+                }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .Note {
+                font-size: 0.85em;
+                color: #acacac;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .FilterMemory {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding: 0 0.5em;
+            }
+
+                .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .FilterMemory .TopTypeMemoryFitler, .BottomTypeMemoryFitler {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 1em;
+                }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList input[type=checkbox] {
+                transform: scale(1.5);
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .FilterMemory .BottomTypeMemoryFitler label {
+                margin-left: 0.5em;
+                font-size: 0.85em;
+            }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .FilterMemory .BottomTypeMemoryFitler .OnOffSection {
+                width: unset;
+                min-height: unset;
+                margin: 0;
+                padding: 0;
+                border: none;
+            }
+
+                .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .FilterMemory .BottomTypeMemoryFitler .OnOffSection:hover {
+                    background-color: transparent;
+                    opacity: 0.6;
+                }
+
+            .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .ListItems {
+                width: 100%;
+                flex-direction: column;
+            }
+
+                .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .ListItems li {
+                    padding: 0 1em;
+                    justify-content: flex-start;
+                    margin: 0 1em;
+                }
+
+                    .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .ListItems li .Contain_img {
+                        overflow: hidden;
+                        height: 100%;
+                        margin: 0 1em;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                        .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .ListItems li .Contain_img img {
+                            height: 70%;
+                            width: auto;
+                            object-fit: cover;
+                            border-radius: 100%;
+                        }
+
+                    .DashboardContent .DashboardSetting .SettingContent .DataManager .Container .MemoryList .ListItems li .Content h3 {
+                        margin-bottom: 0.2em;
+                    }
+
+.Dashboard .DashboardContent .Manager {
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.Manager h2, h3, p {
+    margin: 0;
+    color: #282828;
+    position: relative;
+}
+
+.Manager a {
+    color: #282828;
+}
+
+.Manager .btn_group {
+    margin: 0.5em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Manager .TypeProduct {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5em;
+}
+
+.Manager button {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    padding: 1em 2em;
+    font-size: 1em;
+    margin: 0.5em;
+    border: 1px solid #ebebeb;
+}
+
+    .Manager button:hover {
+        opacity: 0.7;
+    }
+
+.Manager .RightFilter, .LeftFilter, .AddIcon {
+    display: flex;
+    align-items: center;
+    margin: 0!important;
+}
+
+.Manager .AddIcon {
+    margin-left: 1em;
+    cursor: pointer;
+    padding: 0.6em 1em;
+    border: 1px solid #d0d0d0;
+    color: #383838;
+    border-radius: 0.1em
+}
+
+    .Manager .AddIcon span {
+        margin-left: 0.5em;
+    }
+
+    .Manager .AddIcon:hover {
+        color: white;
+        background-color: black;
+        border: 1px solid black;
+    }
+
+.Manager .FilterManager {
+    min-width: 0%;
+    max-width: 0%;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    height: 100vh;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: white;
+    border: 1px solid #ebebeb;
+}
+
+    .Manager .FilterManager h3, p, span {
+        margin-right: 0.5em;
+        font-size: 0.8em;
+    }
+
+    .Manager .FilterManager button {
+        padding: 0.6em 2em;
+        background-color: black;
+        color: white;
+    }
+
+.Manager .ContentManager {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .Manager .ContentManager .Container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.Manager .Section_1 {
+    margin: 1em 0 1em 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+    .Manager .Section_1 .Container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .Manager .Section_1 .Container h2 {
+        font-size: 1.2em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+.Manager .Section_2 {
+    padding: 0.5em 1em;
+    width: 100%;
+}
+
+    .Manager .Section_2 .Container .SearchProduct, .btn, .PageMove {
+        display: flex;
+        position: relative;
+        align-items: center;
+        border: none;
+    }
+
+    .Manager .Section_2 .Filter {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: #005eff;
+        padding: 0.5em;
+    }
+
+        .Manager .Section_2 .Filter span {
+            margin-left: 0.5em;
+        }
+
+    .Manager .Section_2 .Show {
+        display: flex;
+    }
+
+    .Manager .Section_2 .Hide {
+        display: none;
+    }
+
+    .Manager .Section_2 .Filter:hover {
+        opacity: 0.6;
+    }
+        .Manager .Section_2 .PageMove .pagination {
+            display: flex;
+            align-items: center;
+        }
+
+        .Manager .Section_2 .PageMove .pagination li {
+        }
+
+            .Manager .Section_2 .PageMove .pagination li a {
+                border-radius: unset;
+                font-size: 0.9em;
+            }
+
+    .Manager .Section_2 .Container .PageMove i:hover {
+        background-color: #ededed;
+    }
+
+.Manager .Section_3 {
+    width: 100%;
+    margin-top: 0.5em;
+}
+
+    .Manager .Section_3 .Container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 67vh;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        overflow-x: hidden;
+    }
+
+        .Manager .Section_3 .Container table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            position: relative;
+        }
+
+        .Manager .Section_3 .Container th, .Manager .Section_3 .Container td {
+            border-bottom: 1px solid #e4e4e4;
+            padding: 0.5em;
+            cursor: pointer;
+        }
+
+        .Manager .Section_3 .Container td {
+            padding: 0.2em;
+        }
+
+        .Manager .Section_3 .Container thead {
+            background-color: #000;
+            color: white;
+            font-weight: bold;
+            border: 1px solid #000;
+            position: sticky;
+            z-index: 5;
+            top: 0;
+            font-size: 0.8em;
+        }
+
+        .Manager .Section_3 .Container tbody {
+            border: 1px solid #e4e4e4;
+            font-size: 0.8em;
+        }
+
+        .Manager .Section_3 .Container tbody a {
+            align-items: center;
+            justify-content: center;
+        }
+
+            .Manager .Section_3 .Container tbody tr {
+                height: 10vh;
+            }
+
+            .Manager .Section_3 .Container tbody tr:hover {
+                background-color: #f5f5f5;
+            }
+
+        .Manager .Section_3 .Container img {
+            max-width: 10vh;
+            height: auto;
+        }
+
+        .Manager .Section_3 .Container input {
+            cursor: pointer;
+        }
+
+        .Manager .Section_3 .Container i {
+            color: #005eff;
+        }
+
+            .Manager .Section_3 .Container i:hover {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+
+.AddTable {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AddTable .Title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+    .AddTable .Title h3 {
+        text-transform: uppercase;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .AddTable input,
+    .AddTable select,
+    .AddTable textarea
+    {
+        width: 100%;
+        padding: 0.5em 1em;
+        border: 1px solid #DEE2E6;
+        background-color: transparent;
+        margin: 0.5em 0;
+        cursor: pointer;
+        color: black;
+        font-size: 0.8em;
+    }
+
+        .AddTable input:hover,
+        .AddTable select:hover,
+        .AddTable textarea:hover {
+            background-color: #DEE2E6;
+        }
+
+    .AddTable input::placeholder {
+        font-size: 0.9em;
+    }
+
+    .AddTable label {
+        margin-left: 0.2em;
+        font-weight: bold;
+        font-size: 0.9em;
+    }
+
+    .AddTable form {
+        width: 100%;
+    }
+
+.AddTable .selectImage {
+    max-width: 80%;
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 0.1em;
+}
+
+.AddTable .customFile {
+    width: 70%;
+}
+
+.AddTable .btnAddTable {
+    width: 100%;
+    margin: 1em 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .AddTable .btnAddTable button {
+        padding: 0.6em 2em;
+        background-color: black;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        font-weight: bold;
+        border: 1px solid black;
+        margin: 0 0.5em;
+    }
+        .AddTable .btnAddTable button:hover {
+            background-color: #212121
+        }
+
+.AddTable .Container {
+    width: 80%;
+    height: 90vh;
+    overflow-y: scroll;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0.2em;
+    scrollbar-width: none;
+}
+
+.Dashboard .DashboardContent .DashboardHome, .Dashboard .DashboardContent .PageChart {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 90%;
+    margin: 0 auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    align-items: center;
+}
+
+    .Dashboard .DashboardContent .DashboardHome .Section_1, .Dashboard .DashboardContent .PageChart .Section_1 {
+        margin-bottom: 1em;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .Dashboard .DashboardContent .DashboardHome .Section {
+        border: 1px solid #dbdbdb;
+        padding: 2em 1em 3em;
+        margin-bottom: 2em;
+        width: 100%;
+    }
+
+    .Dashboard .DashboardContent .DashboardHome .Title {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+    }
+
+        .Dashboard .DashboardContent .DashboardHome .Title h2{
+            font-weight: bold;
+            color: rgba(0,0,0, 1);
+            font-size: 0.9em;
+        }
+
+.DashboardHome .ViewMore a {
+    font-size: 0.7em;
+    font-style: italic;
+    margin-top: 1em;
+    padding: 0.5em;
+}
+
+    .DashboardHome .ViewMore a:hover {
+        text-decoration: underline;
+        opacity: 0.6;
+    }
+
+.DashboardHome .Section_1 ul, .Dashboard .DashboardContent .PageChart .Section_1 ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .DashboardHome .Section_1 ul li, .Dashboard .DashboardContent .PageChart .Section_1 ul li {
+        margin: 0.5em 0;
+        border-radius: 0.2em;
+        cursor: pointer;
+        min-width: 22%;
+    }
+
+        .DashboardHome .Section_1 ul li a, .Dashboard .DashboardContent .PageChart .Section_1 ul li a {
+            flex-direction: column;
+            padding: 1.5em;
+            border: 1px solid #dbdbdb;
+        }
+
+        .DashboardHome .Section_1 ul li:hover, .Dashboard .DashboardContent .PageChart .Section_1 ul li:hover {
+            background-color: #ebebeb;
+        }
+
+        .DashboardHome .Section_1 ul li h3, .Dashboard .DashboardContent .PageChart .Section_1 ul li h3 {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 0.2em;
+        }
+
+        .DashboardHome .Section_1 ul li span, .Dashboard .DashboardContent .PageChart .Section_1 ul li span {
+            font-size: 1em;
+            color: #005eff;
+            font-weight: bold;
+        }
+
+        .DashboardHome .Section_1 ul li p, .Dashboard .DashboardContent .PageChart .Section_1 ul li p {
+            font-size: 0.8em;
+            color: #8f8f8f;
+        }
+
+.DashboardHome .Section .Container {
+    width: 100%;
+    display: flex;
+    padding: 0 1em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .DashboardHome .Section .Container .Content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.Dashboard .DashboardContent .Chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em 0 1em;
+}
+
+.Dashboard .DashboardContent .PageChart .Chart {
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 2em;
+}
+
+.Dashboard .DashboardContent .PageChart .Section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.Dashboard .DashboardContent .PageChart .Section {
+    margin-bottom: 3em;
+}
+
+.Dashboard .DashboardContent .PageChart .Title {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    padding: 0 0.5em 0.8em;
+}
+
+    .Dashboard .DashboardContent .PageChart .Title h2 {
+        font-size: 0.9em;
+        font-weight: bold;
+        margin: 0;
+        color: rgba(0,0,0, 1);
+    }
+
+    .Dashboard .DashboardContent .PageChart .Title a {
+        font-size: 0.8em;
+        font-style: italic;
+        color: #005eff;
+        cursor: pointer;
+    }
+
+        .Dashboard .DashboardContent .PageChart .Title a:hover {
+            opacity: 0.7;
+            color: #005eff;
+        }
+
+.Dashboard .DashboardContent .PageChart .Section .LeftContain {
+    width: 61%;
+    height: auto;
+}
+
+.Dashboard .DashboardContent .PageChart .Section .RightContain {
+    width: 37%;
+    text-align: center;
+    font-size: 0.8em;
+    height: auto;
+}
+
+    .Dashboard .DashboardContent .PageChart .Section .RightContain h2 {
+        font-size: 1em;
+    }
+
+.Dashboard .DashboardContent .PageChart .Section .Content {
+    height: auto;
+}
+
+    .Dashboard .DashboardContent .PageChart .Section .Content h3 {
+        font-size: 1em;
+        margin-bottom: 0.5em;
+        font-weight: bold;
+    }
+
+    .Dashboard .DashboardContent .PageChart .Section .Content p {
+        font-size: 0.8em;
+    }
+
+    .Dashboard .DashboardContent .PageChart .Section .Content .Chart {
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+.Dashboard .DashboardContent .PageChart .ContainTable {
+    max-height: 58vh;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.Dashboard .DashboardContent .PageChart table {
+    width: 100%;
+}
+
+.Dashboard .DashboardContent .PageChart thead {
+    background-color: black;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+.Dashboard .DashboardContent .PageChart tr {
+    cursor: pointer;
+    border: 1px solid #d5d5d5;
+}
+
+.Dashboard .DashboardContent .PageChart th, td {
+    padding: 0.8em 0.5em;
+}
+
+.Dashboard .DashboardContent .PageChart tbody tr:hover {
+    background-color: #f5f5f5;
+}

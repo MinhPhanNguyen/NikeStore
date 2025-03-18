@@ -1,0 +1,120 @@
+﻿@model Product
+
+@{
+	ViewData["Title"] = "Thêm sản phẩm";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="AddTable Manager">
+			<div class="Container">
+				<div class="Title">
+					<h3>Thêm sản phẩm
+						<a class="Backto" asp-action="Product" asp-controller="Product">Quay lại<i class="fa-solid fa-angle-right"></i></a>
+					</h3>
+				</div>
+
+				<form asp-action="Add" enctype="multipart/form-data">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group">
+						<label for="Name">Tên sản phẩm:</label>
+						<input asp-for="Name" type="text" class="form-control" />
+						<span asp-validation-for="Name" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="Description">Mô tả:</label>
+						<textarea asp-for="Description" type="text" id="Description" class="form-control"></textarea>
+						<span asp-validation-for="Description" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="Price">Giá:</label>
+						<input asp-for="Price" type="number" step="0.01" class="form-control" />
+						<span asp-validation-for="Price" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="CategoryID">Danh mục:</label>
+						<select asp-for="CategoryID" class="form-control" asp-items="ViewBag.ProductCategory">
+							<option value="">-- Chọn danh mục --</option>
+						</select>
+						<span asp-validation-for="CategoryID" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="ProductColorID">Màu sắc:</label>
+						<select asp-for="ProductColorID" class="form-control" asp-items="ViewBag.ProductColor">
+							<option value="">-- Chọn màu sắc --</option>
+						</select>
+						<span asp-validation-for="ProductColorID" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="ProductSizeID">Kích thước:</label>
+						<select asp-for="ProductSizeID" class="form-control" asp-items="ViewBag.ProductSize">
+							<option value="">-- Chọn kích thước --</option>
+						</select>
+						<span asp-validation-for="ProductSizeID" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="ProductTypeID">Loại:</label>
+						<select asp-for="ProductTypeID" class="form-control" asp-items="ViewBag.ProductType">
+							<option value="">-- Chọn loại --</option>
+						</select>
+						<span asp-validation-for="ProductTypeID" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="GenderID">Giới tính:</label>
+						<select asp-for="GenderID" class="form-control" asp-items="ViewBag.ProductGender">
+							<option value="">-- Chọn giới tính --</option>
+						</select>
+						<span asp-validation-for="GenderID" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="WarehouseID">Kho:</label>
+						<select asp-for="WarehouseID" class="form-control" asp-items="ViewBag.Warehouse">
+							<option value="">-- Kho --</option>
+						</select>
+						<span asp-validation-for="WarehouseID" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="PromotionID">Khuyến mãi:</label>
+						<select asp-for="PromotionID" class="form-control" asp-items="ViewBag.Promotion">
+							<option value="">-- Khuyến mãi --</option>
+						</select>
+						<span asp-validation-for="PromotionID" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="ImageUploads">Ảnh:</label>
+						<input asp-for="ImageUploads" type="file" id="imageUploadInput" class="form-control" multiple onchange="previewImages(event)" />
+						<span asp-validation-for="ImageUploads" class="text-danger"></span>
+					</div>
+
+					<div id="imagePreviewContainer" style="margin: 2em 0; display: flex; gap: 10px;"></div>
+
+					<div class="btnAddTable form-group">
+						<button>Thêm</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.PartialAsync("_ValidationScriptsPartial");
+	}
+
+	<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+	<script>
+		CKEDITOR.replace('Description');
+	</script>
+}

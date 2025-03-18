@@ -1,0 +1,113 @@
+﻿@model CartItemViewModel
+
+@{
+	ViewData["Title"] = "Giỏ hàng";
+	var totalPrice = Model.CartItems.Sum(item => item.Price * item.Quantity);
+	var totalPromotion = Model.CartItems.Sum(item => (item.Price * item.Quantity) - (item.Price * item.Quantity * ((decimal)item.ProductPromotion / 100)));
+}
+
+<div class="CartPage">
+	<div class="Container">
+		<section class="Section_1">
+			<div class="Contain row">
+				<div class="Title col-lg-12">
+					<h2>Giỏ hàng</h2>
+					<h2>Tổng tiền</h2>
+				</div>
+				@if (Model.CartItems.Count > 0)
+				{
+					<div class="TableItems col-lg-8">
+						@foreach (var item in Model.CartItems)
+						{
+							<div class="Items">
+								<div class="ItemsContent">
+									<div class="Contain_img">
+										<img src="@item.Image" alt="Alternate Text" />
+									</div>
+
+									<div class="Contain">
+										<div class="TitleContain">
+											<h2>@item.ProductName</h2>
+											<h2>@String.Format("{0:N0} VND", item.Price)</h2>
+										</div>
+										<div class="Content">
+											<p>Màu sắc: @item.ProductColor</p>
+											<p>Kích thước: @item.ProductSize</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="ItemsFeature">
+									<div class="btn">
+										<a asp-action="Remove" asp-route-id="@item.ProductId" asp-controller="Cart" class="Trash fa-regular fa-trash-can"></a>
+										<a asp-action="Decrease" asp-route-id="@item.ProductId" asp-controller="Cart" class="Minus fa-solid fa-minus"></a>
+										<span>@item.Quantity</span>
+										<a asp-action="Increase" asp-route-id="@item.ProductId" asp-controller="Cart" class="Plus fa-solid fa-plus"></a>
+									</div>
+
+									<div class="btnFavour">
+										<i class="fa-regular fa-heart"></i>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+
+					@if (Model.CartItems.Count > 0)
+					{
+						@foreach (var item in Model.CartItems)
+						{
+							<div class="Summary col-lg-4">
+								<ul>
+									<li>
+										<p>Tổng tiền</p>
+										<span class="TotalPrice">@String.Format("{0:N0} VND", totalPrice)</span>
+									</li>
+									<li>
+										<p>Phí giao hàng</p>
+										<span>50.000 VNĐ</span>
+									</li>
+									<li>
+										<p>Cập nhật địa chỉ giao hàng</p>
+										<button>Cập nhật</button>
+									</li>
+									<li>
+										<p>Chọn phương thức giao hàng</p>
+										<i class="downItems fa-solid fa-angle-down"></i>
+										<i class="upItems fa-solid fa-angle-up"></i>
+									</li>
+									<li>
+										<p>Chọn hình thức thanh toán</p>
+										<i class="downItems fa-solid fa-angle-down"></i>
+										<i class="upItems fa-solid fa-angle-up"></i>
+									</li>
+								</ul>
+								<div class="Total">
+									<div class="Discount">
+										<h3>Giảm giá</h3>
+										<span>@item.ProductPromotion %</span>
+									</div>
+									<div class="FinalPrice">
+										<h3>Thành tiền</h3>
+										<span>@String.Format("{0:N0} VND", totalPromotion)</span>
+									</div>
+									<div class="Date">
+										<h3>Dự kiến giao hàng</h3>
+										<span>Sau 3 ngày</span>
+									</div>
+								</div>
+
+								<a class="btnCheck" asp-controller="CheckOut" asp-action="CheckOut">Thanh toán</a>
+							</div>
+						}
+					}
+
+				}
+				else
+				{
+					<p>Your cart is <strong>Empty</strong></p>
+				}
+			</div>
+		</section>
+	</div>
+</div>

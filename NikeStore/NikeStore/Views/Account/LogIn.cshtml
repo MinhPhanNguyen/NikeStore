@@ -1,0 +1,48 @@
+﻿@model LogInViewModel
+
+@{
+	ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="LogInPage">
+	<div class="Container">
+		<form asp-action="LogIn" asp-controller="Account">
+			<div asp-validation-summary="ModelOnly" class="Notification text-danger error"></div>
+			<div class="Contain_img">
+				<img src="/images/icon/logo.png" alt="Alternate Text" />
+			</div>
+
+			<div class="Title">
+				<h2>Vui lòng điền <strong>Email và Số điện thoại</strong>  của bạn để đăng nhập hoặc đăng ký</h2>
+			</div>
+
+			<div class="Language">
+				<h2><strong>Ngôn ngữ:</strong> Tiếng Việt</h2>
+				<a href="">Thay đổi</a>
+			</div>
+
+			<div class='form-group '>
+				<label for="AccountName">Tên tài khoản</label>
+				<input asp-for="AccountName" type='text' class="form-control" />
+				<span asp-validation-for="AccountName" class="text-danger"></span>
+			</div>
+
+			<div class='form-group '>
+				<label for="Password">Mật khẩu</label>
+				<input asp-for="Password" type="password" class="form-control" />
+				<span asp-validation-for="Password" class="text-danger"></span>
+			</div>
+
+			<div class="TermAndPrivacy">
+				<button>1. Chính sách riêng tư</button>
+				<button>2. Điều hạn sử dụng</button>
+			</div>
+
+			<button class="btn btn-default">Đăng nhập</button>
+		</form>
+
+		<a asp-action="LogInByGoogle" asp-controller="Account" class="btnRegister"><img style="max-width: 50px !important;" src="/images/icon/googleIcon.jpg" alt="Alternate Text" /></a>
+		<a asp-action="ForgetPass" asp-controller="Account" class="btnRegister">Quên mật khẩu</a>
+		<a asp-action="SignIn" asp-controller="Account" class="btnRegister">Tạo tài khoản</a>
+	</div>
+</div>

@@ -1,0 +1,63 @@
+﻿@model Account
+
+@{
+	ViewData["Title"] = "Đăng ký";
+}
+
+<div class="SignUpPage">
+	<div class="Container">
+		<div asp-validation-summary="ModelOnly" class="Notification text-danger error"></div>
+		<form asp-action="SignIn" asp-controller="Account">
+			<div class="Contain_img">
+				<img src="/images/icon/logo.png" alt="Alternate Text" />
+			</div>
+
+			<div class="Title">
+				<h2>Ngay bây giờ! Cùng đăng ký thành một thành viên của chúng tôi nhé</h2>
+				<p>Chúng tôi đã gửi mã code vào Email: </p>
+				<div class="EditEmail">
+					<span><i>SWminh0918195615@gmail.com</i></span>
+					<a>Sửa Email</a>
+				</div>
+			</div>
+
+			<div class="form-group ">
+				<label>Tên tài khoản</label>
+				<input asp-for="AccountName" type='text' class="form-control" />
+				<span asp-validation-for="AccountName" class="text-danger"></span>
+			</div>
+
+			<div class="form-group ">
+				<label>Mật khẩu</label>
+				<input asp-for="Password" type="password" class="form-control" />
+				<span asp-validation-for="Password" class="text-danger"></span>
+			</div>
+
+			<div class="form-group ">
+				<label>Email</label>
+				<input asp-for="Email" type='email' class="form-control" />
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+
+			<div class="form-group ">
+				<label>Số điện thoại</label>
+				<input asp-for="PhoneNumber" type="text" class="form-control" />
+				<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+			</div>
+
+			<div class='Check'>
+				<input type='checkbox' class='checkbox' />
+				<p><span>Tôi xác nhận rằng các đại lý Nike Store có thể gửi cho tôi thêm thông tin về các sản phẩm hoặc dịch vụ. *</span></p>
+			</div>
+
+			<div class='Check'>
+				<input type='checkbox' class='checkbox' />
+				<p><span>Tôi đã đọc và đống ý với các quy định và chính xách của Nike Store. *</span></p>
+			</div>
+
+			<button class="btn btn-default">Đăng ký</button>
+		</form>
+
+		<a asp-action="LogIn" asp-controller="Account" class="btnRegister">Đăng nhập</a>
+	</div>
+</div>

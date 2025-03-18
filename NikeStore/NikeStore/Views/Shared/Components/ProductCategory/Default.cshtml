@@ -1,0 +1,9 @@
+﻿@model IEnumerable<ProductCategory>
+
+@foreach (var product in Model)
+{
+    <input type="radio" id="@product.CategoryName" name="collection"
+           onchange="window.location.href='@Url.Action("Index", "Category", new { Slug = product.Slug })'">
+    <label for="@product.CategoryName">@product.CategoryName</label>
+    <br>
+}

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<NikeStore.Models.ServiceType>
+
+@{
+	ViewData["Title"] = "Danh sách dịch vụ kèm theo";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="ProductManager Manager" id="ProductManager">
+			<div class="ContentManager">
+				<section class="Section_1">
+					<div class="Container">
+						<h2>Danh sách dịch vụ kèm theo</h2>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="LeftFilter">
+							<a class="AddIcon" href="@Url.Action("AddType", "Service", new { area = "Admin" })">
+								<i class="fa-solid fa-plus"></i>
+								<span>Thêm</span>
+							</a>
+						</div>
+					</div>
+				</section>
+
+				<section class="Section_3">
+					<div class="Container">
+						<table id="myTable">
+							<thead>
+								<tr>
+									<th>STT</th>
+									<th>Chọn</th>
+									<th>Tên dịch vụ</th>
+									<th>Mô tả</th>
+									<th>Ngày tạo</th>
+									<th>Dịch vụ</th>
+									<th>Sửa</th>
+									<th>Xóa</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var service in Model)
+								{
+									@if(service.ServiceTypeID == 1) {
+										<tr>
+											<td>@service.ServiceTypeID</td>
+											<td><input type="checkbox"></td>
+											<td>@service.Name</td>
+											<td>@(service.Description.Length > 20 ? service.Description.Substring(0, 20) + "..." : service.Description)</td>
+											<td>@service.CreatedAt</td>
+											<td>@service.Service?.Name</td>
+											<td>#</td>
+											<td>#</td>
+										</tr>
+									}
+									else if (service.ServiceTypeID == 2)
+									{
+										<tr>
+											<td>@service.ServiceTypeID</td>
+											<td><input type="checkbox"></td>
+											<td>@service.Name</td>
+											<td>@(service.Description.Length > 20 ? service.Description.Substring(0, 20) + "..." : service.Description)</td>
+											<td>@service.CreatedAt</td>
+											<td>@service.Service?.Name</td>
+											<td>#</td>
+											<td>#</td>
+										</tr>
+									}
+
+									else {
+										<tr>
+											<td>@service.ServiceTypeID</td>
+											<td><input type="checkbox"></td>
+											<td>@service.Name</td>
+											<td>@(service.Description.Length > 20 ? service.Description.Substring(0, 20) + "..." : service.Description)</td>
+											<td>@service.CreatedAt</td>
+											<td>@service.Service?.Name</td>
+											<td><a asp-action="EditType" asp-controller="Service" asp-route-Id="@service.ServiceTypeID"><i class="fa-solid fa-edit"></i></a></td>
+											<td><a asp-action="DeleteType" asp-controller="Service" asp-route-Id="@service.ServiceTypeID"><i class="fa-solid fa-trash"></i></a></td>
+										</tr>
+									}
+								}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>

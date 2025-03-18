@@ -1,0 +1,9 @@
+﻿@model IEnumerable<ProductColor>
+
+@foreach (var product in Model)
+{
+	<div class="Colour">
+		<input type="radio" id="@product.Color" name="colour" value="@product.Color">
+		<label for="option9">@product.Color</label>
+	</div>
+}

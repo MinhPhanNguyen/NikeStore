@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ProductGender>
+
+@foreach (var product in Model)
+{
+	<input type="radio" id="@product.GenderID" name="gender" value="@product.GenderName">
+	<label for="@product.GenderID">@product.GenderName</label>
+	<br>
+}

@@ -1,0 +1,149 @@
+﻿@{
+	ViewData["Title"] = "Dashboard";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="DashboardHome" id="DashboardHome">
+			<section class="Section_1">
+				<ul class="row">
+					<li class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
+						<a href="/Admin/DashBoard/RevenueChart">
+							<h3>Doanh thu hôm nay</h3>
+							<span>20.000.000 VND</span>
+							<p>Lợi nhuận: 20%</p>
+						</a>
+					</li>
+
+					<li class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
+						<a href="/Admin/DashBoard/ProductChart">
+							<h3>Sản phẩm bán được</h3>
+							<span>12.340</span>
+							<p>Tỷ lệ tăng: 15%</p>
+						</a>
+					</li>
+
+					<li class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
+						<a href="/Admin/DashBoard/OrderChart">
+							<h3>Đơn hàng bán được</h3>
+							<span>2.340</span>
+							<p>Tỷ lệ tăng: 40%</p>
+						</a>
+					</li>
+
+					<li class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
+						<a href="/Admin/DashBoard/AccessWebStatistic">
+							<h3>Lượt truy cập Website</h3>
+							<span>32.340</span>
+							<p>Tỷ lệ tăng: 30%</p>
+						</a>
+					</li>
+				</ul>
+			</section>
+
+			<section class="Section">
+				<div class="Container">
+					<div class="Title">
+						<h2>Doanh thu</h2>
+					</div>
+
+					<div class="Content">
+						<div class="Chart">
+							<canvas id="dailyRevenueChart" width="400" height="200"></canvas>
+						</div>
+
+						<div class="Chart">
+							<canvas id="monthlyRevenueChart" width="400" height="200"></canvas>
+						</div>
+
+						<div class="Chart">
+							<canvas id="yearRevenueChart" width="400" height="200"></canvas>
+						</div>
+					</div>
+
+					<div class="ViewMore">
+						<a href="/Admin/DashBoard/RevenueChart">Xem chi tiết</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="Section">
+				<div class="Container">
+					<div class="Title">
+						<h2>Sản phẩm</h2>
+					</div>
+
+					<div class="Content">
+						<div class="Chart">
+							<canvas id="productChart" width="400" height="200"></canvas>
+						</div>
+
+						<div class="Chart">
+							<canvas id="loveProductChart" width="400" height="200"></canvas>
+						</div>
+
+						<div class="Chart">
+							<canvas id="mostProductChart" width="400" height="200"></canvas>
+						</div>
+					</div>
+
+					<div class="ViewMore">
+						<a href="/Admin/DashBoard/ProductChart">Xem chi tiết</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="Section">
+				<div class="Container">
+					<div class="Title">
+						<h2>Đơn hàng</h2>
+					</div>
+
+					<div class="Content">
+						<div class="Chart">
+							<canvas id="dailyOrderChart" width="400" height="200"></canvas>
+						</div>
+
+						<div class="Chart">
+							<canvas id="monthlyOrderChart" width="400" height="200"></canvas>
+						</div>
+
+						<div class="Chart">
+							<canvas id="yearOrderChart" width="400" height="200"></canvas>
+						</div>
+					</div>
+
+					<div class="ViewMore">
+						<a href="/Admin/DashBoard/OrderChart">Xem chi tiết</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="Section">
+				<div class="Container">
+					<div class="Title">
+						<h2>Lượt truy cập Website</h2>
+					</div>
+
+					<div class="Content">
+						<div class="Chart">
+							<canvas id="dailyAccessChart" width="400" height="200"></canvas>
+						</div>
+
+						<div class="Chart">
+							<canvas id="monthlyAccessChart" width="400" height="200"></canvas>
+						</div>
+
+						<div class="Chart">
+							<canvas id="yearAccessChart" width="400" height="200"></canvas>
+						</div>
+					</div>
+
+					<div class="ViewMore">
+						<a href="/Admin/DashBoard/AccessWebStatistic">Xem chi tiết</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>

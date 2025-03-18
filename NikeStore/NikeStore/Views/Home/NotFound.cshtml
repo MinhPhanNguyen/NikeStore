@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "404 - Page Not Found";
+}
+
+<div class="error-container">
+    <h1>404</h1>
+    <h2>Oops! Trang bạn tìm kiếm không tồn tại.</h2>
+    <p>Rất tiếc, trang bạn đang tìm kiếm không khả dụng hoặc đã bị xóa.</p>
+    <a href="/" class="btn-home">Quay về trang chủ</a>
+</div>
+
+<style>
+    .error-container {
+        height: 60vh;
+        width: 100%;
+        margin-top: 100px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .error-container h1 {
+        font-size: 120px;
+        color: #ff3b3b;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .error-container h2 {
+        font-size: 24px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .error-container p {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 2em;
+    }
+    .btn-home {
+        display: inline-block;
+        background-color: black;
+        color: white;
+        padding: 1em 2em;
+        font-size: 18px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .btn-home:hover {
+        opacity: 0.6;
+    }
+</style>

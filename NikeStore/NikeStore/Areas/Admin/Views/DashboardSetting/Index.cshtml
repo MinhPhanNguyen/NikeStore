@@ -1,0 +1,653 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="DashboardSetting" id="DashboardSetting">
+			<div class="SettingSidebar">
+				<ul>
+					<li onclick="showSetting('GeneralSetting',this)">
+						<i class="fa-solid fa-gear"></i>
+						<label for="GeneralSetting">Cài đặt chung</label>
+					</li>
+					<li onclick="showSetting('AccountAndSecurity',this)">
+						<i class="fa-solid fa-shield-virus"></i>
+						<label for="AccountAndSecurity">Tài khoản và bảo mật</label>
+					</li>
+					<li onclick="showSetting('PrivacySetting',this)">
+						<i class="fa-solid fa-lock"></i>
+						<label for="PrivacySetting">Quyền riêng tư</label>
+					</li>
+					<li onclick="showSetting('DataManager',this)">
+						<i class="fa-solid fa-database"></i>
+						<label for="DataManager">Quản lý dữ liệu</label>
+					</li>
+					<li onclick="showSetting('ThemeSetting',this)">
+						<i class="fa-solid fa-palette"></i>
+						<label for="ThemeSetting">Giao diện</label>
+					</li>
+					<li onclick="showSetting('NotificationSetting',this)">
+						<i class="fa-solid fa-bell"></i>
+						<label for="NotificationSetting">Thông báo</label>
+					</li>
+					<li onclick="showSetting('MessageSetting',this)">
+						<i class="fa-brands fa-facebook-messenger"></i>
+						<label for="MessageSetting">Tin nhắn</label>
+					</li>
+					<li onclick="showSetting('FeaturesSetting',this)">
+						<i class="fa-solid fa-sliders"></i>
+						<label for="FeaturesSetting">Tiện ích</label>
+					</li>
+				</ul>
+			</div>
+
+			<div class="SettingContent">
+				<div class="GeneralSetting" id="GeneralSetting">
+					<section class="Section_1">
+						<div class="Container">
+							<div class="Title">
+								<h3>Danh bạ</h3>
+								<p>Danh sách bạn bè được hiển thị trong danh bạ</p>
+							</div>
+							<div class="SelectOption">
+								<span>Thay đổi lựa chọn </span>
+								<select id="filter" onchange="filterFriends()">
+									<option value="all">Hiển thị tất cả bạn bè</option>
+									<option value="online">Chỉ hiển thị bạn bè đang online</option>
+								</select>
+							</div>
+						</div>
+					</section>
+
+					<section class="Section_2">
+						<div class="Container">
+							<div class="Title">
+								<h3>Ngôn ngữ</h3>
+							</div>
+
+							<div class="SelectOption">
+								<span>Thay đổi ngôn ngữ </span>
+								<select id="LanguageFilter">
+									<option value="Vietnamese">Tiếng Việt</option>
+									<option value="English">English</option>
+								</select>
+							</div>
+						</div>
+					</section>
+
+					<section class="Section_3">
+						<div class="Container">
+							<div class="Title">
+								<h3>Ghi nhớ tài khoản</h3>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Ghi nhớ tài khoản đăng nhập</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="AccountAndSecurity" id="AccountAndSecurity">
+					<section class="Section_1">
+						<div class="Container">
+							<div class="Title">
+								<h3>Mật khẩu đăng nhập</h3>
+							</div>
+
+							<div class="UpDownOption">
+								<span>Đổi mật khẩu </span>
+								<i class="DownSection fa-solid fa-angle-down"></i>
+								<i class="UpSection fa-solid fa-angle-up"></i>
+							</div>
+
+							<div class="PasswordChange ContentUpDown">
+								<p><strong>Lưu ý:</strong> Mật khẩu bao gồm chữ kèm theo kí tự đặc biệt, tối thiểu 8 kí tự trở lên và tối đa 32 kí tự</p>
+								<div class="CurrentPass ShowHideOption">
+									<label>Mật khẩu hiện tại</label>
+									<input type="password" placeholder="Nhập mật khẩu hiện tại" />
+									<div class="ShowHide">
+										<span class="Show">Hiện</span>
+										<span class="Hide">Ẩn</span>
+									</div>
+								</div>
+
+								<div class="NewPass ShowHideOption">
+									<label>Mật khẩu mới</label>
+									<input type="password" placeholder="Nhập mật khẩu mới" />
+									<div class="ShowHide">
+										<span class="Show">Hiện</span>
+										<span class="Hide">Ẩn</span>
+									</div>
+								</div>
+
+								<div class="NewPass ShowHideOption">
+									<label>Nhập lại mật khẩu hiện mới</label>
+									<input type="password" placeholder="Nhập lại mật khẩu mới" />
+									<div class="ShowHide">
+										<span class="Show">Hiện</span>
+										<span class="Hide">Ẩn</span>
+									</div>
+								</div>
+
+								<div class="btnPassWord btnShowHide">
+									<button>Đổi mật khẩu</button>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="Section_2">
+						<div class="Container">
+							<div class="Title">
+								<h3>Khóa màn hình Admin</h3>
+								<p>Khóa màn hình Admin bằng Ctrl + L khi không sử dụng máy tính</p>
+							</div>
+
+							<div class="UpDownOption">
+								<span>Khóa màn hình Admin </span>
+								<i class="DownSection fa-solid fa-angle-down"></i>
+								<i class="UpSection fa-solid fa-angle-up"></i>
+							</div>
+
+							<div class="LockDisplay ContentUpDown">
+								<div class="LockDisplayPass ShowHideOption">
+									<label>Mã khóa màn hình</label>
+									<input type="password" placeholder="Nhập mã khóa màn hình" />
+									<div class="ShowHide">
+										<span class="Show">Hiện</span>
+										<span class="Hide">Ẩn</span>
+									</div>
+								</div>
+
+								<div class="btnPassWord btnShowHide">
+									<button>Đặt mã khóa</button>
+									<button>Xóa khóa màn hình</button>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<section class="Section_3">
+						<div class="Container">
+							<div class="Title">
+								<h3>Bảo mật 2 lớp</h3>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Sau khi bật, bạn sẽ được yêu cầu nhập mã OTP, AuthenticationCode hoặc xác thực từ thiết bị di động sau khi đăng nhập trên thiết bị lạ. </span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="PrivacySetting" id="PrivacySetting">
+					<section class="Section_1">
+						<div class="Container">
+							<div class="Title">
+								<h3>Cá nhân</h3>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Hiện trang thái truy cập </span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="Section_2">
+						<div class="Container">
+							<div class="Title">
+								<h3>Chặn tin nhắn</h3>
+								<p>Những người này không thể gửi tin nhắn cho bạn</p>
+							</div>
+
+							<div class="BlockFriend UpDownOption">
+								<span>Danh sách chặn </span>
+								<i class="DownSection fa-solid fa-angle-down"></i>
+								<i class="UpSection fa-solid fa-angle-up"></i>
+							</div>
+
+							<ul class="BlockFriendList ContentUpDown">
+								<li>
+									<div class="Contain">
+										<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+										<h3>MinhPhan</h3>
+									</div>
+
+									<div class="btnBlock">
+										<button>Bỏ chặn</button>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<section class="Section_3">
+						<div class="Container">
+							<div class="Title">
+								<h3>Nguồn tìm kiếm</h3>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Cho phép người lạ tìm thấy và kết bạn qua số điện thoại <strong>+(84) 934190061</strong> </span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="DataManager" id="DataManager">
+					<div class="Container">
+						<div class="Title">
+							<h3>Dữ liệu</h3>
+						</div>
+
+						<div class="Storage">
+							<h2>1.7GB / 5GB</h2>
+							<p>Vị trí lưu trữ:  <strong>(C:)</strong></p>
+						</div>
+
+						<div class="TypeStore TypeStore1">
+							<div class="LeftStore">
+								<div class="Icon">
+									<i class="fa-regular fa-images"></i>
+								</div>
+
+								<div class="Content">
+									<h3>Tin nhắn media</h3>
+									<p>Dữ liệu ảnh, video,... của bạn được lưu trên máy này</p>
+								</div>
+							</div>
+
+							<div class="RightStore UpDownOption">
+								<span>1.1 GB</span>
+								<i class="DownSection fa-solid fa-angle-down"></i>
+								<i class="UpSection fa-solid fa-angle-up"></i>
+							</div>
+
+							<div class="MemoryList ContentUpDown">
+								<div class="Note">
+									<p>Dọn dẹp tin nhắn, ảnh, video hoặc tệp của trò chuyện để giải phóng dung lượng trên máy. Tin nhắn văn bản của các trò chuyện này sẽ không bị xóa.</p>
+								</div>
+
+								<div class="FilterMemory">
+									<div class="TopTypeMemoryFitler">
+										<div class="Search">
+											<i class="SearchIcon fa-solid fa-magnifying-glass"></i>
+											<input type="text" placeholder="Tìm tin nhắn" />
+										</div>
+
+										<div class="TypeMemoryFitler">
+											<select id="TypeMemoryFitler">
+												<option value="Largest">Lớn nhất</option>
+												<option value="Lastest">Mới nhất</option>
+												<option value="Oldest">Cũ nhất</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="BottomTypeMemoryFitler">
+										<div class="SeletedAll">
+											<input type="checkbox" id="selectedAll" />
+											<label for="selectedAll">Chọn tất cả</label>
+										</div>
+
+										<div class="OnOffSection">
+											<span>Hiển thị trò chuyện ẩn</span>
+											<div class="ToggleOff">
+												<i class="fa-solid fa-circle"></i>
+											</div>
+
+											<div class="ToggleOn">
+												<i class="fa-solid fa-circle"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<ul class="ListItems">
+									<li>
+										<input type="checkbox" />
+										<div class="Contain_img">
+											<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+										</div>
+
+										<div class="Content">
+											<h3>MinhPhan</h3>
+											<p>1GB</p>
+										</div>
+									</li>
+
+									<li>
+										<input type="checkbox" />
+										<div class="Contain_img">
+											<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+										</div>
+
+										<div class="Content">
+											<h3>MinhPhan</h3>
+											<p>1GB</p>
+										</div>
+									</li>
+
+									<li>
+										<input type="checkbox" />
+										<div class="Contain_img">
+											<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+										</div>
+
+										<div class="Content">
+											<h3>MinhPhan</h3>
+											<p>1GB</p>
+										</div>
+									</li>
+
+									<li>
+										<input type="checkbox" />
+										<div class="Contain_img">
+											<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+										</div>
+
+										<div class="Content">
+											<h3>MinhPhan</h3>
+											<p>1GB</p>
+										</div>
+									</li>
+
+									<li>
+										<input type="checkbox" />
+										<div class="Contain_img">
+											<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+										</div>
+
+										<div class="Content">
+											<h3>MinhPhan</h3>
+											<p>1GB</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="TypeStore">
+							<div class="LeftStore">
+								<div class="Icon">
+									<i class="fa-solid fa-database"></i>
+								</div>
+
+								<div class="Content">
+									<h3>Dữ liệu khác</h3>
+									<p>Bộ nhớ đệm và các dữ liệu cần thiết để vận hành ứng dụng</p>
+								</div>
+							</div>
+
+							<div class="RightStore">
+								<div class="Memory">
+									<span>1 GB </span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="ThemeSetting" id="ThemeSetting">
+					<section class="Section_1">
+						<div class="Container">
+							<div class="Title">
+								<h3>Cài đặt giao diện</h3>
+							</div>
+
+							<div class="ThemeOptions SelectOption">
+								<span>Tùy chỉnh giao diện</span>
+
+								<select id="ThemeOptions">
+									<option value="Light">Sáng</option>
+									<option value="Dark">Tối</option>
+									<option value="System">Hệ thống</option>
+								</select>
+							</div>
+						</div>
+					</section>
+
+					<section class="Section_2">
+						<div class="Container">
+							<div class="Title">
+								<h3>Hình nền chat</h3>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Sử dụng Avatar làm hình nền</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="NotificationSetting" id="NotificationSetting">
+					<section class="Section_1">
+						<div class="Container">
+							<div class="Title">
+								<h3>Cài đặt thông báo</h3>
+								<p>Nhận được thông báo mỗi khi có tin nhắn mới</p>
+							</div>
+
+							<div class="NotificationOptions SelectOption">
+								<span>Tùy chỉnh thông báo</span>
+
+								<select id="NotificationOptions">
+									<option value="OnNote">Bật</option>
+									<option value="OffNote">Tắt</option>
+								</select>
+							</div>
+						</div>
+					</section>
+
+					<section class="Section_2">
+						<div class="Container">
+							<div class="Title">
+								<h3>Âm thanh thông báo</h3>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Phát âm thanh khi có tin nhắn & thông báo mới</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="MessageSetting" id="MessageSetting">
+					<section class="Section_1">
+						<div class="Container">
+							<div class="Title">
+								<h3>Thiết lập ẩn trò chuyện</h3>
+								<p>Đặt mã pin cho các cuộc trò chuyện riêng tư để tránh người khác có thể nhìn thấy trên máy của bạn</p>
+							</div>
+
+							<div class="DisplayMessageSetting UpDownOption">
+								<span>Mã Pin </span>
+								<i class="DownSection fa-solid fa-angle-down"></i>
+								<i class="UpSection fa-solid fa-angle-up"></i>
+							</div>
+
+							<div class="DisplayMessage ContentUpDown">
+								<div class="DisplayMessagePass ShowHideOption">
+									<label>Mã Pin</label>
+									<input type="password" placeholder="Nhập mã Pin" />
+									<div class="ShowHide">
+										<span class="Show">Hiện</span>
+										<span class="Hide">Ẩn</span>
+									</div>
+								</div>
+
+								<div class="btnPassWord btnShowHide">
+									<button>Đặt mã Pin</button>
+									<button>Xóa mã Pin màn hình</button>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="Section_2">
+						<div class="Container">
+							<div class="Title">
+								<h3>Cài đặt khác</h3>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Bấm đúp vào vùng bên cạnh tin nhắn để trả lời</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Tự động tải Ảnh/File/Video dưới 30MB</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Hiển thị ảnh thu nhỏ(thumbnail) của file</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Bạn sẽ thấy bạn bè đang soạn tin nhắn</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Tắt tiếng video trong cửa sổ chat</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="FeaturesSetting" id="FeaturesSetting">
+					<section class="Section_1">
+						<div class="Container">
+							<div class="Title">
+								<h3>Gợi ý Sticker</h3>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Hiển thị Sticker phù hợp với nội dung tin nhắn đang soạn</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="Section_2">
+						<div class="Container">
+							<div class="Title">
+								<h3>Gợi ý Link</h3>
+							</div>
+
+							<div class="OnOffSection">
+								<span>Hiển gợi ý gửi Link khi coppy vào ô soạn tin nhắn</span>
+
+								<div class="ToggleOff">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+
+								<div class="ToggleOn">
+									<i class="fa-solid fa-circle"></i>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

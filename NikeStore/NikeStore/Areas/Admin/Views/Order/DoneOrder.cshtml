@@ -1,0 +1,49 @@
+﻿@{
+	ViewData["Title"] = "Đơn hàng đã duyệt";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="OrderManager Manager" id="OrderManager">
+			<div class="ContentManager">
+				<section class="Section_1">
+					<div class="Container">
+						<h2>Đơn hàng đã duyệt</h2>
+					</div>
+				</section>
+
+				<section class="Section_3">
+					<div class="Container">
+						<table id="myTable">
+							<thead>
+								<tr>
+									<th># </th>
+									<th>Mã hóa đơn </th>
+									<th>Tên khách hàng </th>
+									<th>Trạng thái </th>
+									<th>Ngày tạo</th>
+									<th>Xem</th>
+									<th>Xóa</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var order in Model)
+								{
+									<tr>
+										<td>#</td>
+										<td>@order.OrderCode</td>
+										<td>@order.UserName</td>
+										<td style="color: green; font-weight:bold;">Thành công</td>
+										<td>@order.CreateDate</td>
+										<td><a asp-action="ViewOrder" asp-controller="Order" asp-route-Id="@order.OrderCode"><i class="fa-solid fa-edit"></i></a></td>
+										<td><a asp-action="Delete" asp-controller="Order" asp-route-Id="@order.OrderCode"><i class="fa-solid fa-trash"></i></a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>

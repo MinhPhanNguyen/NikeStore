@@ -1,0 +1,645 @@
+﻿@model AppUserModel
+
+@{
+	ViewData["Title"] = "Thông tin tài khoản";
+}
+
+<div class="AccountPage">
+	<div class="Container">
+		<i onclick="toggleMenuAccount()" class="MenuAccount AccountIconCO fa-solid fa-bars"></i>
+		<i onclick="toggleMenuAccount()" class="AccountClose AccountIconCO fa-solid fa-xmark"></i>
+		<div class="SideBar">
+			<ul>
+				<li onclick="showPage('AccountHome')"><a><i class="fa-regular fa-circle-user"></i><span>Trang chủ</span></a></li>
+				<li onclick="showPage('AccountInformation')"><a><i class="fa-regular fa-address-card"></i><span>Thông tin cá nhân</span></a></li>
+				<li onclick="showPage('AccountSecurity')"><a><i class="fa-solid fa-toggle-on"></i><span>Dữ liệu và quyền riêng tư</span></a></li>
+				<li onclick="showPage('AccountHistory')"><a><i class="fa-solid fa-clock-rotate-left"></i><span>Lịch sử hoạt động</span></a></li>
+				<li onclick="showPage('AccountPayment')"><a><i class="fa-brands fa-amazon-pay"></i><span>Phương thức thanh toán</span></a></li>
+				<li onclick="showPage('AccountFAQ')"><a><i class="fa-solid fa-question"></i><span>Hỗ trợ trực tuyến</span></a></li>
+			</ul>
+		</div>
+
+		<div class="AccountContent">
+			<div class="AccountHome" id="AccountHome">
+				<section class="Section_1">
+					<div class="Container">
+						<div class="Contain_img">
+							<img src="/images/icon/fbsquare.png" alt="">
+						</div>
+						<div class="Content">
+							<h3>Xin chào @Model.UserName</h3>
+							<p>Chào mừng bạn đến với Website chính thức của NikeStore! Chúc bạn có một buổi mua sắm vui vẻ</p>
+							<span>Xem thông tin <i class="fa-solid fa-circle-info"></i></span>
+						</div>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container row">
+						<div class="RecommendationItems col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+							<div class="Contain_img">
+								<img src="/images/icon/security_yellow.png" alt="">
+							</div>
+							<div class="Content">
+								<h3>Đừng để bị mất quyền truy cập vào Tài khoản Google của bạn</h3>
+								<p>Hãy thêm tuỳ chọn khôi phục thứ hai để đảm bảo bạn luôn có quyền truy cập vào tất cả các dịch vụ của Google, ngay cả khi bạn quên mật khẩu</p>
+								<div class="btn">
+									<button>Thêm email khôi phục</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="RecommendationItems col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+							<div class="Contain_img">
+								<img src="/images/icon/AddressHome.png" alt="">
+							</div>
+							<div class="Content">
+								<h3>Đặt địa chỉ nhà riêng cho Tài khoản Google của bạn</h3>
+								<p>Nhận kết quả tìm kiếm, thông tin thời tiết và kết quả tìm kiếm trên bản đồ phù hợp hơn</p>
+								<div class="btn">
+									<button>Đặt địa chỉ nhà riêng</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="RecommendationItems col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+							<div class="Contain_img">
+								<img src="/images/icon/Privacy.png" alt="">
+							</div>
+							<div class="Content">
+								<h3>Quyền riêng tư và cá nhân hóa</h3>
+								<p>Xem dữ liệu trong Tài khoản Google của bạn và chọn hoạt động sẽ được lưu để cá nhân hóa trải nghiệm của bạn trên Google</p>
+								<div class="btn">
+									<button>Quản lý dữ liệu và quyền riêng tư của bạn</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="RecommendationItems col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+							<div class="Contain_img">
+								<img src="/images/icon/Security_green.png" alt="">
+							</div>
+							<div class="Content">
+								<h3>Chúng tôi có các mẹo bảo mật dành cho bạn</h3>
+								<p>Công cụ Kiểm tra bảo mật có một số mẹo dành cho bạn</p>
+								<div class="btn">
+									<button>Xem mẹo bảo mật</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="Section">
+					<div class="Container">
+						<div class="Content">
+							<div class="text">
+								<h3>Chúng tôi có các đề xuất về quyền riêng tư dành cho bạn</h3>
+								<p>Thực hiện quy trình Kiểm tra quyền riêng tư và chọn các chế độ cài đặt phù hợp với bạn</p>
+							</div>
+							<div class="img">
+								<img src="/images/icon/othersecurity.png" alt="Alternate Text" />
+							</div>
+						</div>
+
+						<div class="btn">
+							<a href="#">Xem các đề xuất (2)</a>
+						</div>
+					</div>
+				</section>
+
+				<div class="Title">
+					<h2>Về Chúng Tôi</h2>
+				</div>
+
+				<section class="Section_3">
+					<div class="Container">
+						<ul>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Giới Thiệu</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>
+										- Cửa hàng giày của chúng tôi ra đời với sứ mệnh mang đến cho khách hàng những sản phẩm giày chất lượng cao, thời trang và phong cách. <br><br>
+										- Với nhiều năm kinh nghiệm trong ngành, chúng tôi không ngừng nỗ lực để đáp ứng mọi nhu cầu của khách hàng, từ giày thể thao đến giày công sở hay giày thời trang. <br><br>
+										- Chúng tôi cam kết mang đến dịch vụ tốt nhất, giúp bạn lựa chọn đôi giày hoàn hảo cho mọi dịp.
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Sứ Mệnh Của Chúng Tôi</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>
+										- Sứ mệnh của chúng tôi là mang lại trải nghiệm mua sắm tốt nhất cho khách hàng bằng cách cung cấp các sản phẩm giày chất lượng cao, giá cả hợp lý và dịch vụ khách hàng chuyên nghiệp. <br>
+										- Chúng tôi không chỉ đơn thuần bán giày mà còn mong muốn truyền tải niềm đam mê thời trang, giúp khách hàng tự tin hơn trong phong cách của mình.
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Giá Trị Cốt Lõi</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>
+										- Chúng tôi luôn đặt chất lượng sản phẩm lên hàng đầu, đảm bảo từng đôi giày đều được sản xuất với sự chăm chút tỉ mỉ. <br><br>
+										- Sự sáng tạo trong thiết kế giúp chúng tôi mang đến những mẫu giày hiện đại, hợp xu hướng. <br><br>
+										- Đồng thời, uy tín và sự hài lòng của khách hàng là điều mà chúng tôi trân trọng nhất. <br><br>
+										- Chúng tôi không ngừng cải tiến, mở rộng sản phẩm để đáp ứng đa dạng nhu cầu của khách hàng.
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Liên Hệ</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>
+										- Nếu bạn có bất kỳ câu hỏi hay cần hỗ trợ, đừng ngần ngại liên hệ với chúng tôi. <br><br>
+										- Đội ngũ chăm sóc khách hàng luôn sẵn sàng hỗ trợ bạn một cách tận tâm và chuyên nghiệp.
+									</p>
+									<p>
+										- Hotline: 0909 123 456 <br><br>
+										- Email: support@cuahanggiay.vn <br><br>
+										- Địa chỉ: 123 Đường Nguyễn Trãi, Quận 1, TP.HCM
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+
+			<div class="AccountInformation" id="AccountInformation">
+				<section class="Section">
+					<div class="Container">
+						<div class="OverlayImage">
+							<img src="/images/Banner/ContactBanner.png" alt="Alternate Text" />
+						</div>
+
+						<div class="Content">
+							<img src="/images/icon/fbsquare.png" alt="Alternate Text" />
+							<a>Thay đổi ảnh đại diện <i class="fa-solid fa-circle-info"></i></a>
+						</div>
+					</div>
+				</section>
+
+				<section class="Section_1">
+					<div class="Container">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<form autocomplete="off" asp-action="ChangePass" asp-controller="Account">
+							<div class="form-group">
+								<label for="UserName">Họ và tên:</label>
+								<input asp-for="UserName" readonly type="text" class="form-control">
+							</div>
+
+							<div class="form-group">
+								<label for="PhoneNumber">Số điện thoại:</label>
+								<input asp-for="PhoneNumber" readonly type="text" class="form-control">
+							</div>
+
+							<div class="form-group">
+								<label for="Email">Email:</label>
+								<input asp-for="Email" readonly type="text" class="form-control">
+							</div>
+
+							<div class="form-group">
+								<label for="oldPassword">Mật khẩu cũ:</label>
+								<input type="password" name="oldPassword" class="form-control" required />
+							</div>
+
+							<div class="form-group">
+								<label for="newPassword">Mật khẩu mới:</label>
+								<input type="password" name="newPassword" class="form-control" required />
+							</div>
+
+							<button type="submit">Lưu thay đổi</button>
+						</form>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="Title">
+							<h2>Các bước xác thực tài khoản</h2>
+						</div>
+						<div class="Content">
+							<h3>1. Xác thực số điện thoại</h3>
+							<p>Vui lòng nhập số điện thoại của bạn và kích hoạt mã xác thực được gửi tới số điện thoại để hoàn tất việc xác thực tài khoản.</p>
+							<img src="/images/Posts/1200x628_bao-mât.jpg" alt="Alternate Text" />
+
+							<h3>2. Xác thực email</h3>
+							<p>Vui lòng kiểm tra email của bạn và kích hoạt liên kết xác thực để hoàn tất việc xác thực tài khoản.</p>
+							<img src="/images/Posts/huong-dan-xac-thuc-email-sau-dan.jpg" alt="Alternate Text" />
+
+							<h3>3. Cập nhật thông tin cá nhân</h3>
+							<p>Vui lòng đảm bảo thông tin cá nhân của bạn là chính xác và đầy đủ. Cập nhật các trường thông tin còn thiếu nếu cần thiết.</p>
+							<img src="/images/Posts/MISA-ID-2.jpg" alt="Alternate Text" />
+
+							<h3>4. Thiết lập mật khẩu mới</h3>
+							<p>Để bảo vệ tài khoản của bạn, hãy thiết lập một mật khẩu mạnh và an toàn. Hãy chắc chắn rằng mật khẩu của bạn có ít nhất 8 ký tự, bao gồm cả chữ hoa, chữ thường và số.</p>
+							<img src="/images/Posts/cai-mat-khau-dien-thoai-4.jpg" alt="Alternate Text" />
+
+							<h3>5. Kích hoạt xác thực 2 yếu tố (2FA)</h3>
+							<p>Để tăng cường bảo mật tài khoản, chúng tôi khuyến nghị bạn bật tính năng xác thực 2 yếu tố. Khi bật tính năng này, mỗi lần đăng nhập sẽ yêu cầu bạn nhập mã xác thực được gửi qua điện thoại hoặc email.</p>
+							<img src="/images/Posts/cach-lay-lai-mat-khau-vneid-03.jpg" alt="Alternate Text" />
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div class="AccountHistory" id="AccountHistory">
+				<section class="Section_1">
+					<div class="Container">
+						<div class="Title">
+							<h2>Lịch sử mua hàng</h2>
+						</div>
+						<ul>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/ProductDetail/AIR FORCE 1 07.jpg" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Nike Air Force 1 '07'</h3>
+										<p>Màu sắc: White</p>
+										<p>Kích thước: 43</p>
+										<h3>Ngày thanh toán:</h3>
+									</div>
+
+									<div class="Right">
+										<h3>2.500.000 VND</h3>
+										<h3>Số lượng: 4</h3>
+										<h3>Tổng: 10.000.000</h3>
+										<h3>20/03/2025</h3>
+									</div>	
+								</div>
+							</li>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/ProductDetail/AIR FORCE 1 07.jpg" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Nike Air Force 1 '07'</h3>
+										<p>Màu sắc: White</p>
+										<p>Kích thước: 43</p>
+										<h3>Ngày thanh toán:</h3>
+									</div>
+
+									<div class="Right">
+										<h3>2.500.000 VND</h3>
+										<h3>Số lượng: 4</h3>
+										<h3>Tổng: 10.000.000</h3>
+										<h3>20/03/2025</h3>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/ProductDetail/AIR FORCE 1 07.jpg" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Nike Air Force 1 '07'</h3>
+										<p>Màu sắc: White</p>
+										<p>Kích thước: 43</p>
+										<h3>Ngày thanh toán:</h3>
+									</div>
+
+									<div class="Right">
+										<h3>2.500.000 VND</h3>
+										<h3>Số lượng: 4</h3>
+										<h3>Tổng: 10.000.000</h3>
+										<h3>20/03/2025</h3>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/ProductDetail/AIR FORCE 1 07.jpg" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Nike Air Force 1 '07'</h3>
+										<p>Màu sắc: White</p>
+										<p>Kích thước: 43</p>
+										<h3>Ngày thanh toán:</h3>
+									</div>
+
+									<div class="Right">
+										<h3>2.500.000 VND</h3>
+										<h3>Số lượng: 4</h3>
+										<h3>Tổng: 10.000.000</h3>
+										<h3>20/03/2025</h3>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/ProductDetail/AIR FORCE 1 07.jpg" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Nike Air Force 1 '07'</h3>
+										<p>Màu sắc: White</p>
+										<p>Kích thước: 43</p>
+										<h3>Ngày thanh toán:</h3>
+									</div>
+
+									<div class="Right">
+										<h3>2.500.000 VND</h3>
+										<h3>Số lượng: 4</h3>
+										<h3>Tổng: 10.000.000</h3>
+										<h3>20/03/2025</h3>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="Title">
+							<h2>Lịch sử đăng nhập</h2>
+						</div>
+						<ul>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/icon/fbsquare.png" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Chrome</h3>
+										<h3>TP Hồ Chí Minh</h3>
+										<h3>20/03/2025</h3>
+									</div>
+
+									<div class="Right">
+										<a href=""><i class="Check fa-solid fa-check"></i></a>
+										<a href=""><i class="Mark fa-solid fa-xmark"></i></a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/icon/fbsquare.png" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Chrome</h3>
+										<h3>TP Hồ Chí Minh</h3>
+										<h3>20/03/2025</h3>
+									</div>
+
+									<div class="Right">
+										<a href=""><i class="Check fa-solid fa-check"></i></a>
+										<a href=""><i class="Mark fa-solid fa-xmark"></i></a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/icon/fbsquare.png" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Chrome</h3>
+										<h3>TP Hồ Chí Minh</h3>
+										<h3>20/03/2025</h3>
+									</div>
+
+									<div class="Right">
+										<a href=""><i class="Check fa-solid fa-check"></i></a>
+										<a href=""><i class="Mark fa-solid fa-xmark"></i></a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/icon/fbsquare.png" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Chrome</h3>
+										<h3>TP Hồ Chí Minh</h3>
+										<h3>20/03/2025</h3>
+									</div>
+
+									<div class="Right">
+										<a href=""><i class="Check fa-solid fa-check"></i></a>
+										<a href=""><i class="Mark fa-solid fa-xmark"></i></a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="Contain_img">
+									<img src="/images/icon/fbsquare.png" alt="">
+								</div>
+								<div class="Content">
+									<div class="Left">
+										<h3>Chrome</h3>
+										<h3>TP Hồ Chí Minh</h3>
+										<h3>20/03/2025</h3>
+									</div>
+
+									<div class="Right">
+										<a href=""><i class="Check fa-solid fa-check"></i></a>
+										<a href=""><i class="Mark fa-solid fa-xmark"></i></a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+
+			<div class="AccountSecurity" id="AccountSecurity">
+				<section class="Section">
+					<div class="Container">
+						<div class="Content">
+							<h3>Dữ liệu và quyền riêng tư</h3>
+							<p>Những chế độ bảo vệ quyền riêng tư chính trên trang này giúp bạn chọn dữ liệu sẽ lưu vào tài khoản, quảng cáo bạn nhìn thấy, thông tin bạn chia sẻ với người khác và nhiều nội dung khác</p>
+						</div>
+					</div>
+				</section>
+				<section class="Section_1">
+					<div class="Container">
+						<div class="Title">
+							<h2>Bảo mật tài khoản</h2>
+						</div>
+						<ul>
+							<li><p>Mật khẩu</p><span>********<a href="" type="button"><i>Thay đổi</i></a></span></li>
+							<li><p>Xác thực hai yếu tố (2FA)</p><span>Đang tắt<a href="" type="button"><i>Bật ngay</i></a></span></li>
+							<li><p>Thiết bị đã đăng nhập</p><span><a href="" type="button"><i>Xem danh sách</i></a></span></li>
+							<li><p>Hoạt động tài khoản</p><span><a href="" type="button"><i>Kiểm tra</i></a></span></li>
+						</ul>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="Title">
+							<h2>Quyền riêng tư</h2>
+						</div>
+						<ul>
+							<li><p>Cho phép theo dõi vị trí</p><span>Đang tắt<a href="" type="button"><i>Cài đặt</i></a></span></li>
+							<li><p>Quản lý quyền truy cập ứng dụng</p><span><a href="" type="button"><i>Xem chi tiết</i></a></span></li>
+							<li><p>Quản lý dữ liệu cá nhân</p><span><a href="" type="button"><i>Xem và chỉnh sửa</i></a></span></li>
+							<li><p>Xóa tài khoản</p><span><a href="" type="button"><i>Xóa ngay</i></a></span></li>
+						</ul>
+					</div>
+				</section>
+
+				<section class="Section_3">
+					<div class="Container">
+						<div class="Title">
+							<h2>Quản lý dữ liệu</h2>
+						</div>
+						<ul>
+							<li><p>Tải xuống dữ liệu tài khoản</p><span><a href="" type="button"><i>Tải ngay</i></a></span></li>
+							<li><p>Xóa lịch sử tìm kiếm</p><span><a href="" type="button"><i>Xóa ngay</i></a></span></li>
+							<li><p>Quản lý quyền lưu trữ dữ liệu</p><span><a href="" type="button"><i>Chỉnh sửa</i></a></span></li>
+						</ul>
+					</div>
+				</section>
+			</div>
+
+			<div class="AccountPayment" id="AccountPayment">
+				<section class="Section_1">
+					<div class="Container">
+						<div class="Title">
+							<h2>Phương thức thanh toán</h2>
+						</div>
+						<ul>
+							<li><p>Thẻ tín dụng/Ghi nợ</p><span>Visa **** **** 1234 <a href="" type="button"><i>Chỉnh sửa</i></a></span></li>
+							<li><p>Ví điện tử</p><span>MoMo <a href="" type="button"><i>Liên kết</i></a></span></li>
+							<li><p>Chuyển khoản ngân hàng</p><span><a href="" type="button"><i>Thêm tài khoản</i></a></span></li>
+						</ul>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="Title">
+							<h2>Lịch sử giao dịch</h2>
+						</div>
+						<ul>
+							<li><p>Giao dịch #123456</p><span>1.200.000 VND - 20/01/2025 <a href="" type="button"><i>Xem chi tiết</i></a></span></li>
+							<li><p>Giao dịch #123457</p><span>750.000 VND - 18/01/2025 <a href="" type="button"><i>Xem chi tiết</i></a></span></li>
+							<li><p>Giao dịch #123458</p><span>500.000 VND - 10/01/2025 <a href="" type="button"><i>Xem chi tiết</i></a></span></li>
+						</ul>
+					</div>
+				</section>
+			</div>
+
+			<div class="AccountFAQ" id="AccountFAQ">
+				<section class="Section_1">
+					<div class="Container">
+						<div class="Title">
+							<h2>Câu hỏi thường gặp</h2>
+						</div>
+						<ul>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Làm thế nào để thay đổi mật khẩu?</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>Vào phần <strong>Bảo mật tài khoản</strong>, chọn "Thay đổi mật khẩu", nhập mật khẩu mới và xác nhận.</p>
+								</div>
+							</li>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Tôi có thể thay đổi email đăng ký không?</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>Có, bạn có thể thay đổi email trong phần <strong>Thông tin tài khoản</strong>. Lưu ý rằng bạn sẽ cần xác nhận email mới.</p>
+								</div>
+							</li>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Làm sao để kiểm tra lịch sử thanh toán?</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>Truy cập phần <strong>Thanh toán & Lịch sử giao dịch</strong> để xem tất cả các giao dịch trước đây.</p>
+								</div>
+							</li>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Làm thế nào để xóa tài khoản của tôi?</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>Để xóa tài khoản, vào phần <strong>Quyền riêng tư</strong>, chọn "Xóa tài khoản" và làm theo hướng dẫn.</p>
+								</div>
+							</li>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Tôi có thể hủy đơn hàng sau khi đặt không?</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>Bạn có thể hủy đơn hàng trong vòng 24 giờ sau khi đặt hàng bằng cách vào phần <strong>Đơn hàng của tôi</strong> và chọn "Hủy đơn hàng".</p>
+								</div>
+							</li>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Làm sao để theo dõi đơn hàng của tôi?</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>Bạn có thể theo dõi đơn hàng trong phần <strong>Đơn hàng của tôi</strong>. Chúng tôi cũng sẽ gửi email cập nhật tình trạng đơn hàng.</p>
+								</div>
+							</li>
+							<li>
+								<div class="TitleItems" onclick="toggleItems(this)">
+									<h3>Chính sách đổi trả như thế nào?</h3>
+									<i class="UpItems fa-solid fa-angle-up"></i>
+									<i class="DownItems fa-solid fa-angle-down"></i>
+								</div>
+								<div class="ContentItems">
+									<p>Bạn có thể đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng nếu sản phẩm còn nguyên tem, chưa qua sử dụng.</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="Title">
+							<h2>Liên hệ hỗ trợ</h2>
+						</div>
+						<h3>Nếu bạn cần thêm trợ giúp, vui lòng liên hệ với bộ phận hỗ trợ khách hàng qua:</h3>
+						<ul>
+							<li><p>Email: <a href="mailto:SWminh0918195615@gmail.com">SWminh0918195615@gmail.com</a></p></li>
+							<li><p>Hotline: <a href="tel:0934190061">0934.1900.61</a></p></li>
+							<li><p>Live Chat: <a href="">Bắt đầu chat</a></p></li>
+						</ul>
+					</div>
+				</section>
+			</div>
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<NikeStore.Models.Product>
+
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="Homepage">
+    <section class="Section_1">
+        <a href="/Product/Index"><img src="/images/Banner/nike-just-do-it.jpg" alt="Alternate Text" /></a>
+    </section>
+
+   <section class="Section_2">
+        <img src="/images/Banner/img_sc2.png" alt="Alternate Text" />
+        <button><a href="/Product/Index">Xem ngay</a></button>
+   </section>
+
+   <section class="Section_3 row">
+        @foreach (var product in Model.GroupBy(p => p.ProductCategory).Select(g => g.Key))
+        {
+            <a href="/Category?Slug=@product.Slug" class="Components col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4">
+                <div class="Contain_img">
+                    <img src="/media/categories/@product.ImageUrl" alt="@product.CategoryName" />
+                </div>
+                <div class="Content">
+                    <h1><strong>@product.CategoryName</strong></h1>
+                    <h2>@Html.Raw(product.Description)</h2>
+                </div>
+            </a>
+        }
+   </section>
+
+    <div class="Title">
+        <h2>Sản phẩm nổi bật</h2>
+    </div>
+   <section class="Section_4 row">
+        @foreach (var product in Model)
+        {
+            <a asp-action="Details" asp-controller="Product" asp-route-Id="@product.ProductID" class="Components col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4">
+                <div class="Contain_img">
+                    <img src="@(product.Images.FirstOrDefault()?.ImageUrl ?? "default.jpg")" alt="@product.Name" />
+                </div>
+                <div class="Content">
+                    <h1>@product.Name</h1>
+                    <h2>@product.ProductCategory?.CategoryName</h2>
+                    <h1>@String.Format("{0:N0} VND", product.Price)</h1>
+                </div>
+            </a>
+        }
+   </section>
+
+   <section class="Section_5">
+        <div class="Contain_img">
+            <a href="/Promotion/Index"><img src="/images/Section5/image_sc5.png" alt="Promotion Banner" /></a>
+        </div>
+   </section>
+
+    <div class="Title">
+        <h2>Dịch vụ</h2>
+    </div>
+    <section class="Section_6">
+        <div class="Contain row">
+            <vc:service></vc:service>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<NikeStore.Models.Service>
+
+@{
+	ViewData["Title"] = "Danh sách dịch vụ";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="ProductManager Manager" id="ProductManager">
+			<div class="ContentManager">
+				<section class="Section_1">
+					<div class="Container">
+						<h2>Danh sách dịch vụ</h2>
+					</div>
+				</section>
+
+				<section class="Section_3">
+					<div class="Container">
+						<table id="myTable">
+							<thead>
+								<tr>
+									<th>STT</th>
+									<th>Chọn</th>
+									<th>Ảnh</th>
+									<th>Tên dịch vụ</th>
+									<th>Mô tả</th>
+									<th>Dịch vụ kèm theo</th>
+									<th>Ngày tạo</th>
+									<th>Sửa</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach(var service in Model) {
+									<tr>
+										<td>@service.ServiceID</td>
+										<td><input type="checkbox"></td>
+										<td><img src="@service.ImageUrl" alt="@service.Name"></td>
+										<td>@service.Name</td>
+										<td>@(service.Description.Length > 20 ? service.Description.Substring(0, 20) + "..." : service.Description)</td>
+										<td>@service.ServiceTypes.Count</td>
+										<td>@service.CreatedAt</td>
+										<td><a asp-action="Edit" asp-controller="Service" asp-route-Id="@service.ServiceID"><i class="fa-solid fa-edit"></i></a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>

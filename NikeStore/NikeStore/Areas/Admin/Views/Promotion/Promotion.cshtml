@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Promotion>
+
+@{
+	ViewData["Title"] = "Danh sách khuyến mãi";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="ProductManager Manager" id="ProductManager">
+			<div class="ContentManager">
+				<section class="Section_1">
+					<div class="Container">
+						<h2>Danh sách khuyến mãi</h2>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="LeftFilter">
+							<a class="AddIcon" href="@Url.Action("Add", "Promotion", new { area = "Admin" })">
+								<i class="fa-solid fa-plus"></i>
+								<span>Thêm</span>
+							</a>
+						</div>
+					</div>
+				</section>
+
+				<section class="Section_3">
+					<div class="Container">
+						<table id="myTable">
+							<thead>
+								<tr>
+									<th>STT</th>
+									<th>Ưu đãi</th>
+									<th>Ngày bắt đầu</th>
+									<th>Ngày kết thúc</th>
+									<th>Sửa</th>
+									<th>Xóa</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var promotion in Model)
+								{
+									<tr>
+										<td>@promotion.Id</td>
+										<td>@promotion.Discount (%)</td>
+										<td>@promotion.StartDate</td>
+										<td>@promotion.EndDate</td>
+										<td><a asp-action="Edit" asp-controller="Role" asp-route-Id="@promotion.Id"><i class="fa-solid fa-edit"></i></a></td>
+										<td><a asp-action="Delete" asp-controller="Role" asp-route-Id="@promotion.Id"><i class="fa-solid fa-trash"></i></a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>

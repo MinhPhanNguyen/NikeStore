@@ -1,0 +1,55 @@
+﻿@font-face {
+    font-family: "Helvetica Now Text Medium";
+    src: url('/fonts/HelveticaNowText-Medium.woff2') format('woff2'), url('/fonts/HelveticaNowText-Medium.woff') format('woff'), url('/fonts/HelveticaNowText-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    scrollbar-width: thin;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Now Text Medium", Helvetica, Arial, sans-serif;
+    transition: all 0.2s ease-in-out;
+}
+
+body {
+    font-size:20px;
+    font-family: "Helvetica Now Text Medium", Helvetica, Arial, sans-serif;
+    position: relative;
+    background-color: var(--background-color);
+    max-width: 100%;
+    height: auto;
+}
+
+ul, a, i {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 1em;
+}
+
+.swal-title-small {
+    font-size: 16px !important;
+}
+
+.swal-popup-small {
+    font-size: 14px !important;
+}

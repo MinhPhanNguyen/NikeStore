@@ -1,0 +1,107 @@
+﻿@{
+	ViewData["Title"] = "Dịch vụ";
+}
+
+<div class="ServicePage">
+	<div class="Container">
+		<section class="Section_1">
+			<img src="/images/Banner/WarrantyBanner.png" alt="Alternate Text" />
+
+			<div class="Content">
+				<h2>CHÍNH SÁCH BẢO HÀNH</h2>
+				<p>Tất cả các giày Nike mua mới đều sẽ có chế độ bảo hành trong khoản thời gian nhất định bên cạnh các dịch vụ vệ sinh giày. Thông tin chi tiết về chế độ bảo hành được hiển thị bên dưới.</p>
+			</div>
+		</section>
+
+		<div class="TitleSc2">
+			<h2>CHI TIẾT CHÍNH SÁCH BẢO HÀNH</h2>
+		</div>
+
+		<section class="Section_2">
+			<ul>
+				<li>
+					<div class="Title" onclick="toggleWaranty(this)">
+						<h3>CÁC CHI TIẾT KHÔNG ĐƯỢC BẢO HÀNH</h3>
+						<i class="AddService fa-solid fa-plus"></i>
+						<i class="RemoveService fa-solid fa-minus"></i>
+					</div>
+
+					<div class="Content">
+						<p>
+							- Các vấn đề gây ra bởi sử dụng không đúng cách (chạy trên địa hình không phù hợp, sử dụng sai mục đích). <br />
+							- Hư hỏng do tác động bên ngoài (vật sắc nhọn, hóa chất, nhiệt độ quá cao). <br />
+							- Mòn đế, phai màu, hoặc hao mòn tự nhiên do thời gian và tần suất sử dụng. <br />
+							- Các lỗi do bảo quản không đúng cách (để giày ở nơi ẩm ướt, nhiệt độ cao hoặc tiếp xúc trực tiếp với ánh nắng). <br />
+							- Các trường hợp đã tự ý sửa chữa hoặc thay đổi kết cấu giày mà không thông qua trung tâm bảo hành. <br />
+						</p>
+					</div>
+				</li>
+
+				<li>
+					<div class="Title" onclick="toggleWaranty(this)">
+						<h3>PHẠM VI ÁP DỤNG</h3>
+						<i class="AddService fa-solid fa-plus"></i>
+						<i class="RemoveService fa-solid fa-minus"></i>
+					</div>
+
+					<div class="Content">
+						<p>
+							- Bảo hành áp dụng cho sản phẩm chính hãng của thương hiệu, còn trong thời gian bảo hành và có hóa đơn mua hàng hợp lệ.<br />
+							- Áp dụng cho các sản phẩm được mua tại các cửa hàng chính thức hoặc đại lý ủy quyền.<br />
+							- Không áp dụng cho các sản phẩm khuyến mãi, hàng tặng kèm, hoặc đã qua sử dụng.<br />
+						</p>
+					</div>
+				</li>
+
+				<li>
+					<div class="Title" onclick="toggleWaranty(this)">
+						<h3>THỜI GIAN BẢO HÀNH</h3>
+						<i class="AddService fa-solid fa-plus"></i>
+						<i class="RemoveService fa-solid fa-minus"></i>
+					</div>
+
+					<div class="Content">
+						<p>
+							- Thời gian bảo hành tiêu chuẩn: 3-12 tháng kể từ ngày mua hàng, tùy thuộc vào dòng sản phẩm.<br />
+							- Đối với lỗi sản xuất: Tiến hành sửa chữa hoặc thay thế trong 5-7 ngày làm việc (không tính thời gian vận chuyển).<br />
+							- Trong trường hợp cần thay thế linh kiện đặc biệt, thời gian có thể kéo dài nhưng sẽ được thông báo trước.<br />
+						</p>
+					</div>
+				</li>
+
+				<li>
+					<div class="Title" onclick="toggleWaranty(this)">
+						<h3>CÁC CHI TIẾT ĐƯỢC BẢO HÀNH</h3>
+						<i class="AddService fa-solid fa-plus"></i>
+						<i class="RemoveService fa-solid fa-minus"></i>
+					</div>
+
+					<div class="Content">
+						<p>
+							- Keo dán và đường may: Nếu bong keo hoặc bung đường chỉ do lỗi sản xuất.<br />
+							- Đế giày: Nứt hoặc gãy đế do lỗi kỹ thuật (không áp dụng cho mòn đế do sử dụng thông thường).<br />
+							- Khuy hoặc phụ kiện đi kèm: Bong, rơi hoặc hỏng do lỗi sản xuất.<br />
+							- Lớp lót bên trong: Nếu xảy ra vấn đề như rách hoặc lỗi từ nhà sản xuất.<br />
+						</p>
+					</div>
+				</li>
+
+				<li>
+					<div class="Title" onclick="toggleWaranty(this)">
+						<h3>CÁC CHI TIẾT CÓ ĐIỀU KIỆN BẢO HÀNH ĐẶC BIỆT</h3>
+						<i class="AddService fa-solid fa-plus"></i>
+						<i class="RemoveService fa-solid fa-minus"></i>
+					</div>
+
+					<div class="Content">
+						<p>
+							- Da giày: Chỉ bảo hành đối với các lỗi bong tróc, phồng rộp da do sản xuất, không áp dụng cho các vết trầy xước do sử dụng.<br />
+							- Hệ thống chống trượt hoặc hỗ trợ đặc biệt (nếu có): Bảo hành nếu chức năng không hoạt động đúng như thiết kế ban đầu.<br />
+							- Lớp phủ chống thấm nước: Bảo hành trong trường hợp lớp phủ mất tác dụng trong điều kiện thông thường (không áp dụng cho các tác động từ hóa chất hoặc mài mòn mạnh).<br />
+						</p>
+					</div>
+				</li>
+			</ul>
+		</section>
+	</div>
+</div>

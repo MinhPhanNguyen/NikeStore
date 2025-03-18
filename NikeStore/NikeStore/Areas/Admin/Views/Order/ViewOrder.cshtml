@@ -1,0 +1,110 @@
+﻿@model IEnumerable<NikeStore.Models.OrderDetail>
+
+@{
+	ViewData["Title"] = "Chi tiết đơn hàng";
+
+	decimal total = 0;
+	decimal subTotal = 0;
+	decimal finalPrice = 0;
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="OrderManager Manager" id="OrderManager">
+			<div class="ContentManager">
+				<section class="Section_1">
+					<div class="Container">
+						<h2>Chi tiết đơn hàng</h2>
+					</div>
+					<a class="Backto" asp-action="Order" asp-controller="Order">Quay lại<i class="fa-solid fa-angle-right"></i></a>
+				</section>
+
+				<section class="Section_3">
+					<div class="Container">
+						<table id="myTable">
+							<thead>
+								<tr>
+									<th># </th>
+									<th>Mã hóa đơn </th>
+									<th>Tên khách hàng </th>
+									<th>Tên sản phẩm</th>
+									<th>Loại</th>
+									<th>Kích thước</th>
+									<th>Màu sắc</th>
+									<th>Số lượng</th>
+									<th>Tổng tiền</th>
+									<th>Giảm giá</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									subTotal = item.Quantity * item.Price;
+									total += subTotal;
+									finalPrice = total - (total * (decimal)item.Product?.Promotion?.Discount / 100);
+									<tr>
+										<input  type="hidden" asp-for="@item.OrderCode" class="getId"/>
+										<td>#</td>
+										<td>@item.OrderCode</td>
+										<td>@item.UserName</td>
+										<td>@item.Product?.Name</td>
+										<td>@item.Product?.ProductType?.Type</td>
+										<td>@item.Product?.ProductSize?.Size</td>
+										<td>@item.Product?.ProductColor?.Color</td>
+										<td>@item.Quantity</td>
+										<td>@item.Price</td>
+										<td>@item.Product?.Promotion?.Discount %</td>
+									</tr>
+								}
+
+								<tr>
+									<th colspan="7" style="text-align:right;">Thành tiền:</th>
+									<td>@finalPrice.ToString("C")</td>
+									<td colspan="2">
+										<select class="form-control select-update-order">
+											<option value="">-- Chọn trạng thái --</option>
+											<option style="color: red; font-weight: bold;" value = "1">Chưa duyệt</option>
+											<option style="color: green; font-weight: bold;" value = "0">Thành công</option>
+										</select>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script>
+		$(document).ready(function (){
+			$('.select-update-order').change(function (){
+				var status = $(this).val();
+				var ordercode = $('.getId').val();
+
+				$.ajax({
+					type: "POST",
+					url: "@Url.Action("UpdateOrder")",
+					data: {status: status, ordercode: ordercode},
+
+					success: function(result) {
+						if(result) {
+							Swal.fire({
+								icon: 'success',
+								title: 'Update successful',
+								showConfirmButton: false,
+								timer: 1500,
+								customClass: {
+								title: 'swal-title-small',
+								popup: 'swal-popup-small'
+							}
+							});
+						} 
+					}
+				})
+			})
+		})
+	</script>
+}

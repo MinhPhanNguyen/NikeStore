@@ -1,0 +1,13 @@
+﻿@if (TempData.Peek("success") != null)
+{
+	<div class="alert alert-success notification">
+		@TempData["success"]
+	</div>
+}
+
+@if (TempData.Peek("error") != null)
+{
+	<div class="alert alert-danger notification">
+		@TempData["error"]
+	</div>
+}

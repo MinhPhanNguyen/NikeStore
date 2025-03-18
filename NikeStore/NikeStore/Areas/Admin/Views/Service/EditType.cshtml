@@ -1,0 +1,59 @@
+﻿@model ServiceType
+
+@{
+	ViewData["Title"] = "Sửa dịch vụ phụ";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="AddTable Manager">
+			<div class="Container">
+				<div class="Title">
+					<h3>Sửa dịch vụ phụ
+						<a class="Backto" asp-action="ServiceType" asp-controller="ServiceType">Quay lại<i class="fa-solid fa-angle-right"></i></a>
+					</h3>
+				</div>
+
+				<form asp-action="EditType" enctype="multipart/form-data">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group">
+						<label for="Name">Tên dịch vụ:</label>
+						<input asp-for="Name" required type="text" class="form-control" />
+						<span asp-validation-for="Name" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="Description">Mô tả:</label>
+						<textarea asp-for="Description" id="Description" type="text" required class="form-control" ></textarea>
+						<span asp-validation-for="Description" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="ServiceID">Dịch vụ chính:</label>
+						<select asp-for="ServiceID" class="form-control" asp-items="ViewBag.Service">
+							<option value="">-- Chọn dịch vụ --</option>
+						</select>
+						<span asp-validation-for="ServiceID" class="text-danger"></span>
+					</div>
+
+					<div class="btnAddTable form-group">
+						<button>Sửa</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.PartialAsync("_ValidationScriptsPartial");
+	}
+
+
+	<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+	<script>
+		CKEDITOR.replace('Description');
+	</script>
+}

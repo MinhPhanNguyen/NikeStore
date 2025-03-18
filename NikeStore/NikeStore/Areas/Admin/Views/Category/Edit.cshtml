@@ -1,0 +1,71 @@
+﻿@model ProductCategory
+
+@{
+	ViewData["Title"] = "Sửa danh mục";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="AddTable Manager">
+			<div class="Container">
+				<div class="Title">
+					<h3>
+						Sửa danh mục
+						<a class="Backto" asp-action="Category" asp-controller="Category">Quay lại<i class="fa-solid fa-angle-right"></i></a>
+					</h3>
+				</div>
+
+				<form asp-action="Edit" enctype="multipart/form-data">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group">
+						<label for="Name">Tên danh mục:</label>
+						<input asp-for="CategoryName" type="text" class="form-control" />
+						<span asp-validation-for="CategoryName" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="Description">Mô tả:</label>
+						<textarea asp-for="Description" type="text" id="Description" class="form-control"></textarea>
+						<span asp-validation-for="Description" class="text-danger"></span>
+					</div>
+
+					@if (!string.IsNullOrEmpty(Model.ImageUrl))
+					{
+						<div class="form-group">
+							<label>Ảnh hiện tại:</label>
+							<div>
+								<img id="currentImage" src="/media/categories/@Model.ImageUrl" alt="Ảnh hiện tại" style="border-radius: 0.2em; margin: 2em 0; display: flex; gap: 10px; width: 200px; height: auto;" />
+							</div>
+						</div>
+					}
+
+					<input type="hidden" asp-for="ImageUrl" />
+
+					<div class="form-group">
+						<label for="ImageUploads">Ảnh:</label>
+						<input asp-for="ImageUploads" type="file" id="imageUploadInput" class="form-control" onchange="previewImages(event)" />
+						<span asp-validation-for="ImageUploads" class="text-danger"></span>
+					</div>
+						
+					<div id="imagePreviewContainer" style="margin: 2em 0; display: flex; gap: 10px;"></div>
+
+					<div class="btnAddTable form-group">
+						<button>Sửa</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.PartialAsync("_ValidationScriptsPartial");
+	}
+
+	<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+	<script>
+		CKEDITOR.replace('Description');
+	</script>
+}

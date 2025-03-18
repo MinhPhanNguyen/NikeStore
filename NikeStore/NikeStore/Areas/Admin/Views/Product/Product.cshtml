@@ -1,0 +1,171 @@
+﻿@model IEnumerable<NikeStore.Models.Product>
+
+@{
+	ViewData["Title"] = "Danh sách sản phẩm";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="ProductManager Manager" id="ProductManager">
+			<div class="ContentManager">
+				<section class="Section_1">
+					<div class="Container">
+						<h2>Danh sách sản phẩm</h2>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="LeftFilter">
+							<a class="AddIcon" href="@Url.Action("Add", "Product", new { area = "Admin" })">
+								<i class="fa-solid fa-plus"></i>
+								<span>Thêm</span>
+							</a>
+						</div>
+
+						<div class="RightFilter">
+							<div class="FilterProduct">
+								<div class="Show Filter" onclick="toggleFilter(this.closest('.FilterProduct'))">
+									<i class="fa-solid fa-filter"></i>
+									<span>Hiện bộ lọc</span>
+								</div>
+								<div class="Hide Filter" onclick="toggleFilter(this.closest('.FilterProduct'))">
+									<i class="fa-solid fa-filter"></i>
+									<span>Ẩn bộ lọc</span>
+								</div>
+								<div class="FilterManager">
+									<div class="TypeProduct">
+										<h3>Sắp xếp theo:</h3>
+										<select>
+											<option value="default">Mặc định</option>
+											<option value="newest">Mới nhất</option>
+											<option value="oldest">Cũ nhất</option>
+											<option value="best_seller">Bán chạy nhất</option>
+											<option value="price_low_high">Giá: thấp - cao</option>
+											<option value="price_high_low">Giá: cao - thấp</option>
+											<option value="stock">Tồn kho</option>
+											<option value="rating">Đánh giá cao nhất</option>
+										</select>
+									</div>
+
+									<div class="TypeProduct">
+										<h3>Giá:</h3>
+										<input type="range" id="priceRange" min="1000000" max="20000000" step="100000" value="10000000" oninput="updatePrice()">
+										<p><span id="priceValue">10.000.000</span> VNĐ</p>
+									</div>
+
+									<div class="TypeProduct">
+										<h3>Bộ sưu tập Nike:</h3>
+										<select>
+											<option value="all">Tất cả</option>
+											@foreach(var category in Model){
+												<option value="@category.Slug">@category.Name</option>
+											}
+										</select>
+									</div>
+
+									<div class="TypeProduct">
+										<h3>Loại sản phẩm:</h3>
+										<select>
+											<option value="all">Tất cả</option>
+											@foreach (var type in Model)
+											{
+												<option value="@type.ProductType?.Type">@type.ProductType?.Type</option>
+											}
+										</select>
+									</div>
+
+									<div class="TypeProduct">
+										<h3>Kích thước:</h3>
+										<select>
+											<option value="all">Tất cả</option>
+											@foreach (var size in Model)
+											{
+												<option value="@size.ProductSize?.Size">@size.ProductSize?.Size</option>
+											}
+										</select>
+									</div>
+
+									<div class="TypeProduct">
+										<h3>Màu sắc:</h3>
+										<select>
+											<option value="all">Tất cả</option>
+											@foreach (var color in Model)
+											{
+												<option value="@color.ProductColor?.Color">@color.ProductColor?.Color</option>
+											}
+										</select>
+									</div>
+
+									<div class="TypeProduct">
+										<h3>Giới tính:</h3>
+										<select>
+											<option value="all">Tất cả</option>
+											@foreach (var gender in Model)
+											{
+												<option value="@gender.ProductGender?.GenderName">@gender.ProductGender?.GenderName</option>
+											}
+										</select>
+									</div>
+
+									<div class="btn_group">
+										<button class="filter-btn">Lọc</button>
+										<button class="reset-btn">Xóa bộ lọc</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="Section_3">
+					<div class="Container">
+						<table id="myTable">
+							<thead>
+								<tr>
+									<th>Chọn</th>
+									<th>Ảnh</th>
+									<th>Tên sản phẩm</th>
+									<th>Số lượng</th>
+									<th>Đã bán</th>
+									<th>Slug</th>
+									<th>Giá</th>
+									<th>Màu sắc</th>
+									<th>Kích thước</th>
+									<th>Loại</th>
+									<th>Giới tính</th>
+									<th>Bộ sưu tập</th>
+									<th>Khuyến mãi</th>
+									<th>Sửa</th>
+									<th>Xóa</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var product in Model)
+								{
+									<tr>
+										<td><input type="checkbox"></td>
+										<td><img src="@(product.Images.FirstOrDefault()?.ImageUrl ?? "default.jpg")" alt="@product.Name"></td>
+										<td>@product.Name</td>
+										<td><b>@product.Quantity</b><a asp-controller="Product" asp-action="AddQuantity" asp-route-Id="@product.ProductID" style="font-style:italic; color: dodgerblue; font-size: 0.9em;">Thêm số lượng</a></td>
+										<td><b>@product.Sold</b></td>
+										<td>@product.Slug</td>
+										<td>@String.Format("{0:N0} VND", product.Price)</td>
+										<td>@product.ProductColor?.Color</td>
+										<td>@product.ProductSize?.Size</td>
+										<td>@product.ProductType?.Type</td>
+										<td>@product.ProductGender?.GenderName</td>
+										<td>@product.ProductCategory?.CategoryName</td>
+										<td>@product.Promotion?.Discount (%)</td>
+										<td><a asp-action="Edit" asp-controller="Product" asp-route-Id="@product.ProductID"><i class="fa-solid fa-edit"></i></a></td>
+										<td><a asp-action="Delete" asp-controller="Product" asp-route-Id="@product.ProductID"><i class="fa-solid fa-trash"></i></a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>

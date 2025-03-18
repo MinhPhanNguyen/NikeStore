@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Product>
+
+@{
+	ViewData["Title"] = "Danh sách sản phẩm";
+}﻿
+
+<div class="ProductListPage">
+	<section class="Section_1">
+		<div class="Title">
+			<h3>Shoes / Collections</h3>
+			<h2>None</h2>
+		</div>
+
+		<div class="Filter">
+			<ul> 
+				<li>
+					<span class="Show" onclick="showFilter()">Hiện bộ lọc</span>
+					<span class="Hide" onclick="hideFilter()">Ẩn bộ lọc</span>
+					<i class="fa-solid fa-sliders"></i>
+				</li>
+
+				<li onclick="toggleOption()">
+					<span>Sắp xếp</span>
+					<i class="UpSort fa-solid fa-angle-up"></i>
+					<i class="DownSort fa-solid fa-angle-down"></i>
+				</li>
+			</ul>
+		</div>
+
+		<div class="dropdown">
+			<ul>
+				<li>Phổ biến</li>
+				<li>Mới ra mắt</li>
+				<li>Giá: thấp - cao</li>
+				<li>Giá: cao - thấp</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="Section_2 row">
+		<div class="Category col-lg-3 col-md-12 col-sm-12 col-xs-12 mb-4">
+			<div class="FilterItems">
+				<div class="Title" onclick="toggleFilter(this)">
+					<h3>Giới Tính</h3>
+					<i class="DownFilter fa-solid fa-angle-down"></i>
+					<i class="UpFilter fa-solid fa-angle-up"></i>
+				</div>
+				<div class="Option">
+					<vc:product-gender></vc:product-gender>
+				</div>
+
+			</div>
+
+			<div class="FilterItems">
+				<div class="Title" onclick="toggleFilter(this)">
+					<h3>Giá</h3>
+					<i class="DownFilter fa-solid fa-angle-down"></i>
+					<i class="UpFilter fa-solid fa-angle-up"></i>
+				</div>
+				<div class="Option">
+					<input type="radio" id="option4" name="price" value="Dưới 1.500.000">
+					<label for="option4">Dưới 1.5tr</label><br>
+
+					<input type="radio" id="option5" name="price" value="1.5tr - 3.0tr">
+					<label for="option5">1.5tr - 3.0tr</label><br>
+
+					<input type="radio" id="option6" name="price" value="3.0tr - 5.0tr">
+					<label for="option6">3.0tr - 5.0tr</label><br>
+
+					<input type="radio" id="option7" name="price" value="Trên 5.0tr">
+					<label for="option7">Trên 5.0tr</label><br>
+				</div>
+			</div>
+
+			<div class="FilterItems">
+				<div class="Title" onclick="toggleFilter(this)">
+					<h3>Ưu Đãi & Khuyến Mãi</h3>
+					<i class="DownFilter fa-solid fa-angle-down"></i>
+					<i class="UpFilter fa-solid fa-angle-up"></i>
+				</div>
+				<div class="Option">
+					<input type="radio" id="option8" name="promotion" value="Giảm giá">
+					<label for="option8">Giảm giá</label><br>
+				</div>
+			</div>
+
+			<div class="FilterItems">
+				<div class="Title" onclick="toggleFilterColour(this)">
+					<h3>Màu Sắc</h3>
+					<i class="DownFilter fa-solid fa-angle-down"></i>
+					<i class="UpFilter fa-solid fa-angle-up"></i>
+				</div>
+				<div class="OptionColour">
+					<vc:product-color></vc:product-color>
+				</div>
+			</div>
+
+			<div class="FilterItems">
+				<div class="Title" onclick="toggleFilter(this)">
+					<h3>Chiều Cao Giày</h3>
+					<i class="DownFilter fa-solid fa-angle-down"></i>
+					<i class="UpFilter fa-solid fa-angle-up"></i>
+				</div>
+				<div class="Option">
+					<vc:product-type></vc:product-type>
+				</div>
+			</div>
+
+			<div class="FilterItems">
+				<div class="Title" onclick="toggleFilter(this)">
+					<h3>Bộ Sưu Tập</h3>
+					<i class="DownFilter fa-solid fa-angle-down"></i>
+					<i class="UpFilter fa-solid fa-angle-up"></i>
+				</div>
+				<div class="Option">
+					<vc:product-category></vc:product-category>
+				</div>
+			</div>
+		</div>
+
+		<div class="ProductList col-lg-9 col-md-12 col-sm-12 col-xs-12 mb-4 row">
+			@foreach (var product in Model)
+			{
+				<a asp-action="Details" asp-controller="Product" asp-route-Id="@product.ProductID" class="Components  col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4">
+					<div class="Contain_img">
+						<img src="@(product.Images.FirstOrDefault()?.ImageUrl ?? "default.jpg")" alt="@product.Name" />
+					</div>
+					<div class="Content">
+						<h1>@product.Name</h1>
+						<h2>@product.ProductCategory?.CategoryName</h2>
+						<h1>@String.Format("{0:N0} VND", product.Price)</h1>
+					</div>
+				</a>
+			}
+		</div>
+	</section>
+</div>

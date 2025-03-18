@@ -1,0 +1,181 @@
+﻿@model NikeStore.Models.Product
+
+@{
+	ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="ProductDetail">
+	<section class="Section_1 row">
+		<div class="Contain_img col-lg-7 col-md-12 col-sm-12 col-xs-12 mb-4 row">
+			<div class="ImgItems col-lg-2 col-md-2 col-sm-2 col-xs-2 mb-2">
+				@foreach (var img in Model.Images)
+				{
+					<img src="@img.ImageUrl" />
+				}
+			</div>
+
+			<div class="ImgDisplay col-lg-10 col-md-10 col-sm-12 col-xs-12">
+				<img src="@(Model.Images.FirstOrDefault()?.ImageUrl ?? "default.jpg")" alt="Alternate Text" id="displayedImage" />
+				<div class="PrevNext">
+					<button><i class="fa-solid fa-angle-left"></i></button>
+					<button><i class="fa-solid fa-angle-right"></i></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="Content  col-lg-5 col-md-12 col-sm-12 col-xs-12 mb-4">
+			<div class="Title">
+				<h2>@Model.Name</h2>
+				<h3>@Model.ProductCategory?.CategoryName</h3>
+				<span>@String.Format("{0:N0} VND", Model.Price)</span>
+			</div>
+
+			<div class="TypeOption">
+				<img src="/images/ProductDetail/type1.jpg" alt="Alternate Text" />
+				<img src="/images/ProductDetail/type2.jpg" alt="Alternate Text" />
+				<img src="/images/ProductDetail/type3.jpg" alt="Alternate Text" />
+				<img src="/images/ProductDetail/type4.jpg" alt="Alternate Text" />
+				<img src="/images/ProductDetail/type5.jpg" alt="Alternate Text" />
+			</div>
+
+			<div class="SizeOption">
+				<div class="SizeTitle">
+					<h3>Chọn Size</h3>
+					<span><i class="fa-brands fa-readme"></i> Hướng dẫn chọn Size</span>
+				</div>
+				<ul>
+					<vc:product-size></vc:product-size>
+				</ul>
+			</div>
+
+			<div class="btn">
+				@if (User.Identity.IsAuthenticated)
+				{
+					@if (Model.Quantity > 0)
+					{
+						<button class="button add-to-cart" data-product_id="@Model.ProductID">Thêm vào giỏ hàng</button>
+					}
+					else
+					{
+						<button class="button" disabled>Đã hết hàng</button>
+					}
+					<button class="button add-to-wishlist" data-product_id="@Model.ProductID">Yêu thích <i class="fa-regular fa-heart"></i></button>
+				}
+				else
+				{
+					<a class="button" asp-action="LogIn" asp-controller="Account">Vui lòng đăng nhập</a>
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="Section_2">
+		<div class="Container">
+			<div class="TitleDescription" onclick="toggleDescription(this)">
+				<h3>Mô tả sản phẩm</h3>
+				<i class="UpDes fa-solid fa-angle-down"></i>
+				<i class="DownDes fa-solid fa-angle-up"></i>
+			</div>
+
+			<div class="Content">
+				<p>@Html.Raw(Model.Description)</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="Section_3">
+		<div class="Container">
+			<div class="RateStatistic" onclick="toggleRate(this)">
+				<span>Đánh giá 4.9/5.0 (320)<i class="fa-solid fa-star"></i></span>
+				<i class="UpRate fa-solid fa-angle-down"></i>
+				<i class="DownRate fa-solid fa-angle-up"></i>
+			</div>
+
+			<div class="RateContent">
+				@* <vc:product-review></vc:product-review> *@
+			</div>
+		</div>
+	</section>
+</div>
+
+
+@section Scripts {
+	<script>
+		$(document).ready(function () {
+			$(".add-to-cart").click(function (event) {
+				event.preventDefault();
+				var productId = $(this).data("product_id");
+
+				$.ajax({
+					type: "POST",
+					url: "/Cart/Add",
+					data: { Id: productId },
+					success: function (result) {
+						if (result) {
+							Swal.fire({
+								icon: 'success',
+								title: 'Sản phẩm đã được thêm vào giỏ hàng!',
+								showConfirmButton: false,
+								timer: 1500
+							});
+						} else {
+							Swal.fire({
+								icon: 'error',
+								title: 'Thêm sản phẩm thất bại!',
+								text: 'Vui lòng thử lại sau.'
+							});
+						}
+					},
+					error: function () {
+						Swal.fire({
+							icon: 'error',
+							title: 'Lỗi hệ thống!',
+							text: 'Vui lòng thử lại sau.'
+						});
+					}
+				});
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			$(".add-to-wishlist").click(function (event) {
+				event.preventDefault();
+				var productId = $(this).data("product_id");
+
+				$.ajax({
+					type: "POST",
+					url: "/Product/AddToWishList",
+					contentType: "application/json",  
+					data: JSON.stringify({ Id: productId }), 
+					dataType: "json",
+					success: function (result) {
+						if (result.success) {
+							Swal.fire({
+								icon: 'success',
+								title: result.message,
+								showConfirmButton: false,
+								timer: 1500
+							});
+						} else {
+							Swal.fire({
+								icon: 'error',
+								title: 'Thêm sản phẩm thất bại!',
+								text: result.message
+							});
+						}
+					},
+					error: function (xhr) {
+						console.log("Lỗi chi tiết:", xhr.responseText);
+						Swal.fire({
+							icon: 'error',
+							title: 'Lỗi hệ thống!',
+							text: 'Vui lòng thử lại sau.'
+						});
+					}
+				});
+			});
+		});
+	</script>
+}

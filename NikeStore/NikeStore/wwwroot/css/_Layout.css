@@ -1,0 +1,718 @@
+﻿.LogOutIcon {
+    color: #810000;
+}
+
+.LogOutIcon:hover {
+    opacity: 0.6;
+}
+
+.Notification {
+    position: fixed;
+    top: 115px;
+    right: 2em;
+    z-index: 1000;
+}
+
+.Navbar {
+    width: 100%;
+    background-color: #f5f5f5;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s ease;
+}
+
+    .Navbar .Container {
+        max-width: 95vw;
+        display: flex;
+        margin: 0 auto;
+        height: 35px;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+.Navbar .Logo {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 100%;
+    left: 0;
+}
+
+    .Navbar .Logo img {
+        cursor: pointer;
+        height: 25px;
+        width: auto;
+        object-fit: cover;
+        filter: drop-shadow(rgba(0, 0, 0, 1) 0px 2px 8px);
+        margin-left: 1em;
+    }
+
+        .Navbar .Logo img:hover {
+            scale: 1.1;
+        }
+
+    .Navbar .Menu {
+        color: #212121;
+    }
+
+        .Navbar .Menu ul {
+            height: 35px;
+        }
+
+        .Navbar .Menu  li {
+            padding: 0 0.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .Navbar .Menu li a {
+                color: #2f2f2f;
+                font-size: 0.65em;
+                font-weight: bold;
+            }
+
+            .Navbar .Menu li a:hover {
+                opacity: 0.6
+            }
+
+header {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    transform: translateY(35px);
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+    header.scrolled {
+        transform: translateY(0);
+        background-color: white;
+        filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 2px 8px);
+    }
+
+        header.scrolled .Logo img {
+            filter: drop-shadow(rgba(0, 0, 0, 1) 0px 2px 8px);
+        }
+
+    header .Container {
+        display: flex;
+        max-width: 95vw;
+        margin: 0 auto;
+        height: 65px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    header .Logo {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        height: 100%;
+        left: 0;
+    }
+
+        header .Logo img {
+            cursor: pointer;
+            height: 25px;
+            width: auto;
+            object-fit: cover;
+            filter: drop-shadow(rgba(0, 0, 0, 1) 0px 2px 8px);
+            margin-left: 1em;
+        }
+
+            header .Logo img:hover {
+                scale: 1.1;
+            }
+
+    header .Menu {
+        color: #212121;
+    }
+
+        header .Menu .MenuItems ul {
+            height: 55px;
+        }
+
+        header .Menu .MenuItems li {
+            padding: 0 1em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            header .Menu .MenuItems li a {
+                color: #1e1e1e;
+                font-size: 0.85em;
+                position: relative;
+                font-weight: 700;
+            }
+
+                header .Menu .MenuItems li a::after {
+                    content: "";
+                    background: black;
+                    opacity: 0;
+                    position: absolute;
+                    bottom: -0.5em;
+                    left: 0;
+                    height: 2px;
+                    width: 0;
+                    transition: width 0.5s ease-in-out;
+                }
+
+                header .Menu .MenuItems li a:hover::after {
+                    opacity: 1;
+                    scale: 1.05;
+                    width: 100%;
+                }
+
+        header .Menu .dropdown-overlay {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        header .Menu .dropdown-menu {
+            display: block;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border: none;
+            height: auto;
+            background-color: unset;
+        }
+
+            header .Menu .dropdown-menu .dropdown {
+                width: 100%;
+                min-height: 35vh;
+                max-height: 70vh;
+                display: flex;
+                padding: 2em 10em;
+                justify-content: center;
+                opacity: 0;
+                pointer-events: none;
+                background-color: white;
+                position: fixed;
+                z-index: 1000;
+                top: 60px;
+                left: 0;
+            }
+
+                header .Menu .dropdown-menu .dropdown ul {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0 6em;
+                }
+
+                    header .Menu .dropdown-menu .dropdown ul li {
+                    }
+
+                        header .Menu .dropdown-menu .dropdown ul li h2 {
+                            font-size: 1.1em;
+                            margin-bottom: 1em;
+                            font-weight: bold;
+                        }
+
+                        header .Menu .dropdown-menu .dropdown ul li p, header .Menu .dropdown-menu .dropdown ul li a {
+                            font-size: 0.9em;
+                            margin-bottom: 0.5em;
+                            cursor: pointer;
+                            color: #818181;
+                        }
+
+                            header .Menu .dropdown-menu .dropdown ul li p:hover, header .Menu .dropdown-menu .dropdown ul li a:hover {
+                                color: black;
+                            }
+
+            header .Menu .dropdown-menu img {
+                height: 180px;
+                width: auto;
+                border-radius: 100%;
+                margin-bottom: 0.5em;
+            }
+
+                header .Menu .dropdown-menu img:hover {
+                    scale: 1.05;
+                }
+
+            header .Menu .dropdown-menu #dropdown_Service .Components {
+                cursor: pointer;
+                width: 300px;
+                padding: 0 30px;
+            }
+
+                header .Menu .dropdown-menu #dropdown_Service .Components .Contain_img {
+                    overflow: unset;
+                }
+
+                header .Menu .dropdown-menu #dropdown_Service .Components .Content h2 {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #101010;
+                    font-size: 16px;
+                    font-weight: bold;
+                    margin-bottom: 0;
+                }
+
+                header .Menu .dropdown-menu #dropdown_Service .Components .Content ul {
+                    display: unset;
+                }
+
+                    header .Menu .dropdown-menu #dropdown_Service .Components .Content ul li {
+                        margin-bottom: 5px;
+                        text-transform: none;
+                        font-size: 0.9em;
+                        color: #808080;
+                        text-decoration: underline;
+                    }
+
+                        header .Menu .dropdown-menu #dropdown_Service .Components .Content ul li a {
+                            display: flex;
+                            justify-content: center;
+                            color: #808080;
+                        }
+
+                            header .Menu .dropdown-menu #dropdown_Service .Components .Content ul li a:hover {
+                                color: black;
+                            }
+
+    header .Account {
+        position: absolute;
+        right: 0;
+    }
+
+        header .Account li input {
+            max-width: 10vw;
+            border: none;
+            border-radius: 2em;
+            padding: 0.5em 0.8em;
+            background-color: #f5f5f5;
+            font-size: 0.85em;
+        }
+
+            header .Account li input::placeholder {
+                font-size: 0.9em;
+            }
+
+        header .Account li button {
+            position: absolute;
+            border: none;
+            border-radius: 2em;
+            padding: 0.5em 1em;
+            background-color: unset;
+            right: 0;
+        }
+
+            header .Account li button:hover {
+                scale: 1.15;
+                filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 0px 5px);
+            }
+
+        header .Account li {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+            header .Account li a {
+                color: #808080;
+                margin-left: 1.5em;
+                font-size: 0.85em;
+                display: flex;
+                align-items: center;
+            }
+
+                header .Account li a:hover {
+                    color: black;
+                    scale: 1.05;
+                }
+
+            header .Account li .LogIn {
+                display: flex;
+            }
+
+            header .Account li .AccountIcon {
+                display: flex;
+                margin-left: 1.5em;
+            }
+
+                header .Account li .AccountIcon span {
+                    margin-right: 0.6em;
+                }
+
+.CustomerSupport {
+    position: fixed;
+    bottom: 1em;
+    left: 3em;
+    z-index: 1000;
+}
+
+    .CustomerSupport ul li img,
+    .CustomerSupport ul li i {
+        width: 2.5em;
+        height: 2.5em;
+        border-radius: 100%;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+    }
+
+    .CustomerSupport li:hover,
+    .CustomerSupport label:hover {
+        opacity: 0.8;
+        scale: 1.1;
+    }
+
+    .CustomerSupport ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .CustomerSupport ul li {
+            cursor: pointer;
+            margin-top: 1em;
+            max-width: 2.5em;
+            border-radius: 100%;
+            display: flex;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+    .CustomerSupport .Chatbot {
+        margin: 1em 0 1em 2em;
+        display: flex;
+        align-items: center;
+    }
+
+        .CustomerSupport .Chatbot label {
+            cursor: pointer;
+            border-radius: 100%;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        .CustomerSupport .Chatbot .Chatbot_input {
+            filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 0px 5px);
+            border-radius: 1.5em;
+            padding: 0.5em;
+            left: 3.5em;
+            opacity: 0;
+            pointer-events: none;
+            bottom: 0.8em;
+            position: absolute;
+            display: none;
+            width: 15em;
+            height: 20em;
+            display: flex;
+            align-items: flex-end;
+            background-color: white;
+        }
+
+            .CustomerSupport .Chatbot .Chatbot_input .Close_svg {
+                cursor: pointer;
+                position: absolute;
+                top: 0.5em;
+                right: 0.5em;
+                font-size: 1.5em;
+                display: flex;
+                align-items: start;
+                justify-content: end;
+                color: black;
+            }
+
+                .CustomerSupport .Chatbot .Chatbot_input .Close_svg:hover {
+                    opacity: 0.7;
+                }
+
+            .CustomerSupport .Chatbot .Chatbot_input .Container {
+                width: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+                .CustomerSupport .Chatbot .Chatbot_input .Container textarea {
+                    font-size: 0.9em;
+                    width: 100%;
+                    height: 3em;
+                    padding: 0.7em 3em 0.5em 1em;
+                    border-radius: 2em;
+                    border: none;
+                    filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 0px 5px);
+                    transition: all 0.3s ease-in-out;
+                    resize: none;
+                }
+
+                .CustomerSupport .Chatbot .Chatbot_input .Container button {
+                    position: absolute;
+                    right: 1em;
+                    border: none;
+                    background-color: transparent;
+                }
+
+                    .CustomerSupport .Chatbot .Chatbot_input .Container button i {
+                        font-size: 1.2em;
+                        color: black;
+                    }
+
+                        .CustomerSupport .Chatbot .Chatbot_input .Container button i:hover {
+                            opacity: 0.7;
+                        }
+
+                .CustomerSupport .Chatbot .Chatbot_input .Container textarea::placeholder {
+                    color: #808080;
+                }
+
+                .CustomerSupport .Chatbot .Chatbot_input .Container textarea:focus {
+                    outline: none;
+                }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 0px 5px);
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 5px);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 0px 5px);
+    }
+}
+
+
+.Services {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 0px 5px);
+}
+
+    .Services .CloseServices {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+        transition: all 0.3s ease;
+    }
+
+    .Services .OpenServices {
+        display: none;
+        transition: all 0.3s ease;
+    }
+
+    .Services .service-item {
+        position: relative;
+        cursor: pointer;
+        color: black;
+        background-color: white;
+        padding: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 4em;
+        max-width: 5em;
+        overflow: hidden;
+        transition: max-width 0.8s ease-in-out;
+    }
+
+        .Services .service-item a {
+            display: flex;
+            align-items: center;
+        }
+
+            .Services .service-item a i {
+                font-size: 1em;
+                color: black;
+                font-weight: bold
+            }
+
+            .Services .service-item a .content {
+                margin-left: 1em;
+                white-space: nowrap;
+                display: none;
+                font-size: 0.9em;
+                transition: opacity 0.3s ease;
+                font-weight: bold;
+            }
+
+        .Services .service-item:hover {
+            max-width: 50em;
+        }
+
+            .Services .service-item:hover .content,
+            .Services .service-item:hover i {
+                display: unset;
+                color: black;
+            }
+
+
+footer {
+    background-color: white;
+    width: 100%;
+    padding: 1em 0 4em;
+    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 2px 5px);
+}
+
+    footer img {
+        height: 40px;
+        width: 40px;
+        border-radius: 100%;
+    }
+
+        footer img.kiemduyet {
+            border-radius: 0;
+            width: 150px;
+            height: auto;
+        }
+
+        footer img:hover {
+            opacity: 0.7;
+        }
+
+    footer h2 {
+        font-size: 0.9em;
+        color: black;
+        margin: 20px 0;
+        font-weight: bold;
+    }
+
+    footer li, footer a[b-wllydi9dao] {
+        width: 200px;
+        font-size: 0.85em;
+        margin: 20px 0;
+        color: #808080;
+    }
+
+    footer a:hover {
+        cursor: pointer;
+        color: black;
+    }
+
+    footer ul {
+        width: 220px;
+        padding: 0 15px;
+        margin-top: 20px;
+        display: block;
+    }
+
+    footer .TotalFooter {
+        justify-content: space-between;
+        background-color: transparent;
+        max-width: 1200px;
+        display: flex;
+        margin: 0 auto;
+    }
+
+        footer .TotalFooter .icon {
+            display: flex;
+        }
+
+            footer .TotalFooter .icon a {
+                width: 70px;
+            }
+
+    footer p {
+        font-size: 0.9em;
+        color: #808080;
+        margin: 1.5em auto 0;
+        max-width: 1200px;
+        padding-left: 10px;
+    }
+
+@media (max-width: 1400px) {
+    .CustomerSupport {
+        bottom: 0em;
+        left: 1.5em;
+    }
+
+        .CustomerSupport ul li img,
+        .CustomerSupport ul li i {
+            width: 2em;
+            height: 2em;
+        }
+
+    .Services .service-item {
+        padding: 0.5em;
+        align-items: center;
+        justify-content: center;
+        min-width: 3em;
+        max-width: 3em;
+    }
+
+    .Services .service-item a i {
+        font-size: 0.8em;
+    }
+
+        .Services .service-item a .content {
+            font-size: 0.75em;
+        }
+}
+
+@media (max-width: 1024px) {
+    .Navbar {
+        display: none;
+    }
+
+    header {
+        transform: translateY(0);
+    }
+
+    header .Menu {
+        display: none;
+    }
+
+    header .Account .LogIn {
+        display: flex;
+    }
+
+        header .Account input  {
+            display: none;
+        }
+
+        header .Account button {
+            display: none;
+        }
+
+        header .Account span {
+            display: none;
+        }
+
+    footer ul {
+        padding-left: 3em!important;
+    }
+
+    footer p {
+        text-align:center;
+    }
+
+    .CustomerSupport {
+        bottom: 0em;
+        left: 1em;
+    }
+}

@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NikeStore</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Admin/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Admin/reponsive.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/global.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/fontawesome-free-6.7.2-web/css/all.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NikeStore.styles.css" asp-append-version="true" />
+	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="MenuOption">
+		<i class="fa-solid fa-list"></i>
+	</div>
+
+	<div class="Sidebar">
+		<div class="Logo">
+			<a href="/Admin/"><img src="/images/icon/logo.png" alt="Alternate Text" /></a>
+		</div>
+		<div class="Title">
+			<h2 onclick="toggleMenu(this);"><i class="fa-solid fa-house"></i><label>Trang chủ</label></h2>
+			<div class="Contain">
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Thống kê
+					</h3>
+					<ul>
+						<li><a href="/Admin/DashBoard/RevenueChart"><i class="fa-solid fa-circle"></i> Doanh thu</a></li>
+						<li><a href="/Admin/DashBoard/ProductChart"><i class="fa-solid fa-circle"></i>Sản phẩm</a></li>
+						<li><a href="/Admin/DashBoard/OrderChart"><i class="fa-solid fa-circle"></i> Đơn hàng</a></li>
+						<li><a href="/Admin/DashBoard/AccessWebStatistic"><i class="fa-solid fa-circle"></i> Lượt truy cập Website</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="Title">
+			<h2 onclick="toggleMenu(this);">
+				<i class="fa-solid fa-bars-progress"></i>
+				<label>Quản lý</label>
+			</h2>
+			<div class="Contain">
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Sản phẩm
+					</h3>
+					<ul>
+						<li><a asp-action="Product" asp-area="Admin" asp-controller="Product"><i class="fa-solid fa-circle"></i> Danh sách sản phẩm</a></li>
+						<li><a asp-action="HotProduct" asp-area="Admin" asp-controller="Product"><i class="fa-solid fa-circle"></i> Sản phẩm bán chạy</a></li>
+						<li><a asp-action="LoveProduct" asp-area="Admin" asp-controller="Product"><i class="fa-solid fa-circle"></i>Sản phẩm yêu thích</a></li>
+						<li><a asp-action="ReviewProduct" asp-area="Admin" asp-controller="Product"><i class="fa-solid fa-circle"></i>Đánh giá sản phẩm</a></li>
+					</ul>
+				</div>
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Danh mục
+					</h3>
+					<ul>
+						<li><a asp-action="Category" asp-area="Admin" asp-controller="Category"><i class="fa-solid fa-circle"></i>Danh mục sản phẩm</a></li>
+					</ul>
+				</div>
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Kho hàng
+					</h3>
+					<ul>
+						<li><a href="/Admin/Warehouse/WarehouseInventory"><i class="fa-solid fa-circle"></i> Tồn kho</a></li>
+						<li><a href="/Admin/Warehouse/WarehouseImporting"><i class="fa-solid fa-circle"></i> Nhập hàng</a></li>
+						<li><a href="/Admin/Warehouse/WarehouseExporting"><i class="fa-solid fa-circle"></i> Xuất hàng</a></li>
+						<li><a href="/Admin/Warehouse/WarehouseProvider"><i class="fa-solid fa-circle"></i> Nhà cung cấp</a></li>
+					</ul>
+				</div>
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Đơn hàng
+					</h3>
+					<ul>
+						<li><a href="/Admin/Order/Order"><i class="fa-solid fa-circle"></i> Tất cả đơn hàng</a></li>
+						<li><a href="/Admin/Order/WaitingOrder"><i class="fa-solid fa-circle"></i> Đơn hàng chờ xác nhận</a></li>
+						<li><a href="/Admin/Order/DoneOrder"><i class="fa-solid fa-circle"></i> Đơn hàng đã giao</a></li>
+					</ul>
+				</div>
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Dịch vụ
+					</h3>
+					<ul>
+						<li><a href="/Admin/Service/Service"><i class="fa-solid fa-circle"></i> Dịch vụ chính</a></li>
+						<li><a href="/Admin/Service/ServiceType"><i class="fa-solid fa-circle"></i>Dịch vụ kèm theo</a></li>
+					</ul>
+				</div>
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Hóa đơn
+					</h3>
+					<ul>
+						<li><a href="/Admin/Bill/Bill"><i class="fa-solid fa-circle"></i> Tất cả hóa đơn</a></li>
+						<li><a href="/Admin/Bill/PaymentBill"><i class="fa-solid fa-circle"></i> Hóa đơn đã thanh toán</a></li>
+						<li><a href="/Admin/Bill/UnPaymentBill"><i class="fa-solid fa-circle"></i> Hóa đơn chưa thanh toán</a></li>
+					</ul>
+				</div>
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Khuyến mãi
+					</h3>
+					<ul>
+						<li><a href="/Admin/Promotion/Promotion"><i class="fa-solid fa-circle"></i> Danh sách khuyến mãi</a></li>
+					</ul>
+				</div>
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Tài khoản
+					</h3>
+					<ul>
+						<li><a href="/Admin/Account/Account"><i class="fa-solid fa-circle"></i> Danh sách tài khoản</a></li>
+						<li><a href="/Admin/Role/Role"><i class="fa-solid fa-circle"></i> Danh sách quyền</a></li>
+					</ul>
+				</div>
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Vận chuyển
+					</h3>
+					<ul>
+						<li><a href="/Admin/Shipping/Shipping"><i class="fa-solid fa-circle"></i> Đơn hàng vận chuyển</a></li>
+					</ul>
+				</div>
+				<div class="MenuContent">
+					<h3 onclick="toggleChildMenu(this)">
+						<i class="Right fa-solid fa-angle-right"></i>
+						<i class="Down fa-solid fa-angle-down"></i> Phương thức thanh toán
+					</h3>
+					<ul>
+						<li><a href="/Admin/Payment/Payment"><i class="fa-solid fa-circle"></i> Danh sách phương thức thanh toán</a></li>
+						<li><a href="/Admin/Payment/HistoryPayment"><i class="fa-solid fa-circle"></i> Lịch sử giao dịch</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="Title">
+			<a href="/Admin/DashboardMessaging/Index"><h2><i class="fa-brands fa-facebook-messenger"></i><label>Tin nhắn</label> <span>5</span></h2></a>
+		</div>
+
+		<div class="Title">
+			<a href="/Admin/DashboardNotification/Index"><h2><i class="fa-solid fa-bell"></i><label>Thông báo</label> <span>15</span></h2></a>
+		</div>
+		<div class="Title">
+			<a href="/Admin/DashboardSetting/Index"><h2><i class="fa-solid fa-gear"></i><label>Cài đặt</label></h2></a>
+		</div>
+		<div class="Title">
+			<a href="/"><h2 class="SignOut"><i class="fa-solid fa-right-from-bracket"></i><label>Đăng xuất</label></h2></a>
+		</div>
+	</div>
+	<div class="Notification">
+		@Html.Partial("_NotificationPartial")
+	</div>
+
+    @RenderBody()
+	<script src="~/js/Admin/chart.js" defer></script>
+    <script src="~/js/Admin/script.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.js"></script>
+	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.dataTables.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
+	<script>
+		$(
+			function(){
+				var messsage = '@TempData["success"]';
+				if(messsage != ''){
+					Swal.fire({
+						icon: 'success',
+						title: 'Thành công',
+						text: messsage,
+						customClass: {
+								title: 'swal-title-small',
+								popup: 'swal-popup-small'
+							}
+					})
+				}
+			}
+		)
+	</script>
+	<script>
+		let table = new DataTable('#myTable', {
+			language: {
+				info: "Hiển thị _START_ đến _END_ của _TOTAL_ mục",
+				infoEmpty: "Không có dữ liệu để hiển thị",
+				lengthMenu: "Hiển thị _MENU_ mục",
+				search: "Tìm kiếm:"
+			},
+			dom: '<"top d-flex justify-content-between align-items-center"lfB>rt<"bottom d-flex justify-content-between align-items-center"ip>',
+			buttons: ['copy', 'excel', 'csv', 'pdf', 'print']
+		});
+	</script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

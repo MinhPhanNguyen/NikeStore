@@ -1,0 +1,78 @@
+﻿@{
+	ViewData["Title"] = "Danh sách tài khoản";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="ProductManager Manager" id="ProductManager">
+			<div class="ContentManager">
+				<section class="Section_1">
+					<div class="Container">
+						<h2>Danh sách tài khoản</h2>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="LeftFilter">
+							<a class="AddIcon" href="@Url.Action("Add", "Account", new { area = "Admin" })">
+								<i class="fa-solid fa-plus"></i>
+								<span>Thêm</span>
+							</a>
+						</div>
+					</div>
+				</section>
+
+				<section class="Section_3">
+					<div class="Container">
+						<table id="myTable">
+							<thead>
+								<tr>
+									<th>STT</th>
+									<th>Tên tài khoản</th>
+									<th>Mật khẩu</th>
+									<th>Email</th>
+									<th>Số điện thoại</th>
+									<th>Quyền</th>
+									<th>Sửa</th>
+									<th>Xóa</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var account in Model)
+								{
+									<tr>
+										<td>@(account.User.Id.Length > 10 ? account.User.Id.Substring(0, 10) + "..." : account.User.Id)</td>
+										<td>@account.User.UserName</td>
+										<td>@(account.User.PasswordHash.Length > 10 ? account.User.PasswordHash.Substring(0, 10) + "..." : account.User.PasswordHash)</td>
+										<td>@account.User.Email</td>
+										<td>@account.User.PhoneNumber</td>
+										<td>@account.RoleName</td>
+										<td>
+											@if (account.User.Id != ViewBag.LogginedUser) 
+											{
+												@if (account.RoleName != "Admin")
+												{
+													<a asp-action="Edit" asp-controller="Account" asp-route-Id="@account.User.Id"><i class="fa-solid fa-edit"></i></a>
+												}
+											}
+										</td>
+										<td>
+											@if (account.User.Id != ViewBag.LogginedUser)
+											{
+												@if (account.RoleName != "Admin")
+												{
+													<a asp-action="Delete" asp-controller="Account" asp-route-Id="@account.User.Id"><i class="fa-solid fa-trash"></i></a>
+												}
+											}
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>

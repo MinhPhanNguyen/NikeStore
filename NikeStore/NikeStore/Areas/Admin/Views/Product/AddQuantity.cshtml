@@ -1,0 +1,76 @@
+﻿@model ProductQuantity
+
+@{
+	ViewData["Title"] = "Thêm số lượng sản phẩm";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+	var totalQuantity = 0;
+	var key = 1;
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="AddTable Manager" style="max-height: 40vh; margin-bottom: 0; padding-bottom: 0;">
+			<div class="Container">
+				<div class="Title">
+					<h3>
+						Thêm số lượng sản phẩm
+						<a class="Backto" asp-action="Product" asp-controller="Product">Quay lại<i class="fa-solid fa-angle-right"></i></a>
+					</h3>
+				</div>
+
+				<form asp-action="StoreProductQuantity" asp-controller="Product" method="post">
+					<input type="hidden" name="ProductId" value="@ViewBag.Id" />
+					<div class="form-group">
+						<label for="Quantity">Số lượng cần thêm:</label>
+						<input asp-for="Quantity" min="1" value="1" max="1000" type="number" class="form-control" />
+						<span asp-validation-for="Quantity" class="text-danger"></span>
+					</div>
+
+					<div class="btnAddTable form-group">
+						<button type="submit">Thêm</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="Manager" style="padding-top: 0;">
+			<div class="ContentManager">
+				<section class="Section_3">
+					<div class="Container">
+						<table id="myTable">
+							<thead>
+								<tr>
+									<th>Key</th>
+									<th>Số lượng thêm</th>
+									<th>Ngày thêm</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var product in ViewBag.ProductQuantity)
+								{
+									totalQuantity += product.Quantity;
+									<tr style=" height: 5vh !important;">
+										<td>@key</td>
+										<td>@product.Quantity</td>
+										<td>@product.CreatedAt.ToString("dd/MM/yyyy")</td>
+									</tr>
+									key++;
+								}
+								<tr style=" height: 5vh;!important">
+									<td colspan="2"><strong>Tổng số lượng</strong></td>
+									<td>@totalQuantity</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.PartialAsync("_ValidationScriptsPartial");
+	}
+}

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ProductType>
+
+@foreach (var product in Model)
+{
+	<input type="radio" id="@product.Type" name="height" value="@product.Type">
+	<label for="@product.Type">@product.Type</label>
+	<br>
+}

@@ -1,0 +1,2473 @@
+﻿.LogInPage .error, .SignUpPage .error {
+    position: absolute; 
+    right: 1em; 
+    top: 1em; 
+    padding: 1em 2em; 
+    width: 20vw; 
+    background-color: #ff7676;
+    color:white; 
+    font-weight: bold;
+    font-size: 1em; 
+    border-radius:0.2em;
+}
+
+.Homepage {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 0;
+}
+
+    .Homepage .Section_1 {
+        width: 100%;
+        height: 70vh;
+        overflow: hidden;
+        display: flex;
+        align-items: start;
+    }
+
+        .Homepage .Section_1 img {
+            cursor: pointer;
+            width: auto;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .Homepage .Section_2 {
+        margin: 2em 0 1em;
+        width: 100%;
+        min-height: 40vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .Homepage .Section_2 img {
+            max-width: 700px;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .Homepage .Section_2 button {
+            margin-top: 2em;
+            padding: 0.6em 1.2em;
+            border-radius: 0.15em;
+            background-color: transparent;
+            border: 2px solid black;
+        }
+
+            .Homepage .Section_2 button a {
+                color: black;
+                font-size: 0.85em;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .Homepage .Section_2 button:hover {
+                background-color: black;
+                border: 2px solid transparent;
+                color: white;
+                filter: drop-shadow(rgba(0, 0, 0, 0.8) 0px 2px 10px);
+            }
+
+                .Homepage .Section_2 button:hover a {
+                    color: white;
+                }
+
+    .Homepage .Section_3, .Section_4, .ProductListPage .Section_2 .ProductList, .PromotionPage .Section_4 {
+        margin: 2em 0;
+        background-color: white;
+    }
+
+    .Homepage .Section_3 {
+        max-width: unset;
+    }
+
+    .Homepage .Section_4, .PromotionPage .Section_4 {
+        max-width: 90vw;
+    }
+
+.Components {
+    cursor: pointer;
+    text-align: center;
+    flex-direction: column;
+    padding: 0 2px;
+    background-color: transparent;
+    position: relative;
+}
+
+    .Components i {
+        position: absolute;
+        margin: 0.8em 0 0 0.8em;
+        color: #ff5637;
+        font-size: 1.3em;
+    }
+
+        .Components i:hover {
+            color: #ffac92;
+            transform: scale(1.1);
+        }
+
+    .Components .Contain_img {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+        .Components .Contain_img img {
+            object-fit: cover;
+            transition: all 0.5s ease-in-out;
+        }
+
+    .Components .Content {
+        background-color: transparent;
+        padding: 35px 23px;
+        color: #101010;
+        text-transform: uppercase;
+    }
+
+        .Components .Content h1 {
+            font-size: 15px;
+            margin-bottom: 22px;
+            font-weight: bolder;
+        }
+
+        .Components .Content h2 {
+            font-size: 16px;
+            font-weight: normal;
+            margin-bottom: 22px;
+        }
+
+    .Components:hover img {
+        transform: scale(1.05);
+        transition: all 0.5s ease-in-out;
+    }
+
+
+.Homepage .Title {
+    margin: 3em 0 1em;
+    text-transform: uppercase;
+}
+
+    .Homepage .Title h2 {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+
+.Homepage .Section_5 {
+    margin: 3em 0;
+    overflow: hidden;
+}
+
+    .Homepage .Section_5 img {
+        width: auto;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.Homepage .Section_6 {
+    height: auto;
+    text-align: center;
+    padding: 30px 0 0;
+}
+
+    .Homepage .Section_6 img {
+        height: 220px;
+        width: auto;
+        border-radius: 100%;
+        margin-bottom: 0.5em;
+        overflow: auto;
+    }
+
+        .Homepage .Section_6 img:hover {
+            transform: scale(1.05);
+        }
+
+    .Homepage .Section_6 .Contain {
+        display: flex;
+        margin: 0 auto;
+        padding: 30px 0;
+        justify-content: space-around;
+    }
+
+        .Homepage .Section_6 .Contain .Components {
+            cursor: pointer;
+            width: 300px;
+            padding: 0 30px;
+        }
+
+            .Homepage .Section_6 .Contain .Components .Contain_img {
+                overflow: unset;
+            }
+
+            .Homepage .Section_6 .Contain .Components .Content h2 {
+                display: flex;
+                white-space: nowrap;
+                justify-content: center;
+                align-items: center;
+                color: #101010;
+                font-size: 16px;
+                font-weight: normal;
+                margin-bottom: 0;
+                font-weight: bold;
+                margin-bottom: 2em;
+            }
+
+            .Homepage .Section_6 .Contain .Components .Content ul {
+                display: unset;
+            }
+
+                .Homepage .Section_6 .Contain .Components .Content ul li {
+                    margin-bottom: 5px;
+                    text-transform: none;
+                    font-size: 0.75em;
+                    color: #808080;
+                    white-space: nowrap;
+                    text-decoration: underline;
+                }
+
+                    .Homepage .Section_6 .Contain .Components .Content ul li a {
+                        display: flex;
+                        justify-content: center;
+                        color: #808080;
+                    }
+
+                        .Homepage .Section_6 .Contain .Components .Content ul li a:hover {
+                            color: black;
+                        }
+
+.ProductListPage {
+    width: 100%;
+    height: auto;
+    margin: 95px auto 3em;
+    max-width: 90vw;
+    min-height: 80vh
+}
+
+    .ProductListPage .Section_1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+        .ProductListPage .Section_1 .Title h3 {
+            font-size: 0.8em;
+            font-weight: bold;
+            margin: 0.8em 0.3em;
+            color: #808080;
+        }
+
+        .ProductListPage .Section_1 .Title h2 {
+            text-transform: uppercase;
+            font-size: 1.1em;
+            margin-left: 0.3em;
+        }
+
+        .ProductListPage .Section_1 .Filter.scrollFilter {
+            position: fixed;
+            z-index: 1000;
+            top: 90px;
+            right: 7.5vw;
+            background-color: white;
+            padding: 1em;
+        }
+
+        .ProductListPage .Section_1 .Filter li {
+            cursor: pointer;
+            margin-left: 2.3em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            white-space:nowrap;
+        }
+
+            .ProductListPage .Section_1 .Filter li span {
+                margin-right: 0.7em;
+                font-size: 0.9em;
+            }
+
+            .ProductListPage .Section_1 .Filter li i {
+                font-size: 0.75em;
+            }
+
+            .ProductListPage .Section_1 .Filter li .Show {
+                display: block;
+            }
+
+            .ProductListPage .Section_1 .Filter li .Hide {
+                display: none;
+            }
+
+            .ProductListPage .Section_1 .Filter li .UpSort {
+                display: none;
+            }
+
+            .ProductListPage .Section_1 .Filter li .DownSort {
+                display: block;
+            }
+
+            .ProductListPage .Section_1 .Filter li:hover {
+                filter: drop-shadow(rgba(0, 0, 0, 0.7) 0px 2px 5px);
+            }
+
+        .ProductListPage .Section_1 .dropdown.scrollFilter {
+            top: 150px;
+            margin-right: 0.5em;
+        }
+
+        .ProductListPage .Section_1 .dropdown {
+            max-height: 0;
+            opacity: 1;
+            overflow: hidden;
+            position: fixed;
+            right: 7vw;
+            top: 160px;
+            z-index: 1000;
+            background-color: white;
+            filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 2px 5px);
+            border-radius: 0.2em;
+            transition: all 0.5s ease-in-out;
+        }
+
+            .ProductListPage .Section_1 .dropdown ul {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: space-around;
+            }
+
+                .ProductListPage .Section_1 .dropdown ul li {
+                    text-align: right;
+                    width: 100%;
+                    cursor: pointer;
+                    padding: 1em 2em 1em 3em;
+                    font-size: 0.95em;
+                }
+
+                    .ProductListPage .Section_1 .dropdown ul li:hover {
+                        background-color: #ebebeb;
+                    }
+
+    .ProductListPage .Section_2 {
+        margin: 1em 0;
+        height: auto;
+        min-height: 80vh;
+        position: relative;
+    }
+
+        .ProductListPage .Section_2 .Category {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            background-color: #fff;
+            white-space: nowrap;
+            width: 20%;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+
+        .ProductListPage .Section_2 .Category.CategoryTop {
+            width: 17%;
+        }
+         
+            .ProductListPage .Section_2 .Category .FilterItems {
+                padding: 0.8em 0;
+                border-bottom: 1px solid #f1f1f1;
+            }
+
+                .ProductListPage .Section_2 .Category .FilterItems .Title {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+                }
+
+                    .ProductListPage .Section_2 .Category .FilterItems .Title h3 {
+                        margin-bottom: 0.5em;
+                        font-weight: bold;
+                        font-size: 0.9em;
+                    }
+
+                    .ProductListPage .Section_2 .Category .FilterItems .Title .UpFilter {
+                        display: none;
+                    }
+
+                    .ProductListPage .Section_2 .Category .FilterItems .Title .DownFilter {
+                        display: block;
+                    }
+
+                .ProductListPage .Section_2 .Category .FilterItems .Option {
+                    max-height: 50vh;
+                    overflow: hidden;
+                    display: block;
+                }
+
+                    .ProductListPage .Section_2 .Category .FilterItems .Option input {
+                        margin-top: 0.7em;
+                        appearance: none;
+                        background-color: white;
+                        border: 1px solid black;
+                        border-radius: 100%;
+                        height: 13px;
+                        width: 13px;
+                        cursor: pointer;
+                        position: relative;
+                    }
+
+                    .ProductListPage .Section_2 .Category .FilterItems .Option label {
+                        font-size: 0.9em;
+                    }
+
+                    .ProductListPage .Section_2 .Category .FilterItems .Option input:checked::before {
+                        content: '✓';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 1em;
+                        font-weight: bold;
+                        color: white;
+                    }
+
+                    .ProductListPage .Section_2 .Category .FilterItems .Option input:checked {
+                        content: '✓';
+                        background-color: black;
+                        filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 2px 3px);
+                    }
+
+                .ProductListPage .Section_2 .Category .FilterItems .OptionColour {
+                    display: flex;
+                    max-height: 30vh;
+                    overflow-y: hidden;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+
+                    .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour {
+                        flex-direction: column;
+                        display: flex;
+                        flex-basis: 33%;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                        .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour input {
+                            appearance: none;
+                            border-radius: 100%;
+                            height: 1.5em;
+                            width: 1.5em;
+                            cursor: pointer;
+                            margin: 0.5em 0;
+                            border: 1px solid black;
+                        }
+
+                            .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour input:hover {
+                                opacity: 0.7;
+                            }
+
+                        .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour label {
+                            font-size: 0.8em;
+                        }
+
+                        .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour input[type="radio"]#Black {
+                            background-color: black;
+                        }
+
+                        .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour input[type="radio"]#Blue {
+                            background-color: blue;
+                        }
+
+                        .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour input[type="radio"]#Brown {
+                            background-color: brown;
+                        }
+
+                        .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour input[type="radio"]#Grey {
+                            background-color: grey;
+                        }
+
+                        .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour input[type="radio"]#Pink {
+                            background-color: pink;
+                        }
+
+                        .ProductListPage .Section_2 .Category .FilterItems .OptionColour .Colour input[type="radio"]#Red {
+                            background-color: red;
+                        }
+
+                    .ProductListPage .Section_2 .Category .FilterItems .OptionColour input[type="radio"]#option15:checked {
+                        background-color: white;
+                        border: 2px solid #ccc;
+                    }
+
+                .ProductListPage .Section_2 .Category .FilterItems .Option label {
+                    margin-left: 0.5em;
+                    cursor: pointer;
+                }
+
+        .ProductListPage .Section_2 .ProductList {
+            height: auto;
+            overflow: unset;
+            display: flex;
+            align-items: start;
+            width: 100%;
+        }
+
+.ProductDetail {
+    width: 100%;
+    height: auto;
+    margin: 180px auto 6em;
+    padding: 0;
+    max-width: 90vw;
+}
+
+    .ProductDetail .Section_1 .Contain_img {
+        overflow: hidden;
+        height: 60vh;
+        display: flex;
+        position: relative;
+    }
+
+        .ProductDetail .Section_1 .Contain_img .ImgItems {
+            overflow-y: scroll;
+            height: 60vh;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1em;
+        }
+
+            .ProductDetail .Section_1 .Contain_img .ImgItems img {
+                margin-bottom: 0.5em;
+                cursor: pointer;
+                height: auto;
+                width: 100%;
+                border-radius: 0.5em;
+                object-fit: cover;
+            }
+
+                .ProductDetail .Section_1 .Contain_img .ImgItems img:hover {
+                    opacity: 0.7;
+                }
+
+        .ProductDetail .Section_1 .Contain_img .ImgDisplay {
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+            height: 60vh;
+            display: flex;
+            align-items:center;
+            justify-content:center;
+        }
+
+            .ProductDetail .Section_1 .Contain_img .ImgDisplay img {
+                border-radius: 0.2em;
+                object-fit: cover;
+                height: 60vh;
+                width: auto;
+            }
+
+            .ProductDetail .Section_1 .Contain_img .ImgDisplay .PrevNext {
+                position: absolute;
+                bottom: 1em;
+                right: 0.8em;
+            }
+
+                .ProductDetail .Section_1 .Contain_img .ImgDisplay .PrevNext button {
+                    border: none;
+                    background-color: white;
+                    border-radius: 100%;
+                    padding: 0.5em 0.9em;
+                    filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 2px 10px);
+                    margin: 0 0.5em 0.4em 0;
+                }
+
+                    .ProductDetail .Section_1 .Contain_img .ImgDisplay .PrevNext button:hover {
+                        filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 2px 10px);
+                    }
+
+    .ProductDetail .Section_1 .Content {
+        padding: 0.5em 0 0 0;
+        height: 75vh;
+        position: relative;
+    }
+
+        .ProductDetail .Section_1 .Content .Title {
+            margin-left: 1.5em;
+        }
+
+            .ProductDetail .Section_1 .Content .Title h2 {
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+
+            .ProductDetail .Section_1 .Content .Title h3 {
+                font-size: 0.9em;
+                color: #808080;
+                margin-left: 0.1em;
+            }
+
+            .ProductDetail .Section_1 .Content .Title span {
+                font-size: 1em;
+                font-weight: bold;
+            }
+
+        .ProductDetail .Section_1 .Content .TypeOption {
+            margin: 2em 0 0 1.5em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+        }
+
+            .ProductDetail .Section_1 .Content .TypeOption img {
+                width: 15%;
+                margin-right: 0.7em;
+                border-radius: 0.3em;
+                cursor: pointer;
+            }
+
+                .ProductDetail .Section_1 .Content .TypeOption img:hover {
+                    border: 1px solid black;
+                    transform: scale(1.05);
+                }
+
+        .ProductDetail .Section_1 .Content .SizeOption {
+            margin: 2.5em 0 0 1.5em;
+        }
+
+            .ProductDetail .Section_1 .Content .SizeOption .SizeTitle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 1em;
+            }
+
+                .ProductDetail .Section_1 .Content .SizeOption .SizeTitle h3 {
+                    font-size: 0.9em;
+                    font-weight: bold;
+                    margin: 0;
+                }
+
+                .ProductDetail .Section_1 .Content .SizeOption .SizeTitle span {
+                    margin-right: 2em;
+                    display: flex;
+                    font-size: 0.9em;
+                    align-items: center;
+                    font-weight: bold;
+                    cursor: pointer
+                }
+
+                    .ProductDetail .Section_1 .Content .SizeOption .SizeTitle span:hover {
+                        color: #808080;
+                    }
+
+                    .ProductDetail .Section_1 .Content .SizeOption .SizeTitle span i {
+                        margin: 0.3em 0.5em 0em 0;
+                    }
+
+            .ProductDetail .Section_1 .Content .SizeOption ul {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+                .ProductDetail .Section_1 .Content .SizeOption ul li {
+                    padding: 0.8em 1.5em;
+                    border: 1px solid #d3d3d3;
+                    cursor: pointer;
+                    border-radius: 0.2em;
+                    margin: 0.3em;
+                }
+
+                    .ProductDetail .Section_1 .Content .SizeOption ul li:hover {
+                        background-color: #d3d3d3;
+                    }
+
+
+        .ProductDetail .Section_1 .Content .btn {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border: none;
+            margin-top: 1em;
+        }
+
+            .ProductDetail .Section_1 .Content .btn .button, .CartPage .Container .Section_1 .Contain .Summary .btnCheck {
+                padding: 1em;
+                margin-top: 0.8em;
+                border: 1px solid transparent;
+                border-radius: 10vw;
+                background-color: black;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+                .ProductDetail .Section_1 .Content .btn .button:hover, .CartPage .Container .Section_1 .Contain .Summary .btnCheck:hover {
+                    background-color: #5a5a5a;
+                }
+
+                .ProductDetail .Section_1 .Content .btn .button i {
+                    margin-left: 0.5em;
+                }
+
+                .ProductDetail .Section_1 .Content .btn .button:nth-child(2) {
+                    background-color: white;
+                    color: #5a5a5a;
+                    border: 1px solid #d8d8d8;
+                }
+
+                    .ProductDetail .Section_1 .Content .btn .button:nth-child(2):hover {
+                        color: black;
+                        border: 1px solid black;
+                    }
+
+    .ProductDetail .Section_2 {
+        margin: 2em 0 1em;
+        height: auto;
+        overflow: hidden;
+    }
+
+        .ProductDetail .Section_2 .Container .TitleDescription, .ProductDetail .Section_3 .RateStatistic {
+            display: flex;
+            margin: 0 0 1em;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            border-radius: 0.2em;
+            padding: 1.2em 1em;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+            .ProductDetail .Section_2 .Container .TitleDescription:hover, .ProductDetail .Section_3 .RateStatistic:hover {
+                background-color: #f1f1f1;
+            }
+
+            .ProductDetail .Section_2 .Container .TitleDescription h3, .ProductDetail .Section_3 .RateStatistic span {
+                font-size: 1.2em;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin: 0 0.2em;
+                white-space: nowrap;
+            }
+
+            .ProductDetail .Section_2 .Container .TitleDescription .UpDes, .ProductDetail .Section_3 .RateStatistic .UpRate {
+                display: none;
+            }
+
+            .ProductDetail .Section_2 .Container .TitleDescription .DownDes, .ProductDetail .Section_3 .RateStatistic .DownRate {
+                display: block;
+            }
+
+        .ProductDetail .Section_2 .Container .Content {
+            text-align: justify;
+            padding: 0 1em;
+            opacity: 1;
+            max-height: 300vh;
+            pointer-events: auto;
+        }
+
+            .ProductDetail .Section_2 .Container .Content p {
+                font-size: 1em;
+            }
+
+    .ProductDetail .Section_3 {
+        margin-bottom: 4em;
+        height: auto;
+        overflow: hidden;
+    }
+
+        .ProductDetail .Section_3 .RateStatistic span i {
+            margin-left: 0.5em;
+            color: #ffea47;
+        }
+
+        .ProductDetail .Section_3 .RateContent {
+            opacity: 1;
+            max-height: 300vh;
+            pointer-events: auto;
+        }
+
+            .ProductDetail .Section_3 .RateContent nav {
+                border-bottom: 1px solid #f2f2f2;
+                padding: 1em 1em;
+                margin: 0 1em;
+            }
+
+                .ProductDetail .Section_3 .RateContent nav .AccountInfor {
+                    display: flex;
+                    align-items: center;
+                }
+
+                    .ProductDetail .Section_3 .RateContent nav .AccountInfor img {
+                        height: 3em;
+                        width: 3em;
+                        border-radius: 100%;
+                    }
+
+                    .ProductDetail .Section_3 .RateContent nav .AccountInfor .Account {
+                        margin-left: 1em;
+                    }
+
+                        .ProductDetail .Section_3 .RateContent nav .AccountInfor .Account h3 {
+                            font-size: 0.95em;
+                            margin: 0;
+                        }
+
+                            .ProductDetail .Section_3 .RateContent nav .AccountInfor .Account h3 i {
+                                color: #ffea47;
+                                margin-left: 0.2em;
+                            }
+
+                        .ProductDetail .Section_3 .RateContent nav .AccountInfor .Account p {
+                            font-size: 0.8em;
+                            color: #909090;
+                            margin: 0.5em 0 0;
+                        }
+
+                .ProductDetail .Section_3 .RateContent nav .Content p {
+                    margin: 2em 0.5em;
+                    text-align: justify;
+                }
+
+.WishListPage .TitleSc3, .CartPage .Container .TitleSc2 {
+    margin: 5em 0 1em 1em;
+}
+
+    .WishListPage .TitleSc3 h2, .CartPage .Container .TitleSc2 h2 {
+        font-size: 1.5em;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+.WishListPage .Section_3, .CartPage .Container .Section_2 {
+    margin: 2em 0 4em;
+    height: auto;
+    display: flex;
+}
+
+    .WishListPage .Section_3 .ContentSc3, .CartPage .Container .Section_2 .ContentSc2 {
+        display: flex;
+        height: 65vh;
+        overflow-x: scroll;
+    }
+
+        .WishListPage .Section_3 .ContentSc3 .Components, .CartPage .Container .Section_2 .ContentSc2 .Components {
+            cursor: pointer;
+            text-align: center;
+            flex-basis: unset;
+            flex-direction: column;
+            padding: 0 2px;
+            background-color: transparent;
+            position: relative;
+            height: 60vh;
+        }
+
+            .WishListPage .Section_3 .ContentSc3 .Components .Contain_img, .CartPage .Container .Section_2 .ContentSc2 .Components .Contain_img {
+                overflow: hidden;
+            }
+
+                .WishListPage .Section_3 .ContentSc3 .Components .Contain_img img, .CartPage .Container .Section_2 .ContentSc2 .Components .Contain_img img {
+                    object-fit: cover;
+                    width: 20vw;
+                    height: auto;
+                    transition: all 0.5s ease-in-out;
+                }
+
+.PromotionPage {
+    width: 100%;
+    height: auto;
+    margin: 105px auto 3em;
+}
+
+    .PromotionPage .Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .PromotionPage .Section_1 {
+        width: 100%;
+        height: 70vh;
+        overflow: hidden;
+        display: flex;
+        align-items: start;
+        margin-bottom: 3em;
+    }
+
+        .PromotionPage .Section_1 img {
+            cursor: pointer;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+.ServicePage {
+    width: 100%;
+    height: auto;
+    margin: 105px auto 4em;
+}
+
+    .ServicePage .Container, .ContactPage .Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .ServicePage .Container .Section_1, .ContactPage .Container .Section_1, .WishListPage .Container .Section_1 {
+            height: 30vh;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ContactPage .Container .Section_1 {
+            height: 20vh;
+        }
+
+.WishListPage .Container .Section_1 {
+    height: 25vh;
+}
+
+    .ServicePage .Container .Section_1 img, .ContactPage .Container .Section_1 img, .WishListPage .Container .Section_1 img {
+        transform: translateY(-30vh);
+        position: absolute;
+        width: auto;
+        object-fit: cover;
+    }
+
+    .ServicePage .Container .Section_1 .Content, .ContactPage .Container .Section_1 .Content, .WishListPage .Container .Section_1 .Content {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+        .ServicePage .Container .Section_1 .Content h2, .ContactPage .Container .Section_1 .Content h2, .WishListPage .Container .Section_1 .Content h2 {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 1em;
+            text-transform: uppercase;
+        }
+
+        .ContactPage .Container .Section_1 .Content h2, .WishListPage .Container .Section_1 .Content h2 {
+            margin-bottom: 0.5em;
+        }
+
+        .ServicePage .Container .Section_1 .Content p, .ContactPage .Container .Section_1 .Content p {
+            font-size: 0.8em;
+            width: 80vw;
+        }
+
+
+.ServicePage .Container .TitleSc2 {
+    margin: 4em 0 3em;
+}
+
+    .ServicePage .Container .TitleSc2 h2 {
+        font-size: 1.3em;
+        font-weight: bold;
+        text-align: center;
+    }
+
+.ServicePage .Container .Section_2 {
+    height: auto;
+    margin-bottom: 4em;
+}
+
+    .ServicePage .Container .Section_2 ul {
+        flex-direction: column;
+        max-width: 85vw;
+        margin: 0 auto;
+    }
+
+            .ServicePage .Container .Section_2 ul li .Title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                padding: 1em 0;
+                margin: 0 1em;
+                border-bottom: 1px solid #e9e9e9;
+                color: #c3c3c3;
+            }
+
+                .ServicePage .Container .Section_2 ul li .Title:hover {
+                    color: black;
+                    border-bottom: 1px solid black;
+                }
+
+                .ServicePage .Container .Section_2 ul li .Title h3 {
+                    margin: 0;
+                    font-size: 1em;
+                }
+
+                .ServicePage .Container .Section_2 ul li .Title .AddService {
+                    display: block;
+                }
+
+                .ServicePage .Container .Section_2 ul li .Title .RemoveService {
+                    display: none;
+                }
+
+            .ServicePage .Container .Section_2 ul li .Content {
+                max-height: 0;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+                .ServicePage .Container .Section_2 ul li .Content p {
+                    padding: 2em;
+                    text-align: justify;
+                    font-size: 0.9em;
+                }
+
+.ContactPage{
+    width: 100%;
+    height: auto;
+    margin: 105px auto 0;
+    overflow: hidden
+}
+
+    .ContactPage .Container {
+        background-color: #f5f5f5;
+    }
+
+        .ContactPage .Container .Section_2 {
+            max-width: 800px;
+            margin: 0 1em;
+            background-color: transparent;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            .ContactPage .Container .Section_2 label, .LogInPage .Container form label, .SignUpPage .Container form label {
+                margin-bottom: 10px;
+                font-size: 0.85em;
+                color: black;
+                margin-left: 0.2em;
+            }
+
+            .ContactPage .Container .Section_2 input, .LogInPage .Container form input, .SignUpPage .Container form input {
+                border: 1px solid #dedede;
+                cursor: pointer;
+                padding: 10px;
+                background-color: white;
+                font-size: 0.9em;
+            }
+
+                .ContactPage .Container .Section_2 input:hover, .LogInPage .Container form input:hover, .SignUpPage .Container form input:hover {
+                    background-color: #e9e9e9;
+                }
+
+                .ContactPage .Container .Section_2 input:checked, .LogInPage .Container form input:checked, .SignUpPage .Container form input:checked {
+                    background-color: black;
+                    border-color: #fff;
+                    position: relative;
+                    outline: none;
+                }
+
+                    .ContactPage .Container .Section_2 input:checked::before, .LogInPage .Container form input:checked::before, .SignUpPage .Container form input:checked::before {
+                        content: "✔";
+                        color: white;
+                        font-size: 16px;
+                        position: absolute;
+                        left: 2px;
+                        top: -2px;
+                    }
+
+           .form-group {
+                margin-bottom: 1em;
+                width: 100%;
+            }
+
+           .form-control {
+               border-radius: 0.1em;
+           }
+
+            .ContactPage .Container .Section_2 span, .LogInPage .Container form span, .SignUpPage .Container form span {
+                margin-left: 10px;
+                font-size: 0.8em;
+                color: black;
+            }
+
+            .LogInPage .Container form .text-danger, .SignUpPage .Container form .text-danger {
+                font-size: 0.65em;
+                color: red;
+                margin: 0.5em 0.2em 0;
+            }
+
+            .ContactPage .Container .Section_2 h2 {
+                text-align: center;
+                margin: 2em 0 3em;
+                font-size: 0.9em;
+                font-weight: 700;
+                line-height: 20px;
+                color: black;
+                width: 90vw;
+                text-transform: uppercase;
+            }
+
+            .ContactPage .Container .Section_2 button {
+                text-transform: uppercase;
+                font-size: 0.9em;
+                color: white;
+                cursor: pointer;
+                padding: 1em 2em;
+                background-color: black;
+                margin: 1em 0 2em;
+                font-weight: bold;
+            }
+
+                .ContactPage .Container .Section_2 button:hover {
+                    opacity: 0.7;
+                }
+
+            .ContactPage .Container .Section_2 .Name {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .ContactPage .Container .Section_2 .Contact {
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .ContactPage .Container .Section_2 .Contact input {
+                    max-width: 500px;
+                }
+
+
+            .ContactPage .Container .Section_2 .Content input {
+                padding-bottom: 80px;
+            }
+
+            .ContactPage .Container .Section_2 .Check, .SignUpPage .Container form .Check {
+                padding: 0 1em;
+                display: flex;
+            }
+
+.SignUpPage .Container form .Check {
+    margin: 1em 0;
+}
+
+    .ContactPage .Container .Section_2 .Check .checkbox, .SignUpPage .Container form .Check .checkbox {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+    }
+
+.WishListPage {
+    width: 100%;
+    height: auto;
+    margin: 105px auto 4em;
+}
+
+    .WishListPage .Container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+        .WishListPage .Container .Section_2, .WishListPage .Container .Section_3 {
+            max-width: 90vw;
+            margin: 0 auto;
+            height: auto;
+        }
+
+            .WishListPage .Container .Section_2 .Contain {
+                margin: 2em 0;
+                background-color: white;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+        .WishListPage .Container .Section {
+            margin: 2em 0;
+        }
+
+.CartPage {
+    width: 100%;
+    height: auto;
+    margin: 8em auto 4em;
+}
+
+    .CartPage .Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .CartPage .Container .Section_1 {
+            min-width: 70vw;
+            max-width: 80vw;
+            margin: 0 auto 3em;
+        }
+
+            .CartPage .Container .Section_1 .Contain .TableItems {
+                height: 70vh;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                scrollbar-width: none;
+                padding-right: 2em;
+            }
+
+            .CartPage .Container .Section_1 .Contain .Title {
+                display: flex;
+            }
+
+                .CartPage .Container .Section_1 .Contain .Title h2 {
+                    font-weight: bold;
+                    font-size: 1.2em;
+                    margin-bottom: 1em;
+                }
+
+                    .CartPage .Container .Section_1 .Contain .Title h2:nth-child(1) {
+                        width: 65%;
+                        margin-right: 1em;
+                    }
+
+            .CartPage .Container .Section_1 .Contain .TableItems .Items {
+                border-bottom: 1px solid #d8d8d8;
+                padding-bottom: 1em 0;
+            }
+
+                .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsContent {
+                    display: flex;
+                    align-items: center;
+                    height: auto;
+                    width: 100%;
+                }
+
+                    .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsContent .Contain_img {
+                        cursor: pointer;
+                        width: 25%;
+                        overflow: hidden;
+                    }
+
+                        .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsContent .Contain_img img {
+                            width: 90%;
+                            height: auto;
+                            object-fit: cover;
+                        }
+
+                    .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsContent .Contain {
+                        padding: 1em 0.5em;
+                        width: 75%;
+                        overflow: hidden;
+                    }
+
+                        .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsContent .Contain .TitleContain {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+
+                            .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsContent .Contain .TitleContain h2 {
+                                font-weight: bold;
+                                font-size: 1em;
+                            }
+
+                            .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsContent .Contain .Content p {
+                                margin-bottom: 0.5em;
+                                font-size: 0.9em;
+                                color: #929292;
+                            }
+
+                .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsFeature {
+                    padding: 1em 1em 2em;
+                    display: flex;
+                    align-items: center
+                }
+
+                    .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsFeature .btn {
+                        border: 1px solid #d5d5d5;
+                        border-radius: 2em;
+                        padding: 0;
+                    }
+
+                    .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsFeature span {
+                        margin: 0 0.3em;
+                    }
+
+                    .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsFeature a {
+                        padding: 0.8em;
+                        border-radius: 100%;
+                        cursor: pointer;
+                        color: rgba(0, 0, 0, 1);
+                    }
+
+                        .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsFeature a:hover {
+                            background-color: #d9d9d9;
+                        }
+
+                    .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsFeature .btn .Trash {
+                        display: unset;
+                    }
+
+                    .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsFeature .btn .Minus {
+                        display: none;
+                    }
+
+                    .CartPage .Container .Section_1 .Contain .TableItems .Items .ItemsFeature .btnFavour i {
+                        margin-left: 1em;
+                        border: 1px solid #d5d5d5;
+                        padding: 0.8em;
+                        border-radius: 100%;
+                        opacity: 0.8;
+                    }
+
+            .CartPage .Container .Section_1 .Contain .Summary {
+                display: flex;
+                flex-direction: column;
+                height: 70vh;
+            }
+
+                .CartPage .Container .Section_1 .Contain .Summary ul {
+                    padding-bottom: 1em;
+                    border-bottom: 1px solid #cacaca;
+                    flex-direction: column;
+                }
+
+                    .CartPage .Container .Section_1 .Contain .Summary ul li {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 1.5em;
+                        font-size: 0.9em;
+                        cursor: pointer;
+                    }
+
+                        .CartPage .Container .Section_1 .Contain .Summary ul li p {
+                            margin: 0;
+                        }
+
+                        .CartPage .Container .Section_1 .Contain .Summary ul li span {
+                            padding-bottom: 0.2em;
+                        }
+
+                        .CartPage .Container .Section_1 .Contain .Summary ul li button {
+                            color: #008aff;
+                            background-color: transparent;
+                            border: none;
+                            font-size: 0.9em;
+                            text-decoration: underline;
+                            padding-bottom: 0.2em;
+                        }
+
+                            .CartPage .Container .Section_1 .Contain .Summary ul li button:hover {
+                                opacity: 0.6;
+                            }
+
+                        .CartPage .Container .Section_1 .Contain .Summary ul li i {
+                            cursor: pointer;
+                        }
+
+                        .CartPage .Container .Section_1 .Contain .Summary ul li .downItems {
+                            display: unset;
+                        }
+
+                        .CartPage .Container .Section_1 .Contain .Summary ul li .upItems {
+                            display: none;
+                        }
+
+                .CartPage .Container .Section_1 .Contain .Summary .Total {
+                    padding: 1em 0;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                    .CartPage .Container .Section_1 .Contain .Summary .Total .FinalPrice, .Date, .Discount {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: 1em;
+                    }
+
+                    .CartPage .Container .Section_1 .Contain .Summary .Total h3 {
+                        font-size: 0.9em;
+                        margin: 0;
+                    }
+
+                    .CartPage .Container .Section_1 .Contain .Summary .Total span {
+                        font-size: 0.9em;
+                    }
+
+        .CartPage .Container .Section_2 {
+            max-width: 80vw;
+        }
+
+.LogInPage, .SignUpPage {
+    height:auto;
+    max-width: 1500px;
+    overflow: hidden;
+    margin: 115px auto 3em;
+    display: flex;
+    align-items: start;
+    padding: 0 1em;
+}
+
+    .LogInPage .Container, .SignUpPage .Container {
+        margin: 0 auto;
+        max-width: 1500px;
+        overflow: hidden;
+    }
+
+            .LogInPage .Container form .Contain_img, .SignUpPage .Container form .Contain_img {
+                margin: 1em 0 0;
+                overflow: hidden;
+                padding: 1em;
+            }
+
+                .LogInPage .Container form .Contain_img img, .SignUpPage .Container form .Contain_img img {
+                    width: auto;
+                    height: 5vh;
+                    object-fit: cover;
+                    filter: drop-shadow(rgba(0, 0, 0, 1) 0px 2px 8px);
+                }
+
+        .LogInPage .form-group, .SignUpPage .form-group {
+            margin-bottom: 0;
+        }
+
+        .LogInPage .Container form .Title, .SignUpPage .Container form .Title {
+            margin-bottom: 1em;
+            width: 100%;
+            padding: 0 1em;
+        }
+
+                .LogInPage .Container form .Title h2, .SignUpPage .Container form .Title h2 {
+                    font-weight: normal;
+                    margin-bottom: 0.5em;
+                    font-size: 0.9em;
+                    text-align: justify;
+                }
+
+                .SignUpPage .Container form .Title p {
+                    font-weight: normal;
+                    margin-bottom: 0.5em;
+                    font-size: 0.9em;
+                    text-align: justify;
+                }
+
+                .SignUpPage .Container form .Title .EditEmail {
+                    margin-bottom: 2em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                    .SignUpPage .Container form .Title .EditEmail span {
+                        text-decoration: underline;
+                        margin: 0;
+                    }
+
+                    .SignUpPage .Container form .Title .EditEmail a {
+                        color: #008aff;
+                        cursor: pointer;
+                        font-size: 0.7em;
+                    }
+
+                        .SignUpPage .Container form .Title .EditEmail a:hover {
+                            opacity: 0.7;
+                        }
+
+            .LogInPage .Container form .Language {
+                margin-bottom: 2em;
+                width: 100%;
+                padding: 0 1em;
+                display: flex;
+                align-items: end;
+            }
+
+                .LogInPage .Container form .Language h2 {
+                    font-weight: normal;
+                    margin: 0;
+                    font-size: 0.9em;
+                    text-align: justify;
+                }
+
+                .LogInPage .Container form .Language a {
+                    font-weight: normal;
+                    margin: 0 0 0.1em 1em;
+                    font-size: 0.7em;
+                    text-align: justify;
+                    color: #008aff;
+                    text-decoration: underline;
+                }
+
+                    .LogInPage .Container form .Language a:hover {
+                        opacity: 0.5;
+                    }
+
+            .LogInPage .Container form .TermAndPrivacy {
+                margin-top: 1.5em;
+                padding: 0 1em;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+            }
+
+                .LogInPage .Container form .TermAndPrivacy button {
+                    background-color: transparent;
+                    border: none;
+                    color: #a3a3a3;
+                    margin-bottom: 0.8em;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    font-size: 0.9em;
+                }
+
+                    .LogInPage .Container form .TermAndPrivacy button:hover {
+                        color: #343434;
+                    }
+
+        .LogInPage .Container .btn, .SignUpPage .Container .btn {
+            max-width: 90%;
+            margin: 1.5em auto;
+            border-radius: 10vw;
+            width: 100%;
+            background-color: black;
+            padding: 1.1em;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+        }
+            .btnRegister {
+                margin-top: 2em;
+                  font-size: 0.8em;
+                  width: 100%;
+                  display: flex;
+                  justify-content: center;
+                  color:#008aff;
+                  font-style:italic;
+                  text-decoration: underline;
+            }
+
+        .btnRegister:hover {
+            opacity: 0.6;
+        }
+
+            .LogInPage .Container .btn:hover, .SignUpPage .Container .btn:hover {
+                opacity: 0.7;
+            }
+
+
+.AccountPage {
+    width: 100%;
+    height: auto;
+    margin: 105px auto 0;
+}
+
+.AccountIconCO {
+    opacity: 0;
+    position: fixed;
+    top: 105px;
+    left: 2em;
+    z-index: 1000;
+    padding: 0.8em;
+    border-radius: 100%;
+    border: 1px solid #ebebeb;
+    cursor: pointer;
+    filter: drop-shadow(rgba(0,0,0,0.2) 0 2px 5px)
+}
+
+.AccountClose {
+    display: none;
+}
+
+.MenuAccount {
+    display: flex;
+}
+
+.MenuAccount:hover {
+    background-color: #ebebeb;
+}
+
+.AccountPage .Container {
+    display: flex;
+    position: relative;
+}
+
+        .AccountPage .Container .SideBar {
+            width: 30%;
+            padding: 0em 0 2em 5em;
+            min-height: 90vh;
+            height: auto;
+            position: relative;
+        }
+
+            .AccountPage .Container .SideBar ul {
+                flex-direction: column;
+                position: sticky;
+                top: 15vh;
+            }
+
+                .AccountPage .Container .SideBar ul li {
+                    padding: 1em;
+                    cursor: pointer;
+                    white-space: nowrap
+                }
+
+                    .AccountPage .Container .SideBar ul li:hover {
+                        background-color: #e0e0e0;
+                    }
+
+                    .AccountPage .Container .SideBar ul li a {
+                        text-decoration: none;
+                        color: #001D35;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        font-size: 0.9em;
+                    }
+
+                        .AccountPage .Container .SideBar ul li a i {
+                            display: flex;
+                            justify-content: end;
+                            margin-right: 1em;
+                        }
+
+        .AccountPage .Container .AccountContent {
+            width: 70%;
+            height: auto;
+            background-color: white;
+        }
+
+.AccountContent .Title {
+    width: 80%;
+    margin: 1em auto 0.5em;
+    padding: 0 0.5em;
+    font-size: 0.9em;
+}
+
+.AccountContent h2 {
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+}
+
+.AccountContent img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.AccountContent h3 {
+    width: 100%;
+    font-size: 0.75em;
+    margin-bottom: 0.5em;
+}
+
+.AccountContent p {
+    width: 100%;
+    font-size: 0.75em;
+    margin-bottom: 1em;
+}
+
+.AccountContent ul li {
+    list-style: none;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.AccountContent i {
+    margin-left: 0.3em;
+    font-size: 1em;
+}
+
+.AccountContent .AccountHome, .AccountContent .AccountInformation, .AccountContent .AccountHistory, .AccountContent .AccountSecurity, .AccountContent .AccountPayment, .AccountContent .AccountFAQ {
+    height: auto;
+    margin: 0 auto;
+    padding: 2em 0;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    overflow: hidden;
+}
+
+.AccountContent .AccountHistory {
+    padding: 0;
+}
+
+.AccountContent .AccountInformation {
+    padding: 1em 0;
+}
+
+.AccountContent .AccountHome .Section_1, .AccountContent .AccountHome .Section_2, .AccountContent .AccountHome .Section, .AccountContent .AccountHome .Section_3, .AccountContent .AccountFAQ .Section_1 {
+    width: 100%;
+    padding: 0 1em;
+    height: auto;
+}
+
+.AccountContent .AccountHome .Section_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AccountContent .AccountHome .Section_2 h3 {
+    font-weight: bold;
+}
+
+    .AccountContent .AccountHome .Section_3, .AccountContent .AccountFAQ .Section_1 {
+        margin-bottom: 3em;
+    }
+
+    .AccountContent .AccountHome .Section_1 .Container, .AccountContent .AccountHome .Section_2 .Container, .AccountContent .AccountHome .Section .Container, .AccountContent .AccountHome .Section_3 .Container, .AccountContent .AccountFAQ .Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        padding: 1em 2em;
+        width: 100%;
+        min-height: 25vh;
+        border-radius: 0.2em;
+    }
+
+        .AccountContent .AccountHome .Section_2 .Container {
+            flex-direction: unset;
+            justify-content: space-around;
+        }
+
+.AccountContent .Container {
+    padding: 0 !important;
+}
+
+.AccountContent .AccountHome .Section_1 .Contain_img {
+    overflow: hidden;
+    width: 4em;
+    height: 4em;
+    margin-bottom: 1.5em;
+}
+
+    .AccountContent .AccountHome .Section_1 .Contain_img img {
+        width: 4em;
+        height: 4em;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+
+.AccountContent .AccountHome .Section_1 .Content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+    .AccountContent .AccountHome .Section_1 .Content h3 {
+        width: 100%;
+        margin-bottom: 0.5em;
+        font-weight: bold;
+    }
+
+    .AccountContent .AccountHome .Section_1 .Content p {
+        font-size: 0.75em;
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .AccountContent .AccountHome .Section_1 .Content span {
+        cursor: pointer;
+        font-size: 0.7em;
+        width: 80%;
+        color: #008aff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+
+        .AccountContent .AccountHome .Section_1 .Content span:hover {
+            opacity: 0.7;
+        }
+
+.AccountContent .AccountHome .Section_2 .Container .RecommendationItems {
+    border: 1px solid #e8e8e8;
+    border-radius: 0.2em;
+    height: auto;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+    .AccountContent .AccountHome .Section_2 .Container .RecommendationItems .Contain_img {
+        overflow: hidden;
+        width: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .AccountContent .AccountHome .Section_2 .Container .RecommendationItems .Content {
+        margin-left: 2em;
+        height: 100%;
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        text-align: justify;
+        position: relative;
+    }
+
+        .AccountContent .AccountHome .Section_2 .Container .RecommendationItems .Content .btn {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+            .AccountContent .AccountHome .Section_2 .Container .RecommendationItems .Content .btn button {
+                border: none;
+                cursor: pointer;
+                color: #287eff;
+                font-size: 0.8em;
+                padding-bottom: 2px;
+                border-bottom: 1px solid white;
+                background-color: transparent;
+            }
+
+                .AccountContent .AccountHome .Section_2 .Container .RecommendationItems .Content .btn button:hover {
+                    color: #6ca7ff;
+                    opacity: 0.7;
+                }
+
+.AccountContent .AccountHome .Section .Container .Content {
+    border: 1px solid #e8e8e8;
+    border-radius: 0.2em;
+    padding: 1em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: justify;
+    min-height: 30vh;
+}
+
+    .AccountContent .AccountHome .Section .Container .Content .text {
+        width: 60%;
+        padding: 0 1em;
+    }
+
+        .AccountContent .AccountHome .Section .Container .Content .text h3 {
+            font-weight: bold;
+            margin-bottom: 1em;
+        }
+
+    .AccountContent .AccountHome .Section .Container .Content .img {
+        width: 40%;
+        height: 100%;
+        overflow: hidden;
+        padding: 0 1em;
+    }
+
+        .AccountContent .AccountHome .Section .Container .Content .img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+.AccountContent .AccountHome .Section .Container .btn {
+    padding: 1em 0;
+    width: 90%;
+    display: flex;
+    justify-content: end;
+}
+
+    .AccountContent .AccountHome .Section .Container .btn a {
+        font-size: 0.8em;
+    }
+
+        .AccountContent .AccountHome .Section .Container .btn a:hover {
+            opacity: 0.6;
+        }
+
+.AccountContent .AccountHome .Section_3 .Container ul, .AccountContent .AccountFAQ .Container ul {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+    .AccountContent .AccountHome .Section_3 .Container ul li, .AccountContent .AccountFAQ .Container ul li {
+        min-width: 100%;
+        margin: 0;
+    }
+
+        .AccountContent .AccountHome .Section_3 .Container ul li .TitleItems, .AccountContent .AccountFAQ .Container ul li .TitleItems {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.8em 1em;
+            color: #a0a0a0;
+            border-radius: 0.2em;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+            .AccountContent .AccountHome .Section_3 .Container ul li .TitleItems:hover, .AccountContent .AccountFAQ .TitleItems:hover {
+                background-color: #f2f2f2;
+            }
+
+            .AccountContent .AccountHome .Section_3 .Container ul li .TitleItems .UpItems, .AccountContent .AccountFAQ .TitleItems .UpItems {
+                display: none;
+            }
+
+            .AccountContent .AccountHome .Section_3 .Container ul li .TitleItems .DownItems, .AccountContent .AccountFAQ .TitleItems .DownItems {
+                display: inline-block;
+            }
+
+        .AccountContent .AccountHome .Section_3 .Container ul li .ContentItems, .AccountContent .AccountFAQ .ContentItems {
+            padding: 0.5em 2em;
+            opacity: 0;
+            max-height: 0;
+            pointer-events: none;
+        }
+
+.AccountContent .AccountInformation .Title {
+    text-align: center;
+}
+
+    .AccountContent .AccountInformation .Title h2 {
+        text-transform: uppercase;
+    }
+
+.AccountContent .AccountInformation .Section {
+    width: 100%;
+}
+
+    .AccountContent .AccountInformation .Section .Container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 40vh;
+        position: relative;
+    }
+
+        .AccountContent .AccountInformation .Section .Container .OverlayImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 25vh;
+            overflow: hidden;
+        }
+
+        .AccountContent .AccountInformation .Section .Container .Content {
+            position: absolute;
+            top: 10vh;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            .AccountContent .AccountInformation .Section .Container .Content img {
+                height: 20vh;
+                width: auto;
+                object-fit: cover;
+                border-radius: 100%;
+            }
+
+            .AccountContent .AccountInformation .Section .Container .Content a {
+                margin: 1em 0 0 0.5em;
+                text-align: center;
+                cursor: pointer;
+                font-size: 0.85em;
+                color: #008aff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+                .AccountContent .AccountInformation .Section .Container .Content a:hover {
+                    opacity: 0.6;
+                }
+
+.AccountContent .AccountInformation .Section_1,
+.AccountContent .AccountInformation .Section_2,
+.AccountContent .AccountHistory .Section_1,
+.AccountContent .AccountHistory .Section_2,
+.AccountContent .AccountPayment .Section_1,
+.AccountContent .AccountPayment .Section_2,
+.AccountContent .AccountPayment .Section_3,
+.AccountContent .AccountSecurity .Section_1,
+.AccountContent .AccountSecurity .Section_2,
+.AccountContent .AccountSecurity .Section_3,
+.AccountContent .AccountFAQ .Section_2 {
+    width: 100%;
+    height: auto;
+}
+
+    .AccountContent .AccountInformation .Section_1 .Container,
+    .AccountContent .AccountInformation .Section_2 .Container,
+    .AccountContent .AccountHistory .Container,
+    .AccountContent .AccountPayment .Container,
+    .AccountContent .AccountSecurity .Container,
+    .AccountContent .AccountFAQ .Section_2 .Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        margin-bottom: 4em;
+    }
+
+    .AccountContent .AccountInformation .Section_1 form {
+        width: 90%;
+        padding: 0 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .AccountContent .AccountInformation .Section_1 form input {
+            padding: 0.8em 1em;
+            margin: 0.5em 0 1em;
+        }
+
+        .AccountContent .AccountInformation .Section_1 form label {
+            margin-left: 0.2em;
+            font-weight: bold;
+        }
+
+        .AccountContent .AccountInformation .Section_1 form button {
+            padding: 0.8em 2em;
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            font-size: 0.9em;
+            border-radius: 0.1em
+        }
+
+        .AccountContent .AccountInformation .Section_1 form button:hover {
+            opacity: 0.7
+        } 
+
+.AccountContent span {
+    font-size: 0.8em;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+    .AccountContent span a i {
+        font-size: 0.75em;
+        margin-left: 1em;
+        color: #287eff;
+        display: flex;
+        align-items: center;
+        text-decoration: underline;
+    }
+
+        .AccountContent span a i:hover {
+            color: #6ca7ff;
+            opacity: 0.6;
+        }
+
+.AccountContent .AccountInformation .Section_2 .Container .Content {
+    width: 100%;
+    text-align: justify;
+    overflow: hidden;
+}
+
+    .AccountContent .AccountInformation .Section_2 .Container .Content h3 {
+        margin: 1em 0;
+        font-weight: bold;
+    }
+
+    .AccountContent .AccountInformation .Section_2 .Container .Content p {
+        margin: 0.5em 0;
+    }
+
+.AccountContent .AccountHistory .Section_2 {
+    margin: 2em 0;
+}
+
+    .AccountContent .AccountHistory .Section_1 .Container ul, .AccountContent .AccountHistory .Section_2 .Container ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1em;
+        overflow-y: scroll;
+        min-height: 30vh;
+        max-height: 70vh;
+    }
+
+        .AccountContent .AccountHistory .Section_1 .Container ul li, .AccountContent .AccountHistory .Section_2 .Container ul li {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid #e7e7e7;
+            padding: 0.5em;
+        }
+
+            .AccountContent .AccountHistory .Section_1 .Container ul li .Contain_img, .AccountContent .AccountHistory .Section_2 .Container ul li .Contain_img {
+                overflow: hidden;
+                width: 30%;
+            }
+
+                .AccountContent .AccountHistory .Section_1 .Container ul li .Contain_img img, .AccountContent .AccountHistory .Section_2 .Container ul li .Contain_img img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+
+            .AccountContent .AccountHistory .Section_1 .Container ul li .Content, .AccountContent .AccountHistory .Section_2 .Container ul li .Content {
+                margin-left: 1em;
+                display: flex;
+                flex-direction: unset;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+
+                .AccountContent .AccountHistory .Section_1 .Container ul li .Content h3, .AccountContent .AccountHistory .Section_2 .Container ul li .Content h3 {
+                    margin-bottom: 0.8em;
+                    color: #313131;
+                }
+
+                .AccountContent .AccountHistory .Section_1 .Container ul li .Content p, .AccountContent .AccountHistory .Section_2 .Container ul li .Content p {
+                    margin-bottom: 0.8em;
+                    color: #909090;
+                }
+
+.AccountContent .AccountHistory .Section_1 .Right {
+    text-align: right;
+}
+
+.AccountContent .AccountHistory .Section_2 .Right {
+    display: flex;
+}
+
+    .AccountContent .AccountHistory .Section_2 .Right a {
+        padding: 0.5em 0.4em;
+        background-color: white;
+        border: 1px solid #dedede;
+        border-radius: 100%;
+        margin-left: 0.5em
+    }
+
+        .AccountContent .AccountHistory .Section_2 .Right a:hover {
+            background-color: #e6e6e6;
+        }
+
+        .AccountContent .AccountHistory .Section_2 .Right a i {
+            font-size: 1.2em;
+            margin-right: 0.2em
+        }
+
+        .AccountContent .AccountHistory .Section_2 .Right a .Check {
+            color: #00db12
+        }
+
+        .AccountContent .AccountHistory .Section_2 .Right a .Mark {
+            color: #c40000
+        }
+
+.AccountContent .AccountSecurity .Section .Container {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2em 0 4em;
+    position: relative;
+}
+
+.AccountContent .AccountSecurity .Title, .AccountContent .AccountPayment .Title, .AccountContent .AccountFAQ .Section_2 .Title {
+    width: 100%;
+    text-align: center;
+    margin: 1em 0
+}
+
+.AccountContent .AccountFAQ .Title {
+    width: 100%;
+    margin: 1em 0 1em 0;
+}
+
+.AccountContent .AccountFAQ .Section_1 {
+    margin-bottom: 3em;
+}
+
+.AccountContent .AccountSecurity .Section .Container h3 {
+    font-weight: bold;
+    margin-bottom: 1em;
+    text-transform: uppercase
+}
+
+.AccountContent .AccountSecurity .Container ul, .AccountContent .AccountPayment ul, .AccountContent .AccountFAQ .Section_2 ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .AccountContent .AccountSecurity .Container ul li, .AccountContent .AccountPayment ul li, .AccountContent .AccountFAQ .Section_2 ul li {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1em 0;
+    }
+
+        .AccountContent .AccountSecurity .Container ul li p, .AccountContent .AccountPayment ul p, .AccountContent .AccountFAQ .Section_2 ul p {
+            font-size: 0.8em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+.AccountContent .AccountSecurity .Section_1 .Container,
+.AccountContent .AccountSecurity .Section_2 .Container,
+.AccountContent .AccountSecurity .Section_3 .Container,
+.AccountContent .AccountPayment .Container,
+.AccountContent .AccountFAQ .Section_2 .Container {
+    border-radius: 0.2em;
+    border: 1px solid #e7e7e7;
+    padding: 1em;
+    width: 90%;
+    margin: 0 auto 2em;
+}
+
+.AccountContent .AccountFAQ .Section_2 .Container {
+    text-align: center;
+}
+
+    .AccountContent .AccountFAQ .Section_2 .Container p {
+        display: flex;
+        justify-content: start;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+        .AccountContent .AccountFAQ .Section_2 .Container p a {
+            margin-left: 0.5em;
+        }
+
+            .AccountContent .AccountFAQ .Section_2 .Container p a:hover {
+                opacity: 0.6;
+            }
+
+.ServiceItems {
+    width: 100%;
+    height: auto;
+    margin-top: 75px;
+    background-color: white;
+    padding-bottom: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .ServiceItems .Title {
+        padding: 4em 0 2em;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+        .ServiceItems .Title h2 {
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+    .ServiceItems .Content {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: justify;
+    }
+
+        .ServiceItems .Content h2 {
+            font-size: 1em;
+            font-weight: bold;
+            padding: 1em 0 1em;
+        }
+
+        .ServiceItems .Content p {
+            font-size: 0.85em;
+        }
+
+        .ServiceItems .Content h3 {
+            margin-left: 0.5em;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-decoration: inherit;
+            padding: 0.5em 0;
+        }
+
+        .ServiceItems .Content img {
+            margin: 1em 0 2em;
+        }
+
+    .ServiceItems .button {
+        margin-top: 3em;
+        padding: 1em 2em;
+        border: 2px solid black;
+        background-color: transparent;
+        color: black;
+        text-decoration: none;
+    }
+
+        .ServiceItems .button:hover {
+            background-color: black;
+            color: white;
+        }
+
+.RepairService {
+    width: 100%;
+    height: auto;
+    margin-top: 105px;
+    background-color: white;
+    padding-bottom: 5vw;
+}
+
+    .RepairService .Section_1 {
+        height: 25vh;
+        width: auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+        .RepairService .Section_1 img {
+            top: 0;
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .RepairService .Section_1 .Content_Sc1 {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+            .RepairService .Section_1 .Content_Sc1 h2 {
+                text-transform: uppercase;
+                font-size: 1em;
+                font-weight: 700;
+                margin-bottom: 0.8em;
+            }
+
+            .RepairService .Section_1 .Content_Sc1 p {
+                padding-bottom: 10px;
+                font-size: 0.8em;
+                font-weight: 400;
+                width: 70%;
+                margin: 0 auto;
+                color: var(--header-text-color);
+            }
+
+    .RepairService .Section_2 {
+        width: 100%;
+        height: auto;
+    }
+
+        .RepairService .Section_2 .Content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: justify;
+            padding: 0 10vw;
+        }
+
+            .RepairService .Section_2 .Content h2 {
+                font-size: 1em;
+                font-weight: bold;
+                margin-bottom: 1em;
+            }
+
+            .RepairService .Section_2 .Content p {
+                font-size: 0.8em;
+            }
+
+    .RepairService .Section_3 {
+        margin-top: 5em;
+        height: auto;
+        background-color: var(--background-color);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+        .RepairService .Section_3 .Components {
+            cursor: pointer;
+            text-align: center;
+            flex-basis: 30%;
+            flex-direction: column;
+            padding: 0 2px;
+            background-color: transparent;
+            position: relative;
+        }
+
+            .RepairService .Section_3 .Components .Contain_img {
+                overflow: hidden;
+                position: relative;
+                height: 30vh;
+            }
+
+                .RepairService .Section_3 .Components .Contain_img img {
+                    width: 100%;
+                    height: 30vh;
+                    object-fit: cover;
+                    transition: all 0.5s ease-in-out;
+                }
+
+            .RepairService .Section_3 .Components .Content {
+                background-color: transparent;
+                padding: 35px 23px;
+                color: #101010;
+                text-transform: uppercase;
+            }
+
+                .RepairService .Section_3 .Components .Content h3 {
+                    font-size: 1em;
+                    margin: 1em 0 1em 0;
+                    font-weight: bolder;
+                }
+
+                .RepairService .Section_3 .Components .Content p {
+                    font-size: 0.8em;
+                    font-weight: normal;
+                    text-transform: none;
+                    text-align: justify;
+                }
+
+            .RepairService .Section_3 .Components:hover img {
+                transform: scale(1.05);
+                transition: all 0.5s ease-in-out;
+            }

@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NikeStore</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/_Layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Client/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Client/reponsive.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/global.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/fontawesome-free-6.7.2-web/css/all.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NikeStore.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="Navbar">
+        <div class="Container">
+            <div class="Logo">
+                <a href="/"><img src="~/images/icon/navbarlogo.png" alt="Logo" /></a>
+            </div>
+
+            <div class="Menu">
+                <ul>
+                    <li><a href="tel:0934190061">Phone: 0934.1900.61</a></li>
+                    <li><a href="mailto:">SWminh0918195615@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="Container">
+            <div class="Logo">
+                <a href="/"><img src="~/images/icon/logo.png" alt="Logo" /></a>
+            </div>
+            <div class="Menu">
+                <div class="MenuItems">
+                    <ul>
+                        <li class="menu-item" data-dropdown="dropdown_Product"><a href="/Product/Index">Sản phẩm</a></li>
+                        <li class="menu-item" data-dropdown="dropdown_Promotion"><a href="/Promotion/Index">Ưu đãi</a></li>
+                        <li class="menu-item" data-dropdown="dropdown_Service"><a href="/Service/Service">Dịch vụ</a></li>
+                        <li><a href="/Contact/Index">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown-overlay"></div>
+
+                <div class="dropdown-menu">
+                    <div id="dropdown_Product" class="dropdown">
+                        <ul>
+                            <li><h2>Phổ biến</h2></li>
+                            <li><p>BestSeller</p></li>
+                            <li><p>New Items</p></li>
+                        </ul>
+                        <ul>
+                            <li><h2>Collections</h2></li>
+                            <li><a href="/Category?Slug=airforce1">Air Force 1</a></li>
+                            <li><a href="/Category?Slug=airjordan1">Air Jordan 1</a></li>
+                            <li><a href="/Category?Slug=dunk">Dunk</a></li>
+                            <li><a href="/Category?Slug=blazer">Blazer</a></li>
+                            <li><a href="/Category?Slug=pegasus">Pegasus</a></li>
+                        </ul>
+                        <ul>
+                            <li><h2>Jordan</h2></li>
+                            <li><p>All Products</p></li>
+                            <li><p>Latest</p></li>
+                            <li><p>Jordan Basketball</p></li>
+                            <li><p>Jordan Golf</p></li>
+                            <li><p>Jordan x PSG</p></li>
+                        </ul>
+                    </div>
+
+                    <div id="dropdown_Promotion" class="dropdown">
+                        <ul>
+                            <li><h2>Sale</h2></li>
+                            <li><p>All Products</p></li>
+                            <li><p>BestSeller</p></li>
+                            <li><p>New Items</p></li>
+                        </ul>
+                        <ul>
+                            <li><h2>Voucher</h2></li>
+                            <li><p>Your's Voucher</p></li>
+                            <li><p>Collecting voucher</p></li>
+                        </ul>
+                    </div>
+
+                    <div id="dropdown_Service" class="dropdown">
+                        <vc:service></vc:service>
+                    </div>
+                </div>
+            </div>
+		    <div class="Account">
+                <ul>
+                    @if (User.Identity?.IsAuthenticated ?? false){
+                        <li>
+                            <input type="text" placeholder="Tìm kiếm" />
+                            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </li>
+                        <li><a href="/WishList/Index"><i class="fa-regular fa-heart"></i></a></li>
+                        <li><a href="/Cart/Index"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <li><a href="/Account/Index" class="AccountIcon"><span>Chào, @User.Identity?.Name</span><i class="fa-solid fa-user"></i></a></li>
+                        <li><a asp-action="LogOut" asp-controller="Account"><i class="LogOutIcon fa-solid fa-right-from-bracket"></i></a></li>
+                    }
+                    else {
+                        <li><a asp-action="LogIn" asp-controller="Account" class="LogIn">Đăng nhập/Đăng ký</a></li>
+                    }
+                </ul>
+		    </div>
+        </div>
+    </header>
+
+    <div class='CustomerSupport'>
+        <ul>
+            <li><img src="~/images/icon/fbsquare.png" /></li>
+            <li><img src="~/images/icon/ytbsquare.png" /></li>
+            <li><img src="~/images/icon/messenger.png" /></li>
+            <li><i class="fa-solid fa-comment" onclick="handleChatbot()"></i></li>
+        </ul>
+        <div class='Chatbot'>
+            <div class='Chatbot_input'>
+                <i class="fa-solid fa-circle-xmark Close_svg" onclick="closeChatbot()"></i>
+                <div class='Container'>
+                    <textarea placeholder="Bạn đang cần hỗ trợ?"></textarea>
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Services">
+        <div class="CloseServices">
+            <div onclick="closeServices()" class="service-item">
+                <a href="#"><span><i class="fa-solid fa-xmark"></i></span></a>
+            </div>
+            <div class="service-item">
+                <a href="/Product/Index">
+                    <span><i class="fa-solid fa-money-bill-wave"></i></i></span>
+                    <span class="content">Sản phẩm</span>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="/Promotion/Index">
+                    <span><i class="fa-solid fa-tags"></i></span>
+                    <span class="content">Ưu đãi</span>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="/Service/Index">
+                    <span><i class="fa-solid fa-envelope"></i></span>
+                    <span class="content">Dịch vụ</span>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="/Cart/Index">
+                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+                    <span class="content">Giỏ hàng</span>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="tel:0934190061">
+                    <span><i class="fa-solid fa-phone"></i></span>
+                    <span class="content">Hotline kinh doanh 0934.1900.61</span>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="tel:0934190061">
+                    <span><i class="fa-solid fa-phone"></i></span>
+                    <span class="content">Hotline dịch vụ 0934.1900.61</span>
+                </a>
+            </div>
+        </div>
+        <div class="OpenServices">
+            <div onclick="openServices()" class="service-item">
+                <a href="#"><span><i class="fa-solid fa-bars"></i></span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="Notification">
+        @Html.Partial("_NotificationPartial")
+    </div>
+	
+    @RenderBody()
+
+    <footer>
+        <div class="TotalFooter row">
+            <ul class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
+                <h2>SẢN PHẨM</h2>
+                <li><a href="/Category?Slug=airforce1">Air Force 1</a></li>
+                <li><a href="/Category?Slug=airjordan1">Air Jordan 1</a></li>
+                <li><a href="/Category?Slug=dunk">Dunk</a></li>
+                <li><a href="/Category?Slug=blazer">Blazer</a></li>
+                <li><a href="/Category?Slug=pegasus">Pegasus</a></li>
+            </ul>
+            <ul class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
+                <h2>DỊCH VỤ</h2>
+                <li><a href="/">Dịch vụ sau bán hàng</a></li>
+                <li><a href="/">Phụ kiện</a></li>
+                <li><a href="/">Chăm sóc khách hàng</a></li>
+            </ul>
+            <ul class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
+                <h2>CHÍNH SÁCH</h2>
+                <li><a href="/">Chính sách Thanh toán</a></li>
+                <li><a href="/">Chính sách Bảo mật</a></li>
+                <li><a href="/">Chính sách Giao nhận - Vận chuyển</a></li>
+            </ul>
+            <ul class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
+                <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+                <li><a href="tel:0934190061">Hotline Kinh doanh: 0934.1900.61</a></li>
+                <li><a href="tel:0934190061">Hotline Dịch vụ: 0934.1900.61</a></li>
+                <li><a href="mailto:SWminh0918195615@gmail.com">Email: SWminh0918195615@gmail.com</a></li>
+                <li class="icon">
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="~/images/icon/fbsquare.png" alt="facebook">
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank">
+                        <img src="~/images/icon/ytbsquare.png" alt="youtube">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <p>© 2024 MinhNguyenGroup Việt Nam</p>
+    </footer>
+
+    <script src="~/js/_Layout.js"></script>
+    <script src="~/js/Client/script.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

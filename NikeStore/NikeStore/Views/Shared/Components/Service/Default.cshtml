@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Service>
+
+@foreach (var service in Model)
+{
+    <div class="Components col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4">
+        <div class="Contain_img">
+            <img src="~/media/services/@service.ImageUrl" alt="">
+        </div>
+        <div class="Content">
+            <h2>@service.Name</h2>
+            <ul>
+                @foreach(var item in service.ServiceTypes)
+				{
+                    if (item.ServiceTypeID == 1)
+                    {
+                        <li><a asp-action="Index" asp-controller="Service">@item.Name</a></li>
+                    }
+                    else if (item.ServiceTypeID == 2)
+                    {
+                        <li><a asp-action="Repairing" asp-controller="Service">@item.Name</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-action="Service" asp-controller="Service" asp-route-Id="@item.ServiceTypeID">@item.Name</a></li>
+                    }
+				}
+            </ul>
+        </div>
+    </div>
+}

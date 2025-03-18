@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+@{
+	ViewData["Title"] = "Danh sách quyền";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="ProductManager Manager" id="ProductManager">
+			<div class="ContentManager">
+				<section class="Section_1">
+					<div class="Container">
+						<h2>Danh sách quyền</h2>
+					</div>
+				</section>
+
+				<section class="Section_2">
+					<div class="Container">
+						<div class="LeftFilter">
+							<a class="AddIcon" href="@Url.Action("Add", "Role", new { area = "Admin" })">
+								<i class="fa-solid fa-plus"></i>
+								<span>Thêm</span>
+							</a>
+						</div>
+					</div>
+				</section>
+
+				<section class="Section_3">
+					<div class="Container">
+						<table id="myTable">
+							<thead>
+								<tr>
+									<th>STT</th>
+									<th>Tên quyền</th>
+									<th>Sửa</th>
+									<th>Xóa</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var role in Model)
+								{
+									<tr>
+										<td>@role.Id</td>
+										<td>@role.Name</td>
+										<td><a asp-action="Edit" asp-controller="Role" asp-route-Id="@role.Id"><i class="fa-solid fa-edit"></i></a></td>
+										<td><a asp-action="Delete" asp-controller="Role" asp-route-Id="@role.Id"><i class="fa-solid fa-trash"></i></a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>

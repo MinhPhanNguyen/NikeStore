@@ -1,0 +1,65 @@
+﻿@model AppUserModel
+
+@{
+	ViewData["Title"] = "Thêm tài khoản";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="AddTable Manager">
+			<div class="Container">
+				<div class="Title">
+					<h3>Thêm tài khoản
+						<a class="Backto" asp-action="Account" asp-controller="Account">Quay lại<i class="fa-solid fa-angle-right"></i></a>
+					</h3>
+				</div>
+
+				<form asp-action="Add" enctype="multipart/form-data">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group">
+						<label for="UserName">Tên tài khoản:</label>
+						<input asp-for="UserName" required type="text" class="form-control" />
+						<span asp-validation-for="UserName" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="PasswordHash">Mật khẩu:</label>
+						<input asp-for="PasswordHash" required type="text" class="form-control" />
+						<span asp-validation-for="PasswordHash" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="Email">Email:</label>
+						<input asp-for="Email" type="text" required class="form-control" />
+						<span asp-validation-for="Email" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="PhoneNumber">Số điện thoại:</label>
+						<input asp-for="PhoneNumber" required type="text" class="form-control" />
+						<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="RoleId">Danh mục:</label>
+						<select asp-for="RoleId" required class="form-control" asp-items="ViewBag.Roles">
+							<option value="">-- Chọn quyền --</option>
+						</select>
+						<span asp-validation-for="RoleId" class="text-danger"></span>
+					</div>
+
+					<div class="btnAddTable form-group">
+						<button>Thêm</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.PartialAsync("_ValidationScriptsPartial");
+	}
+}

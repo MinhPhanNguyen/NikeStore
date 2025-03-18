@@ -1,0 +1,74 @@
+﻿@* @model IEnumerable<NikeStore.Models.ProductReview> *@
+
+@* @{ *@
+@* 	ViewData["Title"] = "Đánh giá sản phẩm"; *@
+@* } *@
+
+@* <div class="Dashboard"> *@
+@* 	<div class="DashboardContent"> *@
+@* 		<div class="ProductManager Manager" id="ProductManager"> *@
+@* 			<div class="ContentManager"> *@
+@* 				<section class="Section_1"> *@
+@* 					<div class="Container"> *@
+@* 						<h2>Đánh giá sản phẩm</h2> *@
+@* 					</div> *@
+@* 				</section> *@
+
+@* 				<section class="Section_2"> *@
+@* 					<div class="Container"> *@
+@* 						<div class="LeftFilter"> *@
+@* 							<div class="SearchProduct"> *@
+@* 								<label for="NameProduct"> *@
+@* 									<i class="fa-solid fa-magnifying-glass"></i> *@
+@* 								</label> *@
+@* 								<input id="NameProduct" type="text" placeholder="Tên sản phẩm"> *@
+@* 							</div> *@
+@* 						</div> *@
+
+@* 						<div class="RightFilter"> *@
+@* 							<div class="PageMove"> *@
+@* 								<i class="LeftMove fa-solid fa-angle-left"></i> *@
+@* 								<input type="text" placeholder="Trang 1 / 50"> *@
+@* 								<i class="RightMove fa-solid fa-angle-right"></i> *@
+@* 							</div> *@
+@* 						</div> *@
+@* 					</div> *@
+@* 				</section> *@
+
+@* 				<section class="Section_3"> *@
+@* 					<div class="Container"> *@
+@* 						<table> *@
+@* 							<thead> *@
+@* 								<tr> *@
+@* 									<th>STT</th> *@
+@* 									<th>Tên người dùng</th> *@
+@* 									<th>Ảnh</th> *@
+@* 									<th>Mã sản phẩm</th> *@
+@* 									<th>Tên sản phẩm</th> *@
+@* 									<th>Đánh giá</th> *@
+@* 									<th>Ngày tạo</th> *@
+@* 									<th>Bình luận</th> *@
+@* 								</tr> *@
+@* 							</thead> *@
+@* 							<tbody> *@
+@* 								@foreach (var product in Model) *@
+@* 								{ *@
+@* 									<tr> *@
+@* 										<td>@product.ReviewId</td> *@
+@* 										<td>@product.UserName</td> *@
+@* 										<td><img src="@product.ImgUrl" alt="Alternate Text" /></td> *@
+@* 										<td>@product.Product?.ProductID</td> *@
+@* 										<td>@product.Product?.Name</td> *@
+@* 										<td>@product.Rating <i style="color: yellow; font-size: 1.5em; margin-left: 0.2em	" class="fa-solid fa-star"></i></td> *@
+@* 										<td>@product.ReviewDate</td> *@
+@* 										<td>@product.Comment</td> *@
+@* 									</tr> *@
+@* 								} *@
+@* 							</tbody> *@
+@* 						</table> *@
+@* 					</div> *@
+@* 				</section> *@
+@* 			</div> *@
+@* 		</div> *@
+@* 	</div> *@
+@* </div> *@

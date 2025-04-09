@@ -2,6 +2,7 @@
 
 @{
 	ViewData["Title"] = "Danh sách sản phẩm";
+	var currentUrl = Url.ActionContext.HttpContext.Request.Path;
 }﻿
 
 <div class="ProductListPage">
@@ -12,27 +13,22 @@
 		</div>
 
 		<div class="Filter">
-			<ul> 
+			<ul>
 				<li>
 					<span class="Show" onclick="showFilter()">Hiện bộ lọc</span>
 					<span class="Hide" onclick="hideFilter()">Ẩn bộ lọc</span>
 					<i class="fa-solid fa-sliders"></i>
 				</li>
 
-				<li onclick="toggleOption()">
-					<span>Sắp xếp</span>
-					<i class="UpSort fa-solid fa-angle-up"></i>
-					<i class="DownSort fa-solid fa-angle-down"></i>
+				<li>
+					<select class="form-control" id="sort_by">
+						<option>-- Sắp xếp --</option>
+						<option value="@currentUrl?sort_by=price_hotest">Phổ biến</option>
+						<option value="@currentUrl?sort_by=price_newest">Mới ra mắt</option>
+						<option value="@currentUrl?sort_by=price_increase">Giá: thấp - cao</option>
+						<option value="@currentUrl?sort_by=price_decrease">Giá: cao - thấp</option>
+					</select>
 				</li>
-			</ul>
-		</div>
-
-		<div class="dropdown">
-			<ul>
-				<li>Phổ biến</li>
-				<li>Mới ra mắt</li>
-				<li>Giá: thấp - cao</li>
-				<li>Giá: cao - thấp</li>
 			</ul>
 		</div>
 	</section>
@@ -57,19 +53,18 @@
 					<i class="DownFilter fa-solid fa-angle-down"></i>
 					<i class="UpFilter fa-solid fa-angle-up"></i>
 				</div>
-				<div class="Option">
-					<input type="radio" id="option4" name="price" value="Dưới 1.500.000">
-					<label for="option4">Dưới 1.5tr</label><br>
+				<form class="Option" method="get" asp-action="Index" asp-controller="Product">
+					<p>
+						<label for="amount">Price range:</label>
+						<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+					</p>
 
-					<input type="radio" id="option5" name="price" value="1.5tr - 3.0tr">
-					<label for="option5">1.5tr - 3.0tr</label><br>
+					<input type="hidden" id="startprice" name="startprice">
+					<input type="hidden" id="endprice" name="endprice">
 
-					<input type="radio" id="option6" name="price" value="3.0tr - 5.0tr">
-					<label for="option6">3.0tr - 5.0tr</label><br>
-
-					<input type="radio" id="option7" name="price" value="Trên 5.0tr">
-					<label for="option7">Trên 5.0tr</label><br>
-				</div>
+					<div id="slider-range"></div>
+					<button type="submit" class="btn-locgia">Lọc</button>
+				</form>
 			</div>
 
 			<div class="FilterItems">
@@ -135,3 +130,38 @@
 		</div>
 	</section>
 </div>
+
+@section Scripts {
+	<script>
+				$(document).ready(function(){
+			$( function() {
+				$( "#slider-range" ).slider({
+					range: true,
+					step: 100000,
+					min: 100000,
+					max: 5000000,
+					values: [ 100000, 1000000 ],
+					slide: function( event, ui ) {
+						$( "#amount" ).val( ui.values[0] + " VNĐ - " + ui.values[1] + " VNĐ" );
+						$("#startprice").val(ui.values[0]);
+						$("#endprice").val(ui.values[1]);
+					}
+				});
+				$( "#amount" ).val( $("#slider-range").slider("values", 0 ) + " VNĐ - " + $("#slider-range").slider("values", 1 ) + " VNĐ");
+				$("#startprice").val($("#slider-range").slider("values", 0));
+				$("#endprice").val($("#slider-range").slider("values", 1));
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#sort_by').on('change', function(){
+				var url = $(this).val();
+				if(url){
+					window.location = url;
+				}
+				return false;
+			});
+		});
+	</script>
+}

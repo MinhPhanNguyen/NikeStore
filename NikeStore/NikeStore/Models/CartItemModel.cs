@@ -25,7 +25,6 @@
             Price = product.Price;
             ProductColor = product.ProductColor?.Color;
             ProductSize = product.ProductSize?.Size;
-            ProductPromotion = product.Promotion?.Discount;
             Quantity = 1;
             Image = product.Images?.FirstOrDefault().ImageUrl ?? "default.png";
         }

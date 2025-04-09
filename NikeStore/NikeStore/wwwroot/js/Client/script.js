@@ -2,6 +2,17 @@
     $(".Notification").fadeOut();
 }, 3000);
 
+function toggleShipping() {
+    const content = document.querySelector(".ContentShipping");
+    const isHidden = getComputedStyle(content).display === "none";
+
+    if (isHidden) {
+        content.style.setProperty("display", "flex", "important");
+    } else {
+        content.style.setProperty("display", "none", "important"); 
+    }
+}
+
 function toggleMenuAccount() {
     const open = document.querySelector('.MenuAccount');
     const close = document.querySelector('.AccountClose');

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Promotion>
+﻿@model IEnumerable<NikeStore.Models.Promotion>
 
 @{
 	ViewData["Title"] = "Danh sách khuyến mãi";
@@ -30,10 +30,14 @@
 						<table id="myTable">
 							<thead>
 								<tr>
-									<th>STT</th>
+									<th>Tên</th>
+									<th>Mô tả</th>
 									<th>Ưu đãi</th>
 									<th>Ngày bắt đầu</th>
 									<th>Ngày kết thúc</th>
+									<th>Số lượng</th>
+									<th>Trạng thái</th>
+									<th>Hạn</th>
 									<th>Sửa</th>
 									<th>Xóa</th>
 								</tr>
@@ -41,13 +45,22 @@
 							<tbody>
 								@foreach (var promotion in Model)
 								{
+									var remainingDays = (promotion.EndDate - DateTime.Now).Days;
 									<tr>
-										<td>@promotion.Id</td>
+										<td>@promotion.Name</td>
+										<td>@Html.Raw(promotion.Description)</td>
 										<td>@promotion.Discount (%)</td>
 										<td>@promotion.StartDate</td>
 										<td>@promotion.EndDate</td>
-										<td><a asp-action="Edit" asp-controller="Role" asp-route-Id="@promotion.Id"><i class="fa-solid fa-edit"></i></a></td>
-										<td><a asp-action="Delete" asp-controller="Role" asp-route-Id="@promotion.Id"><i class="fa-solid fa-trash"></i></a></td>
+										<td>@promotion.Quantity</td>
+										@if(promotion.Status == 0) {
+											<td style="color: green;">Kích hoạt</td>
+										} else {
+											<td style="color: red;">Ẩn</td>
+										}
+										<td>@(remainingDays > 0 ? remainingDays + " ngày" : "Hết hạn")</td>
+										<td><a asp-action="Edit" asp-controller="Promotion" asp-route-Id="@promotion.Id"><i class="fa-solid fa-edit"></i></a></td>
+										<td><a asp-action="Delete" asp-controller="Promotion" asp-route-Id="@promotion.Id"><i class="fa-solid fa-trash"></i></a></td>
 									</tr>
 								}
 							</tbody>

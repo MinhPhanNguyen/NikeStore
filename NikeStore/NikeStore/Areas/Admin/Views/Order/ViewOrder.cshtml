@@ -41,7 +41,7 @@
 								{
 									subTotal = item.Quantity * item.Price;
 									total += subTotal;
-									finalPrice = total - (total * (decimal)item.Product?.Promotion?.Discount / 100);
+									@* finalPrice = total - (total * (decimal)item.Product?.Promotion?.Discount / 100); *@
 									<tr>
 										<input  type="hidden" asp-for="@item.OrderCode" class="getId"/>
 										<td>#</td>
@@ -53,19 +53,26 @@
 										<td>@item.Product?.ProductColor?.Color</td>
 										<td>@item.Quantity</td>
 										<td>@item.Price</td>
-										<td>@item.Product?.Promotion?.Discount %</td>
+										@* <td>@item.Product?.Promotion?.Discount %</td> *@
 									</tr>
 								}
 
 								<tr>
+									<th colspan="7" style="text-align:right;">Phí vận chuyển:</th>
+									<td>@String.Format("{0:N0} VND", ViewBag.ShippingCost)</td>
+								</tr>
+
+								<tr>
 									<th colspan="7" style="text-align:right;">Thành tiền:</th>
-									<td>@finalPrice.ToString("C")</td>
+									<td>@String.Format("{0:N0} VND", finalPrice + ViewBag.ShippingCost)</td>
 									<td colspan="2">
-										<select class="form-control select-update-order">
-											<option value="">-- Chọn trạng thái --</option>
-											<option style="color: red; font-weight: bold;" value = "1">Chưa duyệt</option>
-											<option style="color: green; font-weight: bold;" value = "0">Thành công</option>
-										</select>
+										@if(ViewBag.Status != 3){
+											<select class="form-control select-update-order">
+												<option value="">-- Chọn trạng thái --</option>
+												<option style="color: red; font-weight: bold;" value = "1">Chưa duyệt</option>
+												<option style="color: green; font-weight: bold;" value = "0">Thành công</option>
+											</select>
+										}
 									</td>
 								</tr>
 							</tbody>

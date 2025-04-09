@@ -1,0 +1,84 @@
+﻿@model Promotion
+
+@{
+	ViewData["Title"] = "Sửa khuyến mãi";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="AddTable Manager">
+			<div class="Container">
+				<div class="Title">
+					<h3>
+						Sửa khuyến mãi
+						<a class="Backto" asp-action="Promotion" asp-controller="Promotion">Quay lại<i class="fa-solid fa-angle-right"></i></a>
+					</h3>
+				</div>
+
+				<form asp-action="Edit" enctype="multipart/form-data">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group">
+						<label for="Name">Tên khuyến mãi:</label>
+						<input asp-for="Name" type="text" class="form-control" />
+						<span asp-validation-for="Name" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="Description">Mô tả:</label>
+						<textarea asp-for="Description" type="text" id="Description" class="form-control"></textarea>
+						<span asp-validation-for="Description" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="Discount">Khuyến mãi:</label>
+						<input asp-for="Discount" type="number" min="0" max="100" class="form-control" />
+						<span asp-validation-for="Discount" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="StartDate">Ngày bắt đầu:</label>
+						<input asp-for="StartDate" class="form-control" />
+						<span asp-validation-for="StartDate" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="EndDate">Ngày kết thúc:</label>
+						<input asp-for="EndDate" class="form-control"/>
+						<span asp-validation-for="EndDate" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="Quantity">Số lượng:</label>
+						<input asp-for="Quantity" type="number" class="form-control" />
+						<span asp-validation-for="Quantity" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="Status">Trạng thái:</label>
+						<select asp-for="Status">
+							<option value="0">Kích hoạt</option>
+							<option value="1">Ẩn kích hoạt</option>
+						</select>
+						<span asp-validation-for="Status" class="text-danger"></span>
+					</div>
+
+					<div class="btnAddTable form-group">
+						<button>Sửa</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.PartialAsync("_ValidationScriptsPartial");
+	}
+
+	<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+	<script>
+		CKEDITOR.replace('Description');
+	</script>
+}

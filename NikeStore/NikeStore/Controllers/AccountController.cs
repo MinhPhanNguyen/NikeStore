@@ -292,5 +292,44 @@ namespace NikeStore.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public async Task<IActionResult> History()
+        {
+            if((bool)!User.Identity?.IsAuthenticated)
+            {
+                return RedirectToAction("LogIn", "Account");
+            }
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
+
+            var Orders = await _datacontext.Order.Where(p => p.UserName == userEmail)
+                .OrderByDescending(p => p.Id).ToListAsync();
+
+            ViewBag.UserEmail = userEmail;
+            return View(Orders);
+        }
+
+        public async Task<IActionResult> CancelOrder(string orderCode)
+        {
+            if ((bool)!User.Identity?.IsAuthenticated)
+            {
+                return RedirectToAction("LogIn", "Account");
+            }
+
+            try
+            {
+                var Orders = await _datacontext.Order.Where(p => p.OrderCode == orderCode).FirstAsync();
+                Orders.Status = 3;
+                _datacontext.Update(Orders);
+                await _datacontext.SaveChangesAsync();
+            }
+            catch
+            {
+                return BadRequest("Lỗi trong khi hủy đơn hàng");
+            }
+
+            return RedirectToAction("History", "Account");
+        }
     }
 }

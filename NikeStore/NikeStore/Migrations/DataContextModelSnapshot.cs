@@ -338,11 +338,20 @@ namespace NikeStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CouponCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("OrderCode")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ShippingCost")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -492,9 +501,6 @@ namespace NikeStore.Migrations
                     b.Property<int>("ProductTypeID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PromotionID")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -523,8 +529,6 @@ namespace NikeStore.Migrations
                     b.HasIndex("ProductSizeID");
 
                     b.HasIndex("ProductTypeID");
-
-                    b.HasIndex("PromotionID");
 
                     b.HasIndex("WarehouseID");
 
@@ -683,17 +687,28 @@ namespace NikeStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<double?>("Discount")
-                        .HasColumnType("float");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -797,6 +812,34 @@ namespace NikeStore.Migrations
                     b.HasIndex("ServiceID");
 
                     b.ToTable("ServiceType");
+                });
+
+            modelBuilder.Entity("NikeStore.Models.Shipping", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("District")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Ward")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Shipping");
                 });
 
             modelBuilder.Entity("NikeStore.Models.Warehouse", b =>
@@ -995,12 +1038,6 @@ namespace NikeStore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NikeStore.Models.Promotion", "Promotion")
-                        .WithMany("Product")
-                        .HasForeignKey("PromotionID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("NikeStore.Models.Warehouse", "Warehouse")
                         .WithMany("Product")
                         .HasForeignKey("WarehouseID")
@@ -1016,8 +1053,6 @@ namespace NikeStore.Migrations
                     b.Navigation("ProductSize");
 
                     b.Navigation("ProductType");
-
-                    b.Navigation("Promotion");
 
                     b.Navigation("Warehouse");
                 });
@@ -1093,11 +1128,6 @@ namespace NikeStore.Migrations
                 });
 
             modelBuilder.Entity("NikeStore.Models.ProductType", b =>
-                {
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("NikeStore.Models.Promotion", b =>
                 {
                     b.Navigation("Product");
                 });

@@ -19,6 +19,9 @@
 								<tr>
 									<th># </th>
 									<th>Mã hóa đơn </th>
+									<th>Phí vận chuyển </th>
+									<th>Mã giảm giá </th>
+									<th>Giảm giá </th>
 									<th>Tên khách hàng </th>
 									<th>Trạng thái </th>
 									<th>Ngày tạo</th>
@@ -32,6 +35,9 @@
 									<tr>
 										<td>#</td>
 										<td>@order.OrderCode</td>
+										<td>@String.Format("{0:N0} VND",order.ShippingCost)</td>
+										<td>@Html.Raw(order.CouponCode)</td>
+										<td>@order.Discount %</td>
 										<td>@order.UserName</td>
 										@if (order.Status == 0)
 										{

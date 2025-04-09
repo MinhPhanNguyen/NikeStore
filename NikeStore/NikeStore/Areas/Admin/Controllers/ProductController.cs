@@ -34,7 +34,6 @@ namespace NikeStore.Areas.Admin.Controllers
                 .Include(p => p.ProductSize)
                 .Include(p => p.ProductColor)
                 .Include(p => p.ProductType)
-                .Include(p => p.Promotion)
                 .Include(p => p.Images)
                 .ToListAsync();
            
@@ -50,7 +49,6 @@ namespace NikeStore.Areas.Admin.Controllers
                .Include(p => p.ProductSize)
                .Include(p => p.ProductColor)
                .Include(p => p.ProductType)
-               .Include(p => p.Promotion)
                .Include(p => p.Images)
                .Where(p => p.IsHot == true)
                .ToListAsync();
@@ -66,7 +64,6 @@ namespace NikeStore.Areas.Admin.Controllers
                 .Include(p => p.ProductSize)
                 .Include(p => p.ProductColor)
                 .Include(p => p.ProductType)
-                .Include(p => p.Promotion)
                 .Include(p => p.Images)
                 .Where(p => p.IsFavorite == true)
                 .ToListAsync();
@@ -91,7 +88,6 @@ namespace NikeStore.Areas.Admin.Controllers
             ViewBag.ProductGender = new SelectList(_context.ProductGender, "GenderID", "GenderName");
             ViewBag.ProductSize = new SelectList(_context.ProductSize, "ProductSizeID", "Size");
             ViewBag.Warehouse = new SelectList(_context.Warehouse, "WarehouseID", "WarehouseName");
-            ViewBag.Promotion = new SelectList(_context.Promotion, "Id", "Discount");
             return View();
         }
 
@@ -105,7 +101,6 @@ namespace NikeStore.Areas.Admin.Controllers
             ViewBag.ProductGender = new SelectList(_context.ProductGender, "GenderID", "GenderName", product.GenderID);
             ViewBag.ProductSize = new SelectList(_context.ProductSize, "ProductSizeID", "Size", product.ProductSizeID);
             ViewBag.Warehouse = new SelectList(_context.Warehouse, "WarehouseID", "WarehouseName", product.WarehouseID);
-            ViewBag.Promotion = new SelectList(_context.Promotion, "Id", "Discount", product.PromotionID);
 
             if (ModelState.IsValid)
             {
@@ -191,7 +186,6 @@ namespace NikeStore.Areas.Admin.Controllers
             ViewBag.ProductGender = new SelectList(_context.ProductGender, "GenderID", "GenderName", product.GenderID);
             ViewBag.ProductSize = new SelectList(_context.ProductSize, "ProductSizeID", "Size", product.ProductSizeID);
             ViewBag.Warehouse = new SelectList(_context.Warehouse, "WarehouseID", "WarehouseName", product.WarehouseID);
-            ViewBag.Promotion = new SelectList(_context.Promotion, "Id", "Discount", product.PromotionID);
 
             return View(product);
         }
@@ -206,7 +200,6 @@ namespace NikeStore.Areas.Admin.Controllers
             ViewBag.ProductGender = new SelectList(_context.ProductGender, "GenderID", "GenderName", product.GenderID);
             ViewBag.ProductSize = new SelectList(_context.ProductSize, "ProductSizeID", "Size", product.ProductSizeID);
             ViewBag.Warehouse = new SelectList(_context.Warehouse, "WarehouseID", "WarehouseName", product.WarehouseID);
-            ViewBag.Promotion = new SelectList(_context.Promotion, "Id", "Discount", product.PromotionID);
 
             if (ModelState.IsValid)
             {
@@ -224,7 +217,6 @@ namespace NikeStore.Areas.Admin.Controllers
                 existingProduct.ProductColorID = product.ProductColorID;
                 existingProduct.GenderID = product.GenderID;
                 existingProduct.ProductSizeID = product.ProductSizeID;
-                existingProduct.PromotionID = product.PromotionID;
 
                 var category = await _context.ProductCategory.FindAsync(product.CategoryID);
                 if (category != null)

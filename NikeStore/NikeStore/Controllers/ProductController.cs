@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NikeStore.Models;
+using NikeStore.Models.ViewModels;
 using NikeStore.Repository;
 
 namespace NikeStore.Controllers
@@ -20,17 +21,67 @@ namespace NikeStore.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sort_by = "", decimal? startprice = null, decimal? endprice = null)
         {
-            var products = await _dataContext.Product.Include(p => p.ProductCategory).Include(p => p.Images).ToListAsync();
+            IQueryable<Product> productsQuery = _dataContext.Product
+                .Include(p => p.ProductCategory)
+                .Include(p => p.Images);
+
+            if (startprice.HasValue && endprice.HasValue)
+            {
+                productsQuery = productsQuery.Where(p => p.Price >= startprice.Value && p.Price <= endprice.Value);
+            }
+
+            switch (sort_by)
+            {
+                case "price_increase":
+                    productsQuery = productsQuery.OrderBy(p => p.Price);
+                    break;
+                case "price_decrease":
+                    productsQuery = productsQuery.OrderByDescending(p => p.Price);
+                    break;
+                case "price_newest":
+                    productsQuery = productsQuery.OrderByDescending(p => p.CreatedAt);
+                    break;
+                case "price_hotest":
+                    productsQuery = productsQuery.Where(p => p.IsHot).OrderByDescending(p => p.CreatedAt);
+                    break;
+                default:
+                    productsQuery = productsQuery.OrderByDescending(p => p.ProductID);
+                    break;
+            }
+
+            var products = await productsQuery.ToListAsync();
             return View(products);
         }
 
         public async Task<IActionResult> Details(long id)
         {
             if (id <= 0) return RedirectToAction("Index");
-            var productById = _dataContext.Product.Where(p => p.ProductID == id).Include(p => p.Images).FirstOrDefault();
-            return View(productById);
+
+            var productById = _dataContext.Product
+                .Where(p => p.ProductID == id)
+                .Include(p => p.Images)
+                .Include(p => p.ProductCategory)
+                .FirstOrDefault();
+
+            if (productById == null)
+                return NotFound();
+
+            var relatedProducts = _dataContext.Product
+                .Where(p => p.CategoryID == productById.CategoryID && p.ProductID != id)
+                .Include(p => p.Images)
+                .Include(p => p.ProductCategory)
+                .Take(5)
+                .ToList();  
+
+            var viewModel = new ProductDetailViewModel
+            {
+                Product = productById,
+                RelatedProducts = relatedProducts
+            };
+
+            return View(viewModel);
         }
 
         [Authorize]
@@ -38,24 +89,41 @@ namespace NikeStore.Controllers
         {
             var wishlist_product = await (from w in _dataContext.WishList
                                           join p in _dataContext.Product on w.ProductId equals p.ProductID
-                                          select new { Product = p, WishList = w })
+                                          select new WishListViewModel
+                                          {
+                                              ProductID = p.ProductID,
+                                              Name = p.Name,
+                                              ImageUrl = p.Images.FirstOrDefault().ImageUrl ?? "default.jpg",
+                                              CategoryName = p.ProductCategory.CategoryName,
+                                              Price = p.Price
+                                          })
                                           .ToListAsync();
 
             return View(wishlist_product);
         }
 
+
         [Authorize]
-        public async Task<IActionResult> DeleteWishList(int Id)
+        public async Task<IActionResult> DeleteWishList(long productId)
         {
-            WishList wishList = await _dataContext.WishList.FindAsync(Id);
-            _dataContext.WishList.Remove(wishList);
+            var wishListItem = await _dataContext.WishList
+                .FirstOrDefaultAsync(w => w.ProductId == productId);
+
+            if (wishListItem == null)
+            {
+                TempData["error"] = "Sản phẩm không tồn tại trong danh sách yêu thích!";
+                return RedirectToAction("WishList");
+            }
+
+            _dataContext.WishList.Remove(wishListItem);
             await _dataContext.SaveChangesAsync();
-            TempData["success"] = "Xóa sản phẩm yêu thích thành công";
+
+            TempData["success"] = "Xóa sản phẩm yêu thích thành công!";
             return RedirectToAction("WishList");
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddToWishList([FromBody] long Id)
+        public async Task<IActionResult> AddToWishList(long Id)
         {
             if (Id <= 0)
             {

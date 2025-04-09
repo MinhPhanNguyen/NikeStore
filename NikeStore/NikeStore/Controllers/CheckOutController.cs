@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using NikeStore.Models;
 using NikeStore.Models.ViewModels;
 using NikeStore.Repository;
@@ -26,10 +27,28 @@ namespace NikeStore.Controllers
 
             try
             {
+                var shippingPriceCookie = Request.Cookies["ShippingPrice"];
+                decimal shippingPrice = 0;
+                var couponCode = Request.Cookies["CouponTitle"];
+                decimal coupon_discount = 0;
+                if (Request.Cookies["Discount"] != null)
+                {
+                    decimal.TryParse(Request.Cookies["Discount"], out coupon_discount);
+                }
+
+                if (shippingPriceCookie != null)
+                {
+                    var shippingPriceJson = shippingPriceCookie;
+                    shippingPrice = JsonConvert.DeserializeObject<decimal>(shippingPriceJson);
+                }
+
                 var orderCode = Guid.NewGuid().ToString();
                 var orderItem = new Order
                 {
                     OrderCode = orderCode,
+                    ShippingCost = shippingPrice,
+                    CouponCode = couponCode,
+                    Discount = coupon_discount,
                     Status = 1,
                     UserName = userEmail,
                     CreateDate = DateTime.Now

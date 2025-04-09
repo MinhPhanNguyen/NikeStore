@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Order>
+
+@{
+	ViewData["Title"] = "Lịch sử đơn hàng";
+}
+
+<div class="AccountHistory" id="AccountHistory">
+	<section class="Section_1">
+		<div class="Container">
+			<div class="Title">
+				<h2>Lịch sử mua hàng</h2>
+			</div>
+			<ul>
+				@foreach (var item in Model)
+				{
+					<li>
+						<div class="Contain_img">
+							<img src="/images/ProductDetail/AIR FORCE 1 07.jpg" alt="">
+						</div>
+						<div class="Content">
+							<div class="Left">
+								<h3>Mã đơn hàng: </h3>
+								<p>Phí vận chuyển: </p>
+								<p>Mã giảm giá: </p>
+								<p>Giảm giá: </p>
+								<h3>Tên người dùng: </h3>
+								<h3>Ngày thanh toán: </h3>
+								<h3>Trạng thái: </h3>
+							</div>
+
+							<div class="Right">
+								<h3>@item.OrderCode</h3>
+								<h3>@String.Format("{0:N0} VND", item.ShippingCost)</h3>
+								<h3>@item.CouponCode</h3>
+								<h3>@String.Format("{0:N0} VND", item.Discount)</h3>
+								<h3>@item.UserName</h3>
+								<h3>@item.CreateDate</h3>
+								@if(item.Status == 1)
+								{
+									<span class="text text-success">Đơn hàng mới</span>
+								}
+								else if (item.Status == 2)
+								{
+									<span class="text text-primary">Đã xử lý</span>
+								}
+								else
+								{
+									<span class="text text-danger">Đã hủy</span>
+								}
+								<a class="btn" asp-action="CancelOrder" asp-controller="Order" asp-route-ordercode="@item.OrderCode">Hủy đơn hàng</a>
+							</div>
+						</div>
+					</li>
+				}
+			</ul>
+		</div>
+	</section>
+</div>

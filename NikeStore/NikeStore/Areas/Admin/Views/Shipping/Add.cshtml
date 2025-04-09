@@ -1,0 +1,146 @@
+﻿@model Shipping
+
+@{
+	ViewData["Title"] = "Thêm vận chuyển";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+	.css_select_div {
+		text-align: center;
+	}
+
+	.css_select {
+		display: inline-table;
+		padding: 5px;
+		margin: 5px 2%;
+		border: solid 1px #686868;
+		border-radius: 5px;
+	}
+</style>
+
+<div class="Dashboard">
+	<div class="DashboardContent">
+		<div class="AddTable Manager">
+			<div class="Container">
+				<div class="Title">
+					<h3>
+						Thêm vận chuyển
+						<a class="Backto" asp-action="Shipping" asp-controller="Shipping">Quay lại<i class="fa-solid fa-angle-right"></i></a>
+					</h3>
+				</div>
+
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group" style="width: 90%; ">
+					<label>Tỉnh / Thành phố:</label>
+					<select class="css_select form-control" id="tinh" name="tinh" title="Chọn Tỉnh Thành">
+						<option value="0">Tỉnh Thành</option>
+					</select>
+				</div>
+
+				<div class="form-group" style="width: 90%; margin-top: 1em;">
+					<label>Quận / Huyện:</label>
+					<select class="css_select form-control" id="quan" name="quan" title="Chọn Quận Huyện">
+						<option value="0">Quận Huyện</option>
+					</select>
+				</div>
+
+				<div class="form-group" style="width: 90%;margin-top: 1em; ">
+					<label>Phường / Xã:</label>
+					<select class="css_select form-control" id="phuong" name="phuong" title="Chọn Phường Xã">
+						<option value="0">Phường Xã</option>
+					</select>
+				</div>
+
+				<div class="form-group" style="width: 90%; margin-top: 1em;">
+					<label>Giá:</label>
+					<input class="form-control" type="text" asp-for="Price" id="price-shipping" />
+				</div>
+
+				<div class="btnAddTable form-group">
+					<button type="button" class="btn-add-shipping">Thêm</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.PartialAsync("_ValidationScriptsPartial");
+	}
+
+	<script>
+		$(".btn-add-shipping").click(function(){
+			var tinh = $("#tinh").find('option:selected').text();
+			var quan = $("#quan").find('option:selected').text();
+			var phuong = $("#phuong").find('option:selected').text();
+			var price = $("#price-shipping").val();
+
+			if(tinh == '' || quan == '' || phuong == '' || price == ''){
+				Swal.fire("Vui lòng chọn đầy đủ thông tin");
+			}
+			$.ajax({
+				url: "@Url.Action("StoreShipping", "Shipping")",
+				type: "POST",
+				data: {
+					tinh: tinh,
+					quan: quan,
+					phuong: phuong,
+					price: price
+				},
+				success: function(result){
+					 if(result.success){
+						Swal.fire({
+							title: "Thành công",
+							text: "Thêm vận chuyển thành công",
+							icon: "success"
+						}).then(() => {
+							window.location.href = "@Url.Action("Shipping", "Shipping")";
+					});
+					} else if(result.duplicate) {
+						Swal.fire("Vận chuyển đã tồn tại");
+					}
+				}
+			});
+		})
+
+		$(document).ready(function() {
+			//Lấy tỉnh thành
+			$.getJSON('https://esgoo.net/api-tinhthanh/1/0.htm',function(data_tinh){
+				if(data_tinh.error==0){
+				   $.each(data_tinh.data, function (key_tinh,val_tinh) {
+					  $("#tinh").append('<option value="'+val_tinh.id+'">'+val_tinh.full_name+'</option>');
+				   });
+				   $("#tinh").change(function(e){
+						var idtinh=$(this).val();
+						//Lấy quận huyện
+						$.getJSON('https://esgoo.net/api-tinhthanh/2/'+idtinh+'.htm',function(data_quan){
+							if(data_quan.error==0){
+							   $("#quan").html('<option value="0">Quận Huyện</option>');
+							   $("#phuong").html('<option value="0">Phường Xã</option>');
+							   $.each(data_quan.data, function (key_quan,val_quan) {
+								  $("#quan").append('<option value="'+val_quan.id+'">'+val_quan.full_name+'</option>');
+							   });
+							   //Lấy phường xã
+							   $("#quan").change(function(e){
+									var idquan=$(this).val();
+									$.getJSON('https://esgoo.net/api-tinhthanh/3/'+idquan+'.htm',function(data_phuong){
+										if(data_phuong.error==0){
+										   $("#phuong").html('<option value="0">Phường Xã</option>');
+										   $.each(data_phuong.data, function (key_phuong,val_phuong) {
+											  $("#phuong").append('<option value="'+val_phuong.id+'">'+val_phuong.full_name+'</option>');
+										   });
+										}
+									});
+							   });
+
+							}
+						});
+				   });
+
+				}
+			});
+		 });
+	</script>
+}

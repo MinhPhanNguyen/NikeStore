@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<NikeStore.Models.ViewModels.WishListViewModel>
+
+@{
     ViewData["Title"] = "Yêu thích của bạn";
     var key = 0;
 }
@@ -18,18 +20,24 @@
                 @foreach (var product in Model)
                 {
                     key++;
-                    <a asp-action="Details" asp-controller="Product" asp-route-Id="@product.ProductID" class="Components col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4">
-                        <div class="Contain_img">
-                            <img src="@(product.Images?.FirstOrDefault().ImageUrl ?? "default.jpg")" alt="@product.Name" />
-                        </div>
-                        <div class="Content">
-                            <h1>@product.Name</h1>
-                            <h2>@product.ProductCategory?.CategoryName</h2>
-                            <h1>@String.Format("{0:N0} VND", product.Price)</h1>
-                        </div>
-                    </a>
+                    <div class="ContentWish  col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4">
+                        <a asp-action="Details" asp-controller="Product" asp-route-Id="@product.ProductID" class="Components">
+                            <div class="Contain_img">
+                                <img src="@product.ImageUrl" alt="@product.Name" />
+                            </div>
+                            <div class="Content">
+                                <h1>@product.Name</h1>
+                                <h2>@product.CategoryName</h2>
+                                <h1>@String.Format("{0:N0} VND", product.Price)</h1>
+                            </div>
+                        </a>
+
+                        <a asp-action="DeleteWishList" asp-controller="Product" asp-route-productId="@product.ProductID" class="FavouriteIcon">
+                            <i class="fa-solid fa-heart-circle-xmark"></i>
+                        </a>
+                    </div>
                 }
             </div>
-		</section>
-	</div>
+        </section>
+    </div>
 </div>

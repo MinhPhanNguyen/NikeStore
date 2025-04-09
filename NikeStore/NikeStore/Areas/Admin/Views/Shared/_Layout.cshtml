@@ -14,6 +14,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">
 	<link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet">
 	<link href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css" rel="stylesheet">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 </head>
 
 <body>
@@ -26,21 +27,7 @@
 			<a href="/Admin/"><img src="/images/icon/logo.png" alt="Alternate Text" /></a>
 		</div>
 		<div class="Title">
-			<h2 onclick="toggleMenu(this);"><i class="fa-solid fa-house"></i><label>Trang chủ</label></h2>
-			<div class="Contain">
-				<div class="MenuContent">
-					<h3 onclick="toggleChildMenu(this)">
-						<i class="Right fa-solid fa-angle-right"></i>
-						<i class="Down fa-solid fa-angle-down"></i> Thống kê
-					</h3>
-					<ul>
-						<li><a href="/Admin/DashBoard/RevenueChart"><i class="fa-solid fa-circle"></i> Doanh thu</a></li>
-						<li><a href="/Admin/DashBoard/ProductChart"><i class="fa-solid fa-circle"></i>Sản phẩm</a></li>
-						<li><a href="/Admin/DashBoard/OrderChart"><i class="fa-solid fa-circle"></i> Đơn hàng</a></li>
-						<li><a href="/Admin/DashBoard/AccessWebStatistic"><i class="fa-solid fa-circle"></i> Lượt truy cập Website</a></li>
-					</ul>
-				</div>
-			</div>
+			<a href="/Admin/Dashboard/Index"><h2><i class="fa-solid fa-house"></i><label>Trang chủ</label></h2></a>
 		</div>
 
 		<div class="Title">
@@ -73,18 +60,6 @@
 				<div class="MenuContent">
 					<h3 onclick="toggleChildMenu(this)">
 						<i class="Right fa-solid fa-angle-right"></i>
-						<i class="Down fa-solid fa-angle-down"></i> Kho hàng
-					</h3>
-					<ul>
-						<li><a href="/Admin/Warehouse/WarehouseInventory"><i class="fa-solid fa-circle"></i> Tồn kho</a></li>
-						<li><a href="/Admin/Warehouse/WarehouseImporting"><i class="fa-solid fa-circle"></i> Nhập hàng</a></li>
-						<li><a href="/Admin/Warehouse/WarehouseExporting"><i class="fa-solid fa-circle"></i> Xuất hàng</a></li>
-						<li><a href="/Admin/Warehouse/WarehouseProvider"><i class="fa-solid fa-circle"></i> Nhà cung cấp</a></li>
-					</ul>
-				</div>
-				<div class="MenuContent">
-					<h3 onclick="toggleChildMenu(this)">
-						<i class="Right fa-solid fa-angle-right"></i>
 						<i class="Down fa-solid fa-angle-down"></i> Đơn hàng
 					</h3>
 					<ul>
@@ -101,17 +76,6 @@
 					<ul>
 						<li><a href="/Admin/Service/Service"><i class="fa-solid fa-circle"></i> Dịch vụ chính</a></li>
 						<li><a href="/Admin/Service/ServiceType"><i class="fa-solid fa-circle"></i>Dịch vụ kèm theo</a></li>
-					</ul>
-				</div>
-				<div class="MenuContent">
-					<h3 onclick="toggleChildMenu(this)">
-						<i class="Right fa-solid fa-angle-right"></i>
-						<i class="Down fa-solid fa-angle-down"></i> Hóa đơn
-					</h3>
-					<ul>
-						<li><a href="/Admin/Bill/Bill"><i class="fa-solid fa-circle"></i> Tất cả hóa đơn</a></li>
-						<li><a href="/Admin/Bill/PaymentBill"><i class="fa-solid fa-circle"></i> Hóa đơn đã thanh toán</a></li>
-						<li><a href="/Admin/Bill/UnPaymentBill"><i class="fa-solid fa-circle"></i> Hóa đơn chưa thanh toán</a></li>
 					</ul>
 				</div>
 				<div class="MenuContent">
@@ -139,7 +103,7 @@
 						<i class="Down fa-solid fa-angle-down"></i> Vận chuyển
 					</h3>
 					<ul>
-						<li><a href="/Admin/Shipping/Shipping"><i class="fa-solid fa-circle"></i> Đơn hàng vận chuyển</a></li>
+						<li><a href="/Admin/Shipping/Shipping"><i class="fa-solid fa-circle"></i> Danh sách vận chuyển</a></li>
 					</ul>
 				</div>
 				<div class="MenuContent">
@@ -188,6 +152,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
 	<script>
 		$(
 			function(){

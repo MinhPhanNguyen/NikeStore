@@ -34,7 +34,7 @@
 									<tr>
 										<td>@service.ServiceID</td>
 										<td><input type="checkbox"></td>
-										<td><img src="@service.ImageUrl" alt="@service.Name"></td>
+										<td><img src="/media/services/@service.ImageUrl" alt="@service.Name"></td>
 										<td>@service.Name</td>
 										<td>@(service.Description.Length > 20 ? service.Description.Substring(0, 20) + "..." : service.Description)</td>
 										<td>@service.ServiceTypes.Count</td>

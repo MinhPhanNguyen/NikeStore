@@ -1,4 +1,4 @@
-﻿@model NikeStore.Models.Product
+﻿@model NikeStore.Models.ViewModels.ProductDetailViewModel
 
 @{
 	ViewData["Title"] = "Chi tiết sản phẩm";
@@ -8,14 +8,14 @@
 	<section class="Section_1 row">
 		<div class="Contain_img col-lg-7 col-md-12 col-sm-12 col-xs-12 mb-4 row">
 			<div class="ImgItems col-lg-2 col-md-2 col-sm-2 col-xs-2 mb-2">
-				@foreach (var img in Model.Images)
+				@foreach (var img in Model.Product.Images)
 				{
 					<img src="@img.ImageUrl" />
 				}
 			</div>
 
 			<div class="ImgDisplay col-lg-10 col-md-10 col-sm-12 col-xs-12">
-				<img src="@(Model.Images.FirstOrDefault()?.ImageUrl ?? "default.jpg")" alt="Alternate Text" id="displayedImage" />
+				<img src="@(Model.Product.Images.FirstOrDefault()?.ImageUrl ?? "default.jpg")" alt="Alternate Text" id="displayedImage" />
 				<div class="PrevNext">
 					<button><i class="fa-solid fa-angle-left"></i></button>
 					<button><i class="fa-solid fa-angle-right"></i></button>
@@ -23,19 +23,24 @@
 			</div>
 		</div>
 
-		<div class="Content  col-lg-5 col-md-12 col-sm-12 col-xs-12 mb-4">
+		<div class="Content col-lg-5 col-md-12 col-sm-12 col-xs-12 mb-4">
 			<div class="Title">
-				<h2>@Model.Name</h2>
-				<h3>@Model.ProductCategory?.CategoryName</h3>
-				<span>@String.Format("{0:N0} VND", Model.Price)</span>
+				<h2>@Model.Product.Name</h2>
+				<h3>@Model.Product.ProductCategory?.CategoryName</h3>
+				<span>@String.Format("{0:N0} VND", Model.Product.Price)</span>
 			</div>
 
 			<div class="TypeOption">
-				<img src="/images/ProductDetail/type1.jpg" alt="Alternate Text" />
-				<img src="/images/ProductDetail/type2.jpg" alt="Alternate Text" />
-				<img src="/images/ProductDetail/type3.jpg" alt="Alternate Text" />
-				<img src="/images/ProductDetail/type4.jpg" alt="Alternate Text" />
-				<img src="/images/ProductDetail/type5.jpg" alt="Alternate Text" />
+				@if (!Model.RelatedProducts.Any())
+				{
+					<p>Không tìm thấy sản phẩm liên quan.</p>
+				}
+				@foreach (var product in Model.RelatedProducts)
+				{
+					<a href="@Url.Action("Details", "Product", new { id = product.ProductID })">
+						<img src="@(product.Images.FirstOrDefault()?.ImageUrl ?? "default.jpg")" alt="@product.Name" />
+					</a>
+				}
 			</div>
 
 			<div class="SizeOption">
@@ -51,15 +56,15 @@
 			<div class="btn">
 				@if (User.Identity.IsAuthenticated)
 				{
-					@if (Model.Quantity > 0)
+					@if (Model.Product.Quantity > 0)
 					{
-						<button class="button add-to-cart" data-product_id="@Model.ProductID">Thêm vào giỏ hàng</button>
+						<button class="button add-to-cart" data-product_id="@Model.Product.ProductID">Thêm vào giỏ hàng</button>
 					}
 					else
 					{
 						<button class="button" disabled>Đã hết hàng</button>
 					}
-					<button class="button add-to-wishlist" data-product_id="@Model.ProductID">Yêu thích <i class="fa-regular fa-heart"></i></button>
+					<button class="button add-to-wishlist" data-product_wish="@Model.Product.ProductID">Yêu thích <i class="fa-regular fa-heart"></i></button>
 				}
 				else
 				{
@@ -78,7 +83,7 @@
 			</div>
 
 			<div class="Content">
-				<p>@Html.Raw(Model.Description)</p>
+				<p>@Html.Raw(Model.Product.Description)</p>
 			</div>
 		</div>
 	</section>
@@ -97,7 +102,6 @@
 		</div>
 	</section>
 </div>
-
 
 @section Scripts {
 	<script>
@@ -142,29 +146,29 @@
 		$(document).ready(function () {
 			$(".add-to-wishlist").click(function (event) {
 				event.preventDefault();
-				var productId = $(this).data("product_id");
+				var productId = $(this).data("product_wish");
+
+				if (!productId || productId <= 0) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Lỗi!',
+						text: 'ID sản phẩm không hợp lệ'
+					});
+					return;
+				}
 
 				$.ajax({
 					type: "POST",
-					url: "/Product/AddToWishList",
-					contentType: "application/json",  
-					data: JSON.stringify({ Id: productId }), 
+					url: "/Product/AddToWishList?Id=" + productId,
+					contentType: "application/json",
 					dataType: "json",
 					success: function (result) {
-						if (result.success) {
-							Swal.fire({
-								icon: 'success',
-								title: result.message,
-								showConfirmButton: false,
-								timer: 1500
-							});
-						} else {
-							Swal.fire({
-								icon: 'error',
-								title: 'Thêm sản phẩm thất bại!',
-								text: result.message
-							});
-						}
+						Swal.fire({
+							icon: result.success ? 'success' : 'error',
+							title: result.message,
+							showConfirmButton: false,
+							timer: 1500
+						});
 					},
 					error: function (xhr) {
 						console.log("Lỗi chi tiết:", xhr.responseText);

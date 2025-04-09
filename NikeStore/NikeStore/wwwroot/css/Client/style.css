@@ -11,6 +11,14 @@
     border-radius:0.2em;
 }
 
+.btn-apply-coupon {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-apply-coupon:hover {
+    opacity: 0.7
+}
+
 .Homepage {
     width: 100%;
     height: auto;
@@ -88,7 +96,7 @@
         max-width: unset;
     }
 
-    .Homepage .Section_4, .PromotionPage .Section_4 {
+    .Homepage .Section_4, .PromotionPage .Section_3 {
         max-width: 90vw;
     }
 
@@ -287,13 +295,13 @@
             white-space:nowrap;
         }
 
-            .ProductListPage .Section_1 .Filter li span {
-                margin-right: 0.7em;
-                font-size: 0.9em;
+            .ProductListPage .Section_1 .Filter li {
+                font-size: 1em;
             }
 
             .ProductListPage .Section_1 .Filter li i {
                 font-size: 0.75em;
+                margin-left: 0.7em;
             }
 
             .ProductListPage .Section_1 .Filter li .Show {
@@ -316,43 +324,6 @@
                 filter: drop-shadow(rgba(0, 0, 0, 0.7) 0px 2px 5px);
             }
 
-        .ProductListPage .Section_1 .dropdown.scrollFilter {
-            top: 150px;
-            margin-right: 0.5em;
-        }
-
-        .ProductListPage .Section_1 .dropdown {
-            max-height: 0;
-            opacity: 1;
-            overflow: hidden;
-            position: fixed;
-            right: 7vw;
-            top: 160px;
-            z-index: 1000;
-            background-color: white;
-            filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 2px 5px);
-            border-radius: 0.2em;
-            transition: all 0.5s ease-in-out;
-        }
-
-            .ProductListPage .Section_1 .dropdown ul {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                justify-content: space-around;
-            }
-
-                .ProductListPage .Section_1 .dropdown ul li {
-                    text-align: right;
-                    width: 100%;
-                    cursor: pointer;
-                    padding: 1em 2em 1em 3em;
-                    font-size: 0.95em;
-                }
-
-                    .ProductListPage .Section_1 .dropdown ul li:hover {
-                        background-color: #ebebeb;
-                    }
 
     .ProductListPage .Section_2 {
         margin: 1em 0;
@@ -1200,9 +1171,24 @@
                 align-items: center;
             }
 
-        .WishListPage .Container .Section {
-            margin: 2em 0;
-        }
+                .WishListPage .Container .Section_2 .Contain .ContentWish {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+.FavouriteIcon {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    color: #ff1616;
+    transform: scale(1.4);
+    cursor: pointer;
+}
+
+.WishListPage .Container .Section {
+    margin: 2em 0;
+}
 
 .CartPage {
     width: 100%;
@@ -1337,14 +1323,18 @@
             .CartPage .Container .Section_1 .Contain .Summary {
                 display: flex;
                 flex-direction: column;
-                height: 70vh;
+                max-height: 120vh;
             }
 
-                .CartPage .Container .Section_1 .Contain .Summary ul {
-                    padding-bottom: 1em;
-                    border-bottom: 1px solid #cacaca;
-                    flex-direction: column;
-                }
+.ContentShipping {
+    display: none !important;
+}
+
+.CartPage .Container .Section_1 .Contain .Summary ul {
+    padding-bottom: 1em;
+    border-bottom: 1px solid #cacaca;
+    flex-direction: column;
+}
 
                     .CartPage .Container .Section_1 .Contain .Summary ul li {
                         display: flex;
@@ -1372,9 +1362,22 @@
                             padding-bottom: 0.2em;
                         }
 
+                        .CartPage .Container .Section_1 .Contain .Summary ul li .button {
+                            color: #008aff;
+                            background-color: transparent;
+                            border: none;
+                            font-size: 0.9em;
+                            text-decoration: underline;
+                            padding-bottom: 0.2em;
+                        }
+
                             .CartPage .Container .Section_1 .Contain .Summary ul li button:hover {
                                 opacity: 0.6;
                             }
+
+                        .CartPage .Container .Section_1 .Contain .Summary ul li .button:hover {
+                            opacity: 0.6;
+                        }
 
                         .CartPage .Container .Section_1 .Contain .Summary ul li i {
                             cursor: pointer;

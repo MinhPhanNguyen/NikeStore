@@ -32,27 +32,6 @@ namespace NikeStore.Repository
                 _context.SaveChanges(); // Lưu dữ liệu vào DB
             }
 
-            if (!_context.Promotion.Any()) // Kiểm tra xem có dữ liệu chưa
-            {
-                _context.Promotion.AddRange(
-                    new Promotion
-                    {
-                        Discount = 10,
-                        StartDate = DateTime.Now,
-                        EndDate = DateTime.Now.AddMonths(1),
-                        IsActive = true,
-                    },
-                    new Promotion
-                    {
-                        Discount = 20,
-                        StartDate = DateTime.Now,
-                        EndDate = DateTime.Now.AddMonths(1),
-                        IsActive = true,
-                    }
-                );
-                _context.SaveChanges(); // Lưu dữ liệu vào DB
-            }
-
             // Add Product Categories (Collections) if they don't exist
             if (!_context.Provider.Any()) // Kiểm tra xem có dữ liệu chưa
             {
@@ -249,7 +228,6 @@ namespace NikeStore.Repository
                     ProductTypeID = Low.ProductTypeID, 
                     GenderID = Men.GenderID, 
                     WarehouseID = 1,
-                    PromotionID = 1,
                     IsHot = true,
                     IsFavorite = true,
                     ImageUrl = "AIR FORCE 1 07.jpg",
@@ -267,7 +245,6 @@ namespace NikeStore.Repository
                     ProductTypeID = Middle.ProductTypeID, 
                     GenderID = Women.GenderID, 
                     WarehouseID = 2,
-                    PromotionID = 1,
                     IsHot = true,
                     IsFavorite = true,
                     ImageUrl = "W AIR MAX DN ISA.jpg",
@@ -285,7 +262,6 @@ namespace NikeStore.Repository
                     ProductTypeID = Middle.ProductTypeID, 
                     GenderID = Women.GenderID, 
                     WarehouseID = 2,
-                    PromotionID = 2,
                     IsHot = false,
                     IsFavorite = true,
                     ImageUrl = "W NIKE DUNK LOW NEXT NATURE.jpg",

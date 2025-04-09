@@ -3,7 +3,7 @@
 @{
 	ViewData["Title"] = "Giỏ hàng";
 	var totalPrice = Model.CartItems.Sum(item => item.Price * item.Quantity);
-	var totalPromotion = Model.CartItems.Sum(item => (item.Price * item.Quantity) - (item.Price * item.Quantity * ((decimal)item.ProductPromotion / 100)));
+	var totalPromotion = Model.CartItems.Sum(item => (item.Price * item.Quantity) - (item.Price * item.Quantity * ((decimal)Model.Discount / 100)));
 }
 
 <div class="CartPage">
@@ -63,18 +63,47 @@
 										<p>Tổng tiền</p>
 										<span class="TotalPrice">@String.Format("{0:N0} VND", totalPrice)</span>
 									</li>
+									<li class="ToggleShipping" onclick="toggleShipping()">
+										<p>Cập nhật địa chỉ giao hàng</p>
+										<span><i class="fa-solid fa-angle-down"></i></span>
+									</li>
+									<li class="ContentShipping" style="flex-direction: column;">
+										<div class="form-group" style="width: 90%; ">
+											<label>Tỉnh / Thành phố:</label>
+											<select class="css_select form-control" id="tinh" name="tinh" title="Chọn Tỉnh Thành">
+												<option value="0">Tỉnh Thành</option>
+											</select>
+										</div>
+
+										<div class="form-group" style="width: 90%; margin-top: 1em;">
+											<label>Quận / Huyện:</label>
+											<select class="css_select form-control" id="quan" name="quan" title="Chọn Quận Huyện">
+												<option value="0">Quận Huyện</option>
+											</select>
+										</div>
+
+										<div class="form-group" style="width: 90%;margin-top: 1em; ">
+											<label>Phường / Xã:</label>
+											<select class="css_select form-control" id="phuong" name="phuong" title="Chọn Phường Xã">
+												<option value="0">Phường Xã</option>
+											</select>
+										</div>
+
+										<div style="margin: 0.5em 0; width: 80%; display: flex; justify-content: space-between;">
+											<button type="button" class="btn-add-shipping">Cập nhật</button>
+											<a class="button" asp-action="DeleteShipping" asp-controller="Cart">Xóa lựa chọn</a>
+										</div>
+									</li>
 									<li>
 										<p>Phí giao hàng</p>
-										<span>50.000 VNĐ</span>
+										<span>@String.Format("{0:N0} VND", Model.ShippingCost)</span>
 									</li>
-									<li>
-										<p>Cập nhật địa chỉ giao hàng</p>
-										<button>Cập nhật</button>
-									</li>
-									<li>
-										<p>Chọn phương thức giao hàng</p>
-										<i class="downItems fa-solid fa-angle-down"></i>
-										<i class="upItems fa-solid fa-angle-up"></i>
+									<li style="display: flex; justify-content: space-between;">
+										<p>Mã giảm giá</p>
+										<form style="display: flex; align-items: center">
+											<input type="text" class="form-control coupon-value"/>
+											<input type="button" value="Apply" style="color: #287eff; font-size:0.9em; font-style: italic; text-decoration: underline;" class="btn btn-apply-coupon" />
+										</form>
 									</li>
 									<li>
 										<p>Chọn hình thức thanh toán</p>
@@ -85,19 +114,24 @@
 								<div class="Total">
 									<div class="Discount">
 										<h3>Giảm giá</h3>
-										<span>@item.ProductPromotion %</span>
+										<span>@Model?.Discount %</span>
 									</div>
 									<div class="FinalPrice">
 										<h3>Thành tiền</h3>
-										<span>@String.Format("{0:N0} VND", totalPromotion)</span>
+										<span>@String.Format("{0:N0} VND", totalPromotion + Model.ShippingCost)</span>
 									</div>
 									<div class="Date">
 										<h3>Dự kiến giao hàng</h3>
 										<span>Sau 3 ngày</span>
 									</div>
 								</div>
-
-								<a class="btnCheck" asp-controller="CheckOut" asp-action="CheckOut">Thanh toán</a>
+								@if(Model.ShippingCost <= 0) {
+									<a disabled="disabled" class="btnCheck" asp-controller="CheckOut" asp-action="CheckOut">Thanh toán</a>
+									<span class="text-danger">Vui lòng cập nhật phí vận chuyển</span>
+								}
+								else {
+									<a class="btnCheck" asp-controller="CheckOut" asp-action="CheckOut">Thanh toán</a>
+								}
 							</div>
 						}
 					}
@@ -111,3 +145,112 @@
 		</section>
 	</div>
 </div>
+
+@section Scripts {
+	@{
+		await Html.PartialAsync("_ValidationScriptsPartial");
+	}
+
+	<script>
+		$(".btn-apply-coupon").click(function () {
+			var coupon_value = $(".coupon-value").val(); 
+
+			$.ajax({
+				url: "@Url.Action("GetCoupon", "Cart")",
+				type: "POST",
+				data: { coupon_value: coupon_value },
+				success: function (result) {
+					if (result.success) {
+						Swal.fire({
+							title: "Thành công!",
+							text: result.message,
+							icon: "success",
+							confirmButtonText: "OK"
+						}).then(() => {
+							location.reload();
+						});
+					} else {
+						Swal.fire({
+							title: "Lỗi!",
+							text: result.message,
+							icon: "error",
+							confirmButtonText: "OK"
+						});
+					}
+				},
+				error: function () {
+					Swal.fire("Có lỗi xảy ra, vui lòng thử lại!", "", "error");
+				},
+			});
+		});
+	</script>
+
+	<script>
+		$(".btn-add-shipping").click(function () {
+			var tinh = $("#tinh").find("option:selected").text();
+			var quan = $("#quan").find("option:selected").text();
+			var phuong = $("#phuong").find("option:selected").text();
+
+			if (tinh == "" || quan == "" || phuong == "") {
+				Swal.fire("Vui lòng chọn đầy đủ thông tin");
+				return; 
+			}
+
+			$.ajax({
+				url: "@Url.Action("GetShipping", "Cart")",
+				type: "POST",
+				data: {
+					tinh: tinh,
+					quan: quan,
+					phuong: phuong,
+				},
+				success: function (result) {
+					if (result) {
+						location.reload();
+					}
+				},
+				error: function (xhr, status, error) {
+					Swal.fire("Có lỗi xảy ra, vui lòng thử lại!");
+				},
+			});
+		});
+
+		$(document).ready(function() {
+			//Lấy tỉnh thành
+			$.getJSON('https://esgoo.net/api-tinhthanh/1/0.htm',function(data_tinh){
+				if(data_tinh.error==0){
+				   $.each(data_tinh.data, function (key_tinh,val_tinh) {
+					  $("#tinh").append('<option value="'+val_tinh.id+'">'+val_tinh.full_name+'</option>');
+				   });
+				   $("#tinh").change(function(e){
+						var idtinh=$(this).val();
+						//Lấy quận huyện
+						$.getJSON('https://esgoo.net/api-tinhthanh/2/'+idtinh+'.htm',function(data_quan){
+							if(data_quan.error==0){
+							   $("#quan").html('<option value="0">Quận Huyện</option>');
+							   $("#phuong").html('<option value="0">Phường Xã</option>');
+							   $.each(data_quan.data, function (key_quan,val_quan) {
+								  $("#quan").append('<option value="'+val_quan.id+'">'+val_quan.full_name+'</option>');
+							   });
+							   //Lấy phường xã
+							   $("#quan").change(function(e){
+									var idquan=$(this).val();
+									$.getJSON('https://esgoo.net/api-tinhthanh/3/'+idquan+'.htm',function(data_phuong){
+										if(data_phuong.error==0){
+										   $("#phuong").html('<option value="0">Phường Xã</option>');
+										   $.each(data_phuong.data, function (key_phuong,val_phuong) {
+											  $("#phuong").append('<option value="'+val_phuong.id+'">'+val_phuong.full_name+'</option>');
+										   });
+										}
+									});
+							   });
+
+							}
+						});
+				   });
+
+				}
+			});
+		 });
+	</script>
+}

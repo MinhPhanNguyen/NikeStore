@@ -43,9 +43,12 @@ namespace NikeStore.Areas.Admin.Controllers
                 .Include(od => od.Product.ProductType)
                 .Include(od => od.Product.ProductColor)
                 .Include(od => od.Product.ProductSize)
-                .Include(od => od.Product.Promotion)
                 .Where(od => od.OrderCode == orderCode)
                 .ToListAsync();
+
+            var Order = _context.Order.First(o => o.OrderCode == orderCode);
+            ViewBag.ShippingCost = Order.ShippingCost;
+            ViewBag.Status = Order.Status;
 
             return View(orderDetail);
         }

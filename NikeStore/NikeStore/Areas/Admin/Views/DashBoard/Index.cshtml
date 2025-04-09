@@ -10,32 +10,32 @@
 					<li class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
 						<a href="/Admin/DashBoard/RevenueChart">
 							<h3>Doanh thu hôm nay</h3>
-							<span>20.000.000 VND</span>
-							<p>Lợi nhuận: 20%</p>
+							<span>@ViewBag.TotalRevenueToday</span>
+							<p>Lợi nhuận: @ViewBag.RevenueGrowth %</p>
 						</a>
 					</li>
 
 					<li class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
 						<a href="/Admin/DashBoard/ProductChart">
 							<h3>Sản phẩm bán được</h3>
-							<span>12.340</span>
-							<p>Tỷ lệ tăng: 15%</p>
+							<span>@ViewBag.TotalProductsSold</span>
+							<p>Tỷ lệ tăng: @ViewBag.ProductGrowth %</p>
 						</a>
 					</li>
 
 					<li class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
 						<a href="/Admin/DashBoard/OrderChart">
 							<h3>Đơn hàng bán được</h3>
-							<span>2.340</span>
-							<p>Tỷ lệ tăng: 40%</p>
+							<span>@ViewBag.TotalOrder</span>
+							<p>Tỷ lệ tăng: @ViewBag.OrderGrowth %</p>
 						</a>
 					</li>
 
 					<li class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4">
 						<a href="/Admin/DashBoard/AccessWebStatistic">
 							<h3>Lượt truy cập Website</h3>
-							<span>32.340</span>
-							<p>Tỷ lệ tăng: 30%</p>
+							<span>@ViewBag.TotalWebsiteVisits</span>
+							<p>Tỷ lệ tăng: --%</p>
 						</a>
 					</li>
 				</ul>
@@ -49,20 +49,8 @@
 
 					<div class="Content">
 						<div class="Chart">
-							<canvas id="dailyRevenueChart" width="400" height="200"></canvas>
+							<div id="revenueChart" style="height: auto;"></div>
 						</div>
-
-						<div class="Chart">
-							<canvas id="monthlyRevenueChart" width="400" height="200"></canvas>
-						</div>
-
-						<div class="Chart">
-							<canvas id="yearRevenueChart" width="400" height="200"></canvas>
-						</div>
-					</div>
-
-					<div class="ViewMore">
-						<a href="/Admin/DashBoard/RevenueChart">Xem chi tiết</a>
 					</div>
 				</div>
 			</section>
@@ -75,20 +63,8 @@
 
 					<div class="Content">
 						<div class="Chart">
-							<canvas id="productChart" width="400" height="200"></canvas>
+							<div id="productChart" style="height: auto;"></div>
 						</div>
-
-						<div class="Chart">
-							<canvas id="loveProductChart" width="400" height="200"></canvas>
-						</div>
-
-						<div class="Chart">
-							<canvas id="mostProductChart" width="400" height="200"></canvas>
-						</div>
-					</div>
-
-					<div class="ViewMore">
-						<a href="/Admin/DashBoard/ProductChart">Xem chi tiết</a>
 					</div>
 				</div>
 			</section>
@@ -101,49 +77,58 @@
 
 					<div class="Content">
 						<div class="Chart">
-							<canvas id="dailyOrderChart" width="400" height="200"></canvas>
+							<div id="orderChart" style="height: auto;"></div>
 						</div>
-
-						<div class="Chart">
-							<canvas id="monthlyOrderChart" width="400" height="200"></canvas>
-						</div>
-
-						<div class="Chart">
-							<canvas id="yearOrderChart" width="400" height="200"></canvas>
-						</div>
-					</div>
-
-					<div class="ViewMore">
-						<a href="/Admin/DashBoard/OrderChart">Xem chi tiết</a>
-					</div>
-				</div>
-			</section>
-
-			<section class="Section">
-				<div class="Container">
-					<div class="Title">
-						<h2>Lượt truy cập Website</h2>
-					</div>
-
-					<div class="Content">
-						<div class="Chart">
-							<canvas id="dailyAccessChart" width="400" height="200"></canvas>
-						</div>
-
-						<div class="Chart">
-							<canvas id="monthlyAccessChart" width="400" height="200"></canvas>
-						</div>
-
-						<div class="Chart">
-							<canvas id="yearAccessChart" width="400" height="200"></canvas>
-						</div>
-					</div>
-
-					<div class="ViewMore">
-						<a href="/Admin/DashBoard/AccessWebStatistic">Xem chi tiết</a>
 					</div>
 				</div>
 			</section>
 		</div>
 	</div>
 </div>
+
+@section Scripts {
+	<script>
+		new Morris.Line({
+			element: 'revenueChart',
+			data: [
+				{ year: '2008', value: 20 },
+				{ year: '2009', value: 10 },
+				{ year: '2010', value: 5 },
+				{ year: '2011', value: 5 },
+				{ year: '2012', value: 20 },
+			],
+			xkey: 'year',
+			ykeys: ['value'],
+			labels: ['Doanh thu']
+		});
+
+		new Morris.Line({
+			element: 'productChart',
+			data: [
+				{ year: '2008', value: 30 },
+				{ year: '2009', value: 20 },
+				{ year: '2010', value: 10 },
+				{ year: '2011', value: 15 },
+				{ year: '2012', value: 25 }
+			],
+			xkey: 'year',
+			ykeys: ['value'],
+			labels: ['Sản phẩm']
+		});
+
+		new Morris.Line({
+			element: 'orderChart',
+			data: [
+				{ year: '2008', value: 40 },
+				{ year: '2009', value: 35 },
+				{ year: '2010', value: 30 },
+				{ year: '2011', value: 25 },
+				{ year: '2012', value: 50 }
+			],
+			xkey: 'year',
+			ykeys: ['value'],
+			labels: ['Đơn hàng']
+		});
+	</script>
+
+}

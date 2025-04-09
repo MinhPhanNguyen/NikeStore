@@ -30,5 +30,6 @@ namespace NikeStore.Repository
         public DbSet<Models.Order> Order { get; set; }
         public DbSet<Models.OrderDetail> OrderDetail { get; set; }
         public DbSet<Models.WishList> WishList { get; set; }
+        public DbSet<Models.Shipping> Shipping { get; set; }
     }
 }
